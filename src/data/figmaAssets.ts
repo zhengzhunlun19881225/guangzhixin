@@ -67,7 +67,7 @@ export const figmaAssets: Record<string,string> = {
   "71-2370:img11": "assets/figma/65e90b52-a43b-454a-b0a7-14f462ad1d4c.png",
   "71-2370:img13": "assets/figma/f2fe5ad4-ac6c-4416-a60d-6c35a5a5a48d.png",
   "71-2370:img14": "assets/figma/38be8347-7323-4a9a-bfbe-11a502a17403.png",
-  "71-2370:img15": "assets/figma/fb582769-7a7a-4759-a33c-8985b6066cfd.png",
+  "71-2370:img15": "assets/figma/fb582769-7a7a-4759-a33c-8985b6066cfd.webp",
   "71-2370:img16": "assets/figma/3e56cfa0-ed4b-479a-b43a-9f9cab10ee8d.png",
   "71-2370:img17": "assets/figma/d8d18ff8-8603-401d-a32c-38f732eaebbd.png",
   "71-2370:img18": "assets/figma/7712ac52-caf5-432b-985f-b0076ebbb916.png",
