@@ -1,0 +1,22 @@
+.ai-composer .voice-input{position:relative;background:#fff;border:1px solid #ffd6c8;border-radius:25px;height:216px;padding:26px 27px 20px;box-shadow:0 4px 16px #222b4010;display:flex;flex-direction:column;gap:19px;}
+.voice-input .voice-mascot{position:absolute;left:22px;top:-54px;width:65px;height:58px;object-fit:contain;mix-blend-mode:multiply;border-radius:50%;pointer-events:none;}
+.voice-input .voice-status{display:flex;align-items:center;gap:10px;color:#ff4e1d;font-size:14px;line-height:20px;min-height:20px;}
+.voice-input .voice-dot{width:7px;height:7px;border-radius:50%;background:#ff4e1d;box-shadow:0 0 0 4px #fff1eb;flex-shrink:0;}
+.voice-input .voice-retry{display:flex;align-items:center;gap:5px;white-space:nowrap;color:#ff4e1d;margin-left:auto;}
+.ai-composer .voice-input .voice-transcript{width:100%;flex:1;min-height:36px;font-size:19px;line-height:32px;letter-spacing:0;color:#202838;border:0;background:none;outline:none;resize:none;padding:0;font-family:inherit;caret-color:#ff5b29;}
+.voice-input .voice-bottom{display:flex;align-items:center;gap:20px;height:38px;flex-shrink:0;}
+.voice-input .voice-wave{display:flex;align-items:center;width:82px;height:28px;gap:4px;flex-shrink:0;}
+.voice-input .voice-wave i{width:2px;flex-shrink:0;border-radius:4px;background:linear-gradient(#ff9a45,#ff4725);transform:scaleY(.3);}
+.voice-input.is-listening .voice-wave i{animation:voice-wave .9s ease-in-out infinite alternate;}
+.voice-input.is-speaking .voice-wave i{animation-duration:.45s;}
+.voice-input .voice-caption{font-size:16px;color:#83899f;}
+.voice-input .voice-actions{margin-left:auto;display:flex;gap:16px;}
+.voice-input .voice-actions button{height:38px;width:38px;padding:0;border-radius:50%;border:0;display:grid;place-items:center;}
+.voice-input .voice-cancel{background:#f7f7f8;color:#4e5969;}
+.voice-input .voice-send{background:linear-gradient(150deg,#ff992c,#ff1807 80%);color:#fff;}
+.voice-input .voice-send:disabled{opacity:.4;cursor:not-allowed;}
+.voice-input .voice-actions button:not(:disabled):hover{filter:brightness(.96);}
+.voice-input.is-error .voice-status{color:#d94821;}
+@keyframes voice-wave{from{transform:scaleY(.3)}to{transform:scaleY(.85)}}
+@media(prefers-reduced-motion:reduce){.voice-input.is-listening .voice-wave i{animation:none;transform:scaleY(.65);}}
+@media(max-width:600px){.ai-composer .voice-input{padding:20px;height:240px;}.voice-input .voice-status{font-size:13px;}.ai-composer .voice-input .voice-transcript{font-size:16px;line-height:26px;}.voice-input .voice-bottom{gap:10px;}.voice-input .voice-actions{gap:8px;}.voice-input .voice-caption{font-size:14px;}}

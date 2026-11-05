@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="frame" clip-path="url(#clip0_0_9513)">
+<g id="frame_2">
+</g>
+<mask id="mask0_0_9513" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="14" height="14">
+<rect id="frame_3" width="14" height="14" fill="white"/>
+</mask>
+<g mask="url(#mask0_0_9513)">
+<path id="vector" d="M5.68349 7.00041L2.79612 4.11304L3.62108 3.28809L7.33339 7.00041L3.62108 10.7127L2.79612 9.88773L5.68349 7.00041Z" fill="#4E5969"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_9513">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg>

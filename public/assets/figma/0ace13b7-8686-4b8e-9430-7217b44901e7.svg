@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SVG - Search Magnifying Glass Icon" clip-path="url(#clip0_0_9535)">
+<mask id="mask0_0_9535" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="13" height="14">
+<rect id="SVG - Search Magnifying Glass Icon_2" width="13" height="14" fill="white"/>
+</mask>
+<g mask="url(#mask0_0_9535)">
+<path id="Vector" d="M11.375 11.7184L8.55996 8.9938C10.1455 7.45922 10.1455 4.96744 8.55996 3.43286C6.97446 1.89828 4.4 1.89828 2.8145 3.43286C1.78817 4.42623 1.38735 5.87409 1.76301 7.23105C2.13867 8.58802 3.23375 9.64793 4.63574 10.0115C6.03773 10.3751 7.53363 9.98717 8.55996 8.9938L11.375 11.7184" stroke-width="1.20582" stroke-linecap="round" stroke-linejoin="round" stroke="#1F2937"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_9535">
+<rect width="13" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg>

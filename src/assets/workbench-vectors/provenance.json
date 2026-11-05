@@ -1,0 +1,140 @@
+{
+  "fileKey": "4SpQ3M9aVhfppMq5jyFlNq",
+  "frame": "71:2817",
+  "frameName": "PC端 / 工作台1",
+  "exportFormat": "SVG_STRING",
+  "icons": [
+    {
+      "key": "quick-0",
+      "nodeId": "71:2852",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "key": "quick-1",
+      "nodeId": "71:2868",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "key": "quick-2",
+      "nodeId": "71:3067",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "key": "quick-3",
+      "nodeId": "71:3083",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "key": "ai-write",
+      "nodeId": "71:3107",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "travel-request",
+      "nodeId": "71:3119",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "cloud",
+      "nodeId": "71:3126",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "ai-ppt",
+      "nodeId": "71:3137",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "data",
+      "nodeId": "71:3148",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "ai-query",
+      "nodeId": "71:3163",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "overtime",
+      "nodeId": "71:3174",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "contacts",
+      "nodeId": "71:3185",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "attendance",
+      "nodeId": "71:3196",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "knowledge",
+      "nodeId": "71:3206",
+      "width": 34,
+      "height": 34
+    },
+    {
+      "key": "oa",
+      "nodeId": "71:3222",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "key": "bpm",
+      "nodeId": "71:3233",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "key": "ai-share",
+      "nodeId": "71:3245",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "key": "oa-secondary",
+      "nodeId": "71:3256",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "key": "legal",
+      "nodeId": "71:3267",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "key": "custom-data",
+      "nodeId": "71:3278",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "key": "custom-service",
+      "nodeId": "71:3289",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "key": "audit",
+      "nodeId": "71:3300",
+      "width": 32,
+      "height": 32
+    }
+  ]
+}

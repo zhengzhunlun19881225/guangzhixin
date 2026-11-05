@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20" height="250" viewBox="0 0 20 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Article - Card 1">
+<path d="M0 16C0 7.16345 7.16344 0 16 0H20V250H16C7.16344 250 0 242.837 0 234V16Z" fill="black"/>
+<mask id="stroke0_0_9521" fill="white">
+<path d="M0 16C0 7.16345 7.16344 0 16 0H20V250H16C7.16344 250 0 242.837 0 234V16Z"/>
+</mask>
+<path d="M20 0H16C7.16344 0 0 7.16345 0 16V234C0 242.837 7.16344 250 16 250H20V0Z" stroke-width="2" stroke="black" mask="url(#stroke0_0_9521)"/>
+</g>
+</svg>

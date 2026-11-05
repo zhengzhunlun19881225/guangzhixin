@@ -1,0 +1,146 @@
+/* Supplied PC workbench reference, 1920 × 1080. */
+.workbench-dashboard{padding-top:23px;padding-bottom:20px;}
+.workbench-grid{min-height:858px;}
+.brief-column{background:#ffffff70;}
+.wb-greeting{height:171px;}
+.wb-greeting>img{object-position:center bottom;object-fit:fill;}
+.wb-greeting>div{padding:28px 34px;}
+.wb-greeting h2{font-weight:600;line-height:30px;margin-bottom:6px;}
+.wb-brief{margin-top:-57px;padding:0 20px 20px 18px;}
+.wb-brief>h3{height:43px;margin:0 7px;gap:10px;font-weight:600;}
+.wb-brief>h3>img{width:23px;height:23px;}
+.wb-brief article{padding:12px 14px 12px 16px;margin-bottom:11px;box-shadow:none;}
+.wb-brief article h4{font-weight:600;gap:8px;margin:0 0 12px;line-height:26px;}
+.brief-icon{width:24px;height:24px;flex-shrink:0;}
+.brief-icon.blue{background:#38a4ff;}
+.wb-brief article>div{padding-left:34px;}
+.wb-brief h5{font-size:14px;font-weight:600;line-height:22px;margin:0 0 4px;color:#03091b;}
+.wb-brief p{font-size:12px;line-height:18px;font-weight:400;color:#83899f;}
+.wb-brief-important{min-height:126px;}
+.wb-brief-important .brief-item+.brief-item{margin-top:26px;}
+.wb-brief-news{min-height:240px;}
+.wb-brief-news .brief-item+.brief-item{margin-top:16px;}
+.wb-brief-news .brief-item+.brief-item h5{font-weight:400;}
+.wb-brief-prep{min-height:148px;}
+.dashboard-main{padding-top:0;}
+.wb-middle{min-height:448px;}
+.wb-bottom{min-height:390px;}
+.wb-panel{padding:0 19px 16px;}
+.wb-heading{height:54px;}
+.wb-heading h3{font-weight:600;gap:10px;}
+.wb-heading h3>img{width:23px;height:24px;object-fit:contain;}
+.wb-heading>button{color:#4e5969;}
+.wb-tasks{padding-bottom:11px;background:linear-gradient(180deg,#e7eaffb3 0,#ffffff70 64px);}
+.wb-tasks .wb-heading{height:52px;}
+.wb-tabs{height:49px;gap:30px;align-items:flex-start;padding-top:8px;}
+.wb-tabs button{height:33px;position:relative;font-size:14px;line-height:22px;color:#83899f;}
+.wb-tabs .active{border:0;color:#ff0000;font-weight:600;}
+.wb-tabs .active:after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:20px;height:2px;background:#ff0000;}
+.wb-task-list{gap:10px;}
+.wb-task-list>button{height:76px;padding:12px 16px;border-radius:12px;position:relative;gap:0;}
+.wb-task-list>button>div{width:100%;}
+.wb-task-list h4{font-size:14px;font-weight:600;line-height:22px;margin:0 0 4px;padding-right:38px;color:#03091b;}
+.wb-task-list p{display:flex;align-items:center;gap:8px;font-size:12px;line-height:18px;}
+.wb-person{width:14px;height:14px;border-radius:50%;object-fit:cover;padding:0;margin:0 0 0 2px;}
+.wb-time{font-size:12px;margin-left:16px;margin-right:0;}
+.wb-task-list>button>.wb-status{position:absolute;right:16px;top:27px;bottom:auto;font-size:12px;padding:0 6px;line-height:21px;}
+.wb-status.normal{color:#00b578;background:#eaf8ed;}
+.wb-status.waiting{color:#006dff;background:#e7f1ff;}
+.wb-common-apps .wb-heading h3,.wb-system-apps .wb-heading h3{gap:8px;}
+.wb-system-apps{padding-bottom:14px;}
+.wb-common-apps .wb-heading h3>img,.wb-system-apps .wb-heading h3>img{width:10px;height:18px;object-fit:fill;margin-left:-3px;}
+.wb-icon-grid{gap:18px 12px;padding-top:7px;grid-template-columns:repeat(6,52px);justify-content:space-between;}
+.wb-icon-grid>button{gap:6px;line-height:20px;font-size:14px;color:#03091b;}
+.wb-app-art{width:34px;height:34px;object-fit:contain;}
+.wb-systems{padding-top:7px;row-gap:20px;}
+.wb-systems .wb-app-art{width:32px;height:32px;}
+.wb-systems>button{color:#03091b;}
+.wb-mail .wb-heading,.wb-schedule .wb-heading{height:58px;}
+.wb-mail .wb-heading h3,.wb-schedule .wb-heading h3{gap:6px;}
+.wb-mail-list{gap:10px;}
+.wb-mail-list>button{height:100px;border-radius:12px;padding:16px 14px 12px 22px;gap:8px;}
+.wb-mail-list>button:nth-child(n+2){height:100px;}
+.wb-mail-list h4{font-size:16px;font-weight:600;padding-right:70px;margin-bottom:2px;color:#03091b;}
+.wb-mail-list p{margin:0;}
+.wb-mail-list small{line-height:20px;color:#83899f;}
+.mail-avatar{border-radius:50%;margin-top:5px;}
+.mail-dot{left:8px;top:34px;background:#ff0000;}
+.mail-date{top:18px;font-size:12px;gap:8px;}
+.mail-date svg{color:#ff3d49;}
+.wb-mail-list .read,.wb-mail-list .read h4{color:#83899f;}
+.wb-mail-list .read .mail-dot{background:#83899f;}
+.wb-schedule{padding-left:14px;padding-right:14px;}
+.wb-schedule .wb-heading{padding-right:5px;}
+.wb-schedule-body{grid-template-columns:minmax(0,245fr) minmax(0,256fr);gap:10px;margin-top:11px;}
+.wb-calendar{padding-right:17px;border-right:1px solid #e2e6ee;margin-top:8px;padding-bottom:19px;}
+.calendar-heading{height:24px;margin-bottom:8px;font-size:14px;}
+.calendar-heading button{color:#4e5969;}
+.calendar-grid{font-size:14px;row-gap:16px;}
+.calendar-grid .weekday{font-size:12px;height:20px;line-height:20px;}
+.calendar-grid button{position:relative;width:24px;height:24px;line-height:24px;}
+.calendar-grid .selected{background:#1c60ff;}
+.calendar-grid .has-event:after{content:"";position:absolute;bottom:-8px;left:11px;width:3px;height:3px;border-radius:50%;background:#2464ff;}
+.wb-agenda>button{height:79px;min-height:79px;padding:12px 8px 12px 11px;border-radius:16px;}
+.wb-agenda h4{display:flex;align-items:center;gap:18px;margin:0 0 6px;line-height:22px;white-space:nowrap;}
+.wb-agenda h4 time{font-size:16px;flex-shrink:0;}
+.wb-agenda h4 span{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;}
+.wb-agenda>button:first-child time{font-weight:600;}
+.wb-agenda p{gap:8px;}
+.wb-agenda .wb-status{color:#00ba33;background:#e8ffe8;line-height:22px;}
+.wb-agenda .wb-status.pending{color:#4e5969;background:#e5e7eb;}
+.wb-agenda small{margin-left:8px;}
+.wb-agenda b{display:flex;align-items:center;gap:4px;}
+.wb-agenda b img{width:14px;height:14px;border-radius:50%;object-fit:cover;}
+.app-shell[data-view="dashboard"] .floating-tools>button[title="常用工具"]{background:#fff2f2;border:2px solid white;border-radius:30px;}
+.app-shell[data-view="dashboard"] .floating-tools>button[title="常用工具"]>span:last-child{color:red;}
+.app-shell[data-view="dashboard"] .floating-apps-icon img{filter:brightness(0) saturate(100%) invert(17%) sepia(98%) saturate(7480%) hue-rotate(360deg);opacity:1;}
+.app-shell[data-view="dashboard"] .floating-tools>button[title="广新AI助手"]{background:transparent;justify-content:center;padding:0;border:0;}
+.app-shell[data-view="dashboard"] .floating-tools>button[title="广新AI助手"]>span:last-child{color:#03091b;}
+@media(max-width:1500px){
+  .workbench-grid{grid-template-columns:minmax(320px,1fr) minmax(0,2fr);min-height:0;}
+  .wb-quick{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .wb-quick>button{height:80px;}
+  .wb-quick-art{width:44px;height:44px;}
+  .wb-middle,.wb-bottom{grid-template-columns:1fr;min-height:0;}
+  .wb-tasks{padding-bottom:20px;}
+  .wb-utilities{grid-template-rows:auto auto;}
+  .wb-icon-grid{padding-bottom:6px;}
+  .wb-mail,.wb-schedule{min-height:390px;}
+  .wb-brief article{padding:15px 14px;}
+  .wb-brief-important,.wb-brief-news,.wb-brief-prep{min-height:0;}
+  .wb-brief article>div{padding-left:0;}
+  .wb-brief-news article>div{padding-left:28px;}
+  .brief-timeline:before,.brief-timeline .brief-item>img{display:none;}
+}
+@media(max-width:900px){.workbench-grid{grid-template-columns:1fr;}.brief-column{overflow:visible;}.wb-greeting{overflow:hidden;border-radius:16px 16px 0 0;}.wb-schedule-body{grid-template-columns:1fr;}.wb-calendar{border-right:0;padding-right:0;}.wb-task-list h4{font-size:14px;}.wb-task-list p{font-size:12px;}.wb-task-list>button>.wb-status{right:8px;bottom:12px;}}
+
+
+.calendar-grid.six-weeks{row-gap:12px;}
+@media(max-width:1500px){.wb-brief-important .brief-item:last-child h5{white-space:normal;}.wb-icon-grid{grid-template-columns:repeat(6,minmax(0,1fr));}}
+/* Final optical alignment at the reference viewport. */
+.wb-greeting{overflow:hidden;}
+.wb-greeting>img{width:calc(100% + 14px);height:180px;left:-7px;top:-7px;}
+
+
+.wb-common-apps,.wb-mail{padding-bottom:10px;}
+@media(max-width:1500px){.wb-brief-important,.wb-brief-news{padding-bottom:15px!important;}}
+
+/* Original Figma vectors are mounted as SVG DOM, with no raster/icon requests. */
+.wb-vector-icon{display:inline-flex;flex-shrink:0;vertical-align:middle;}
+.wb-vector-icon>svg{display:block;width:100%;height:100%;flex-shrink:0;}
+.wb-icon-grid>button>span.wb-vector-icon{background:none;border-radius:0;box-shadow:none;}
+.app-manager-vector{width:40px;height:40px;}
+
+/* Compact recent form shortcuts replace the mail feed. */
+.wb-recent-forms .wb-heading{height:58px;}
+.wb-recent-forms .wb-heading h3{gap:8px;}
+.wb-recent-forms .wb-heading h3>img{width:10px;height:18px;object-fit:fill;margin-left:-3px;}
+.wb-form-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px;padding-top:3px;}
+.wb-form-list>button{display:flex;align-items:center;gap:10px;min-width:0;height:36px;padding:0 12px;border-radius:8px;background:white;color:#03091B;font-size:14px;line-height:22px;text-align:left;transition:color 160ms ease;}
+.wb-form-list>button:nth-child(10){grid-column:1;}
+.wb-form-icon{width:16px;height:18px;flex-shrink:0;}
+.wb-form-list>button>span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.wb-form-list>button:hover{color:#E60101;}
+.wb-form-list>button:focus-visible{outline:2px solid #E60101;outline-offset:2px;}
+@media(max-width:1500px){.wb-recent-forms{min-height:390px;}}
+@media(max-width:550px){.wb-form-list{grid-template-columns:minmax(0,1fr);}}

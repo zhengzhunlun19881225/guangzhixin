@@ -1,0 +1,8 @@
+.ai-composer .composer-primary-action{width:32px;height:32px;border:2px solid white;background:var(--warm-gradient);color:white;flex-shrink:0;}
+.ai-composer .composer-primary-action:hover{filter:brightness(.96);}
+.ai-response-content[hidden]{display:none;}
+.ai-response-content[data-visible-blocks="1"]>:nth-child(n+2),
+.ai-response-content[data-visible-blocks="2"]>:nth-child(n+3),
+.ai-response-content[data-visible-blocks="3"]>:nth-child(n+4),
+.ai-response-content[data-visible-blocks="4"]>:nth-child(n+5){display:none;}
+.ai-response-content[data-phase="stopped"]>:last-child{display:none;}

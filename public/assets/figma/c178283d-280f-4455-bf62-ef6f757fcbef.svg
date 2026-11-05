@@ -1,0 +1,20 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="19.1951" height="19.1951" viewBox="0 0 19.1951 19.1951" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="frame" clip-path="url(#clip0_0_9499)">
+<g id="frame_2">
+</g>
+<mask id="mask0_0_9499" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+<rect id="frame_3" width="19.1951" height="19.1951" fill="white"/>
+</mask>
+<g mask="url(#mask0_0_9499)">
+<path id="vector" d="M7.19815 2.39938H3.19918C2.75746 2.39938 2.39938 2.75746 2.39938 3.19918V7.19815C2.39938 7.63988 2.75746 7.99795 3.19918 7.99795H7.19815C7.63988 7.99795 7.99795 7.63988 7.99795 7.19815V3.19918C7.99795 2.75746 7.63988 2.39938 7.19815 2.39938Z" fill="white" stroke-width="1.60164" stroke-linejoin="round" stroke="white"/>
+<path id="vector_2" d="M7.19815 11.1971H3.19918C2.75746 11.1971 2.39938 11.5552 2.39938 11.9969V15.9959C2.39938 16.4376 2.75746 16.7957 3.19918 16.7957H7.19815C7.63988 16.7957 7.99795 16.4376 7.99795 15.9959V11.9969C7.99795 11.5552 7.63988 11.1971 7.19815 11.1971Z" fill="white" stroke-width="1.60164" stroke-linejoin="round" stroke="white"/>
+<path id="vector_3" opacity="0.6" d="M13.9964 7.99795C15.5424 7.99795 16.7957 6.74467 16.7957 5.19867C16.7957 3.65267 15.5424 2.39938 13.9964 2.39938C12.4504 2.39938 11.1971 3.65267 11.1971 5.19867C11.1971 6.74467 12.4504 7.99795 13.9964 7.99795Z" fill="white" stroke-width="1.60164" stroke-linejoin="round" stroke="white"/>
+<path id="vector_4" d="M15.9959 11.1971H11.9969C11.5552 11.1971 11.1971 11.5552 11.1971 11.9969V15.9959C11.1971 16.4376 11.5552 16.7957 11.9969 16.7957H15.9959C16.4376 16.7957 16.7957 16.4376 16.7957 15.9959V11.9969C16.7957 11.5552 16.4376 11.1971 15.9959 11.1971Z" fill="white" stroke-width="1.60164" stroke-linejoin="round" stroke="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_9499">
+<rect width="19.1951" height="19.1951" fill="white"/>
+</clipPath>
+</defs>
+</svg>

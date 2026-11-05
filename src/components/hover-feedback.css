@@ -1,0 +1,70 @@
+/* User-approved hover treatments from audit items 02–17. */
+.app-shell {
+  --control-hover-bg:#F1F5F9;
+  --control-hover-text:#E60101;
+  --card-hover-shift:-2px;
+  --card-hover-shadow:0 6px 18px rgba(30,41,59,.10);
+}
+
+/* 07, 15, 17: compact controls with 4px corners. */
+.app-shell :is(.calendar-heading button,.calendar-grid button,.im-new-chat,.im-composer-tools>button,.pn-alert footer>button:first-child){
+  transition:background-color 160ms ease,color 160ms ease;
+}
+.app-shell .calendar-heading button{width:24px;height:24px;display:grid;place-items:center;}
+.app-shell .im-composer-tools{gap:21px;}
+.app-shell .im-composer-tools>button{width:28px;height:28px;}
+.app-shell .pn-alert footer>button:first-child{padding:0 6px;margin-inline:-6px;}
+
+/* 09, 10: fully rounded tabs and composer shortcuts. */
+.app-shell .ai-landing>.ai-questions>div:first-child button,
+.app-shell .ai-composer .agent-composer-tools>:is(.composer-agent-choice,.composer-agent-tool,.composer-attachment),
+.app-shell .ai-composer .ai-composer-toolbar>div:last-child>button[aria-pressed]{
+  border-radius:999px;transition:background-color 160ms ease,color 160ms ease;
+}
+.app-shell .ai-composer .agent-composer-tools>:is(.composer-agent-choice,.composer-agent-tool){padding-inline:8px;margin-inline:-8px;}
+
+/* 02, 03: auxiliary links change text color only. */
+.app-shell .header-collapse,
+.app-shell .sidebar-history-heading>button,
+.app-shell .wb-heading>button,
+.app-shell .wb-tabs>button{transition:color 160ms ease;}
+
+/* Clickable cards only; transform does not change document layout. */
+.app-shell main :is(.wb-task-list>button,.wb-mail-list>button,.wb-agenda>button,.ai-feature-card,.agents-view .agent-card,.knowledge-view .knowledge-card,.im-person-card){
+  transition:transform 180ms ease,box-shadow 180ms ease;
+}
+.app-shell .wb-icon-grid>button{border-radius:8px;}
+
+@media(hover:hover) and (pointer:fine){
+  .app-shell :is(.calendar-heading button,.calendar-grid button,.im-new-chat,.im-composer-tools>button,.pn-alert footer>button:first-child):not(:disabled):hover{
+    background:var(--control-hover-bg);border-radius:4px;
+  }
+  .app-shell .calendar-grid button.selected:hover{color:var(--ink);}
+  .app-shell .ai-landing>.ai-questions>div:first-child button:not(:disabled):hover,
+  .app-shell .ai-composer .agent-composer-tools>:is(.composer-agent-choice,.composer-agent-tool,.composer-attachment):not(:disabled):hover,
+  .app-shell .ai-composer .ai-composer-toolbar>div:last-child>button[aria-pressed]:not(:disabled):hover{
+    background:var(--control-hover-bg);border-radius:999px;
+  }
+  .app-shell .header-collapse:hover,
+  .app-shell .header-collapse:hover svg,
+  .app-shell .app-sidebar .sidebar-history-heading>button:hover,
+  .app-shell .wb-heading>button:hover,
+  .app-shell .wb-tabs>button:hover{color:var(--control-hover-text);}
+  .app-shell main :is(.wb-task-list>button,.wb-mail-list>button,.wb-agenda>button,.ai-feature-card,.agents-view .agent-card,.knowledge-view .knowledge-card,.im-person-card):not(:disabled):hover{
+    transform:translateY(var(--card-hover-shift));box-shadow:var(--card-hover-shadow);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .app-shell{--card-hover-shift:0px;}
+  .app-shell main :is(.wb-task-list>button,.wb-mail-list>button,.wb-agenda>button,.ai-feature-card,.agents-view .agent-card,.knowledge-view .knowledge-card,.im-person-card){transition:none;transform:none;}
+}
+
+/* Header navigation, agent tabs and dashboard shortcuts: color-only hover. */
+.app-shell :is(.header-tabs>button,.agents-view [role="tab"],.wb-icon-grid>button){transition:color 160ms ease;}
+.header-action-icon{display:block;width:18px;height:18px;background-color:#333;mask-size:contain;mask-position:center;mask-repeat:no-repeat;-webkit-mask-size:contain;-webkit-mask-position:center;-webkit-mask-repeat:no-repeat;transition:background-color 160ms ease;}
+@media(hover:hover) and (pointer:fine){
+  .app-shell .header-tabs>button:not([aria-current="page"]):hover,
+  .app-shell .agents-view [role="tab"]:hover,
+  .app-shell .wb-icon-grid>button:hover{color:#E60101;}
+  .app-shell :is(.header-search,.header-settings>.header-menu-anchor>button):hover .header-action-icon{background-color:#E60101;}
+}

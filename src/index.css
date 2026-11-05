@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "./design-system.css";
+@import "./components/workbench-dashboard.css";
+@import "./components/ai-home-refinement.css";
+@import "./components/portal-refinement.css";
+@import "./components/workspace-refinement.css";
+@import "./components/hover-feedback.css";
+@import "./components/field-controls.css";
+
+@theme inline {
+  --font-sans: var(--app-font-family);
+  --font-mono: var(--app-font-family);
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--app-font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff;
+    color: #0f172a;
+    overflow: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.35);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.6);
+  }
+}

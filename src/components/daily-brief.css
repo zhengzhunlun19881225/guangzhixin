@@ -1,0 +1,49 @@
+/* Keep the workbench typography and surfaces; only the briefing column scrolls. */
+.brief-column.daily-brief{display:flex;flex-direction:column;container-type:inline-size;height:858px;max-height:calc(100dvh - 124px);overflow:hidden;}
+.daily-brief-header{position:relative;flex:0 0 157px;overflow:hidden;}
+.daily-brief-header .wb-greeting>img{max-width:none;}
+.daily-brief-header>h3{position:absolute;bottom:0;left:25px;right:20px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;height:43px;margin:0;font-size:16px;font-weight:600;}
+.daily-brief-header>h3 img{width:23px;height:23px;object-fit:contain;}
+.daily-brief-header>h3 small{font-size:12px;font-weight:400;color:var(--muted);margin-left:4px;}
+.daily-brief .daily-brief-content{flex:1;min-height:0;margin-top:0;padding:0 0 20px 20px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-gutter:stable;scrollbar-color:transparent transparent;}
+.daily-brief:hover .daily-brief-content{scrollbar-color:#c9ced8 transparent;}
+.daily-brief-content::-webkit-scrollbar{width:6px;}
+.daily-brief-content::-webkit-scrollbar-track{background:transparent;}
+.daily-brief-content::-webkit-scrollbar-thumb{background:transparent;border-radius:3px;}
+.daily-brief:hover .daily-brief-content::-webkit-scrollbar-thumb{background:#c9ced8;}
+/* Size from the column, so the scrollbar stays inside the right 20px gap. */
+.daily-brief .wb-brief article{width:calc(100cqw - 40px);padding:12px 16px;margin-bottom:12px;}
+.daily-brief .wb-brief article>div{padding-left:0;}
+.daily-brief .brief-item+.brief-item{margin-top:18px;}
+.daily-brief .wb-brief p{font-size:14px;line-height:22px;white-space:pre-line;}
+.daily-brief .brief-icon.muted{background:#83899f;}
+.brief-care-banner{display:block;width:100%;aspect-ratio:3/1;object-fit:cover;border-radius:10px;margin-bottom:16px;}
+.brief-care footer{display:flex;justify-content:flex-end;margin-top:16px;}
+.brief-write-thanks,.greeting-send{height:32px;padding:0 16px;border-radius:8px;background:var(--warm-gradient);color:white;font-size:14px;line-height:22px;}
+.brief-write-thanks:hover,.greeting-send:hover{filter:brightness(1.04);}
+.brief-greeting-dialog{position:fixed;inset:0;margin:auto;width:min(800px,calc(100vw - 48px));max-width:none;max-height:calc(100dvh - 64px);padding:0;border:1px solid var(--line);border-radius:16px;background:white;color:var(--ink);font-family:var(--app-font-family);font-size:14px;box-shadow:0 16px 60px #17203326;overflow:auto;}
+.brief-greeting-dialog::backdrop{background:#10182833;backdrop-filter:blur(3px);}
+.brief-greeting-dialog>header{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid var(--line);}
+.brief-greeting-dialog h2,.brief-greeting-dialog h3{font-size:16px;font-weight:600;line-height:24px;margin:0;}
+.brief-greeting-dialog>header button{width:28px;height:28px;display:grid;place-items:center;border-radius:6px;color:var(--muted);}
+.brief-greeting-dialog>header button:hover{background:#f5f6f8;}
+.greeting-body{padding:20px 24px;}
+.greeting-banner{display:block;width:100%;height:auto;object-fit:contain;border-radius:12px;margin-bottom:20px;}
+.greeting-tones{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
+.greeting-tones button{height:32px;padding:0 16px;border-radius:20px;background:#f5f6f8;color:#4e5969;}
+.greeting-tones button[aria-pressed=true]{background:#fff1f0;color:#ff0000;}
+.greeting-editor{border:1px solid var(--line);border-radius:12px;padding:16px;}
+.greeting-editor:focus-within{border-color:#ffad94;}
+.greeting-editor textarea{display:block;width:100%;height:140px;resize:vertical;min-height:80px;max-height:240px;outline:none;font:inherit;line-height:24px;color:var(--ink);background:white;}
+.greeting-editor-tools{display:flex;align-items:center;gap:16px;margin-top:12px;color:var(--muted);font-size:12px;}
+.greeting-emoji{position:relative;margin-right:auto;}
+.greeting-emoji>button{display:grid;place-items:center;width:28px;height:28px;}
+.greeting-emoji-picker{position:absolute;left:0;bottom:36px;display:flex;gap:4px;padding:8px;background:white;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px #0001;}
+.greeting-emoji-picker button{font-size:20px;padding:4px;}
+.greeting-refresh{display:flex;align-items:center;gap:6px;font-size:14px;color:#4e5969;}
+.brief-greeting-dialog>footer{padding:18px 24px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brief-greeting-dialog>footer>span{color:var(--muted);font-size:12px;}
+.greeting-send:disabled{opacity:.45;cursor:not-allowed;}
+.greeting-error{color:#f53f3f;margin-top:8px;}
+@media(max-width:900px){.brief-column.daily-brief{height:858px;min-height:360px;overflow:hidden;}}
+@media(max-width:550px){.brief-greeting-dialog{width:calc(100vw - 24px);}.greeting-body{padding:16px;}.greeting-tones button{padding:0 10px;}.greeting-banner{max-height:140px;}}

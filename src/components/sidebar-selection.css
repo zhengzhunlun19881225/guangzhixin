@@ -1,0 +1,40 @@
+/* Shared sidebar selection colors, with the requested 8px corners. */
+.app-shell .app-sidebar :is(nav,div:first-child)>button[aria-current="page"] {
+  background:var(--color-red-50,#fff1f2);
+  color:#ff0000;
+  border-radius:8px;
+  font-weight:400;
+}
+.app-shell .app-sidebar button[aria-current="page"]>img {
+  filter:brightness(0) saturate(100%) invert(16%) sepia(100%) saturate(6845%) hue-rotate(358deg) brightness(102%) contrast(118%);
+}
+
+.app-sidebar .sidebar-menu-icon{width:20px;height:20px;flex-shrink:0;object-fit:contain;}
+
+/* Identical geometry for idle, hover and selected menu items on every page. */
+.app-shell .app-sidebar .sidebar-new-chat{width:100%;padding:0 10px;}
+.app-shell .app-sidebar .sidebar-primary-nav{width:100%;padding:8px 10px 12px;gap:8px;}
+.app-shell .app-sidebar .sidebar-menu-button{
+  height:40px;min-height:40px;max-height:40px;flex-shrink:0;
+  box-sizing:border-box;margin:0;padding:0 10px;border:0;border-radius:8px;
+  font-size:14px;line-height:20px;transition-property:color,background-color;
+}
+.app-shell .app-sidebar .sidebar-menu-button:not([aria-current="page"]):hover{
+  background:#f5f6f8;color:var(--ink);
+}
+
+/* The history section stays anchored below the same fixed menu block. */
+.app-shell .app-sidebar .sidebar-new-chat,
+.app-shell .app-sidebar .sidebar-primary-nav{flex-shrink:0;}
+.app-shell .app-sidebar .sidebar-history{margin-top:0;padding:0 20px;}
+.app-shell .app-sidebar .sidebar-history>.sidebar-history-heading{
+  height:50px;min-height:50px;flex:0 0 50px;margin:0;padding:0;align-items:center;
+}
+
+/* Extend history feedback by 10px on each side without shifting its text. */
+.app-shell .app-sidebar .sidebar-history .sidebar-history-list{
+  margin-left:-10px;margin-right:-10px;padding-right:0;
+}
+.app-shell .app-sidebar .sidebar-history .sidebar-history-list>.sidebar-history-item{
+  padding-left:10px;padding-right:10px;color:#03091B;
+}

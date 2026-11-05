@@ -1,0 +1,1 @@
+Province map source: ../figma/d4413423-a393-44c4-a52b-ce7750cc8402.png (Figma node71:1958). Recolored original raster geometry to the supplied November2026 screenshot palette; baked-in labels removed in favor of existing accessible HTML labels. No geographic boundaries were redrawn.
