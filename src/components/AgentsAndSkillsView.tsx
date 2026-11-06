@@ -1,3 +1,4 @@
+import { SelectField } from './SelectField';
 import { SearchField } from './FieldControls';
 import React, { useState } from 'react';
 import { 
@@ -263,14 +264,7 @@ export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
 
               <div>
                 <label className="block text-slate-700 font-medium mb-1">所属分类</label>
-                <select className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg outline-hidden text-slate-800">
-                  <option>官方</option>
-                  <option>组织</option>
-                  <option>个人</option>
-                  <option>法务</option>
-                  <option>财务</option>
-                  <option>人力</option>
-                </select>
+                <SelectField label="所属分类" className="agent-category-select" options={['官方','组织','个人','法务','财务','人力']} />
               </div>
             </div>
 

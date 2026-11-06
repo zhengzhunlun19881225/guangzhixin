@@ -1,3 +1,4 @@
+import { SelectField } from './SelectField';
 import React, { useState } from 'react';
 import { figmaAssets } from '../data/figmaAssets';
 import { TaxTrendChart } from './TaxTrendChart';
@@ -94,18 +95,7 @@ export const PortalDataView: React.FC = () => {
                 <h3 className="text-base font-bold text-slate-900">一利五率+营收/利润</h3>
               </div>
 
-              <div className="relative">
-                <select 
-                  value={selectedGroup}
-                  onChange={(e) => setSelectedGroup(e.target.value)}
-                  className="appearance-none bg-slate-50 border border-slate-200 rounded-lg pl-3 pr-7 py-1 text-xs text-slate-700 outline-hidden cursor-pointer"
-                >
-                  <option>集团合并</option>
-                  <option>板块汇总</option>
-                  <option>二级企业汇总</option>
-                </select>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2 top-2 pointer-events-none" />
-              </div>
+              <SelectField label="统计范围" variant="compact" value={selectedGroup} onChange={setSelectedGroup} options={['集团合并', '板块汇总', '二级企业汇总']} />
             </div>
 
             {/* 4 Big Metrics */}
@@ -265,18 +255,8 @@ export const PortalDataView: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="relative">
-                  <select className="appearance-none bg-slate-50 border border-slate-200 rounded-lg pl-3 pr-7 py-1 text-xs text-slate-700 outline-hidden cursor-pointer">
-                    <option>全部企业</option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2 top-2 pointer-events-none" />
-                </div>
-                <div className="relative">
-                  <select className="appearance-none bg-slate-50 border border-slate-200 rounded-lg pl-3 pr-7 py-1 text-xs text-slate-700 outline-hidden cursor-pointer">
-                    <option>2026年</option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2 top-2 pointer-events-none" />
-                </div>
+                <SelectField label="纳税企业范围" variant="compact" options={['全部企业']} />
+                <SelectField label="纳税年份" variant="compact" options={['2026年']} />
               </div>
             </div>
 
@@ -385,30 +365,10 @@ export const PortalDataView: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-2 flex-wrap">
-                <div className="relative">
-                  <select className="appearance-none bg-slate-50 border border-slate-200 rounded-lg pl-2 pr-6 py-1 text-xs text-slate-700 outline-hidden">
-                    <option>项目类型</option>
-                  </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-2 pointer-events-none" />
-                </div>
-                <div className="relative">
-                  <select className="appearance-none bg-slate-50 border border-slate-200 rounded-lg pl-2 pr-6 py-1 text-xs text-slate-700 outline-hidden">
-                    <option>所属企业</option>
-                  </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-2 pointer-events-none" />
-                </div>
-                <div className="relative">
-                  <select className="appearance-none bg-slate-50 border border-slate-200 rounded-lg pl-2 pr-6 py-1 text-xs text-slate-700 outline-hidden">
-                    <option>投资阶段</option>
-                  </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-2 pointer-events-none" />
-                </div>
-                <div className="relative">
-                  <select className="appearance-none bg-slate-50 border border-slate-200 rounded-lg pl-2 pr-6 py-1 text-xs text-slate-700 outline-hidden">
-                    <option>2026-09</option>
-                  </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-2 pointer-events-none" />
-                </div>
+                <SelectField label="项目类型" variant="compact" placeholder options={['项目类型']} />
+                <SelectField label="所属企业" variant="compact" placeholder options={['所属企业']} />
+                <SelectField label="投资阶段" variant="compact" placeholder options={['投资阶段']} />
+                <SelectField label="投资月份" variant="compact" options={['2026-09']} />
               </div>
             </div>
 

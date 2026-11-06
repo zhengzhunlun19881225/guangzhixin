@@ -1,3 +1,4 @@
+import { SelectField } from './SelectField';
 import React, { useEffect, useRef, useState } from 'react';
 import { 
   ArrowRight,
@@ -388,18 +389,7 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
                 </button>}
 
                 {/* Model selector dropdown */}
-                <div className="relative">
-                  <select
-                    value={selectedModel}
-                    onChange={(e) => setSelectedModel(e.target.value)}
-                    className="appearance-none bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg pl-2 pr-6 py-1 cursor-pointer outline-hidden hover:bg-slate-100"
-                  >
-                    <option value="qwen3.8-27b">qwen3.8-27...</option>
-                    <option value="gemini-2.5-flash">gemini-2.5-flash</option>
-                    <option value="deepseek-r1">deepseek-r1</option>
-                  </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-2 pointer-events-none" />
-                </div>
+                <SelectField label="选择模型" variant="pill" placement="top" value={selectedModel} onChange={setSelectedModel} options={['qwen3.8-27b', 'gemini-2.5-flash', 'deepseek-r1']} />
 
                 {/* Microphone Record Button */}
                 <button

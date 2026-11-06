@@ -1,3 +1,4 @@
+import { SelectField } from './SelectField';
 import { SearchField, DateRangeField } from './FieldControls';
 import React, { useState } from 'react';
 import { BellOff, RotateCw, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -30,7 +31,7 @@ export const TodoView: React.FC<TodoViewProps> = ({ onBack, onOpenItem }) => {
         <button className="todo-refresh" title="刷新" aria-label="刷新并重置筛选" onClick={resetFilters}><RotateCw size={14}/></button>
         <div className="todo-filters">
           <DateRangeField start={startDate} end={endDate} onStartChange={value=>{setStartDate(value);setPage(1);}} onEndChange={value=>{setEndDate(value);setPage(1);}}/>
-          <label className="todo-type"><select aria-label="类型" value={selectedType} onChange={e => {setSelectedType(e.target.value);setPage(1);}}><option value="">类型</option>{Array.from(new Set(TODO_ITEMS.map(item => item.type))).map(type => <option key={type}>{type}</option>)}</select><ChevronDown size={14}/></label>
+          <SelectField label="类型" className="todo-type" value={selectedType} placeholder={!selectedType} onChange={value => {setSelectedType(value);setPage(1);}} options={[{value:'',label:'类型'}, ...Array.from(new Set(TODO_ITEMS.map(item => item.type))).map(type => ({value:type,label:type}))]} />
           <SearchField className="todo-search" label="搜索待办" placeholder="请输入" value={searchQuery} onChange={value=>{setSearchQuery(value);setPage(1);}}/>
         </div>
       </div>
@@ -38,7 +39,7 @@ export const TodoView: React.FC<TodoViewProps> = ({ onBack, onOpenItem }) => {
         <thead><tr>{['序号','标题','类型','发起时间','发起人','接收时间','操作'].map(label => <th key={label}>{label}</th>)}</tr></thead>
         <tbody>{items.slice((currentPage - 1) * pageSize, currentPage * pageSize).map(item => <tr key={item.id}><td>{item.id}</td><td><button className="todo-item-title" title={item.title} onClick={() => open(item)}>{item.title}</button></td><td>{item.type}</td><td>{item.startTime}</td><td>{item.creator}</td><td>{item.receiveTime}</td><td><button onClick={() => open(item)} className={item.status === 'unread' && !readIds.includes(item.id) ? 'is-unread' : 'is-read'}>{item.status === 'unread' && !readIds.includes(item.id) ? '未读' : '已读'}</button></td></tr>)}{!items.length && <tr><td colSpan={7} className="workspace-empty">暂无匹配记录</td></tr>}</tbody>
       </table></div>
-      <footer className="todo-pagination"><div><span>共{items.length} 条</span><label><select aria-label="每页条数" value={pageSize} onChange={e => {setPageSize(Number(e.target.value));setPage(1);}}>{[20,50,100].map(size => <option key={size} value={size}>{size}/页</option>)}</select><ChevronDown size={14}/></label></div><div><button aria-label="上一页" disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)}><ChevronLeft size={14}/></button><button className="current-page" aria-current="page">{currentPage}</button><button aria-label="下一页" disabled={currentPage === pages} onClick={() => setPage(currentPage + 1)}><ChevronRight size={14}/></button><span>前往</span><input aria-label="页码" type="number" min={1} max={pages} value={currentPage} onChange={e => setPage(Math.max(1,Math.min(pages,Number(e.target.value) || 1)))}/><span>页</span></div></footer>
+      <footer className="todo-pagination"><div><span>共{items.length} 条</span><SelectField label="每页条数" value={String(pageSize)} onChange={value => {setPageSize(Number(value));setPage(1);}} options={[20,50,100].map(size => ({value:String(size),label:`${size}/页`}))} /></div><div><button aria-label="上一页" disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)}><ChevronLeft size={14}/></button><button className="current-page" aria-current="page">{currentPage}</button><button aria-label="下一页" disabled={currentPage === pages} onClick={() => setPage(currentPage + 1)}><ChevronRight size={14}/></button><span>前往</span><input aria-label="页码" type="number" min={1} max={pages} value={currentPage} onChange={e => setPage(Math.max(1,Math.min(pages,Number(e.target.value) || 1)))}/><span>页</span></div></footer>
     </div>
   </section>;
 };

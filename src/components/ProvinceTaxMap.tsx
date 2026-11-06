@@ -1,3 +1,4 @@
+import { SelectField } from './SelectField';
 import React, { useState } from 'react';
 import { Plus, Minus, ChevronDown } from 'lucide-react';
 import { figmaAssets } from '../data/figmaAssets';
@@ -25,9 +26,7 @@ export const ProvinceTaxMap: React.FC = () => {
       <div className="province-map-header">
         <h3 id="province-map-title">各省份年度累计实缴税金 (万元)</h3>
         <div className="province-map-filters">
-          {[{ label: '地图企业范围', value: '全部企业' }, { label: '地图年份', value: '2026年' }].map(filter => <label key={filter.label}>
-            <select aria-label={filter.label}><option>{filter.value}</option></select><ChevronDown width="14" height="14" />
-          </label>)}
+          {[{ label: '地图企业范围', value: '全部企业' }, { label: '地图年份', value: '2026年' }].map(filter => <SelectField key={filter.label} label={filter.label} variant="compact" options={[filter.value]} />)}
         </div>
       </div>
       <div className="province-map-zoom" aria-label="地图缩放">
