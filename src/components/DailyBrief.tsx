@@ -1,3 +1,4 @@
+import { Button } from './UI';
 import React, { useEffect, useRef, useState } from 'react';
 import { FileText, RefreshCw, Smile, X } from 'lucide-react';
 import { figmaAssets } from '../data/figmaAssets';
@@ -38,7 +39,7 @@ function GreetingDialog({ onClose, onOpenIM }: { onClose: () => void; onOpenIM: 
       </div>
       {error && <p role="alert" className="greeting-error">{error}</p>}
     </div>
-    <footer><span>发送给：陈晓晓</span><button className="greeting-send" disabled={!text.trim() || text.length > 200} onClick={send}>发送IM祝福</button></footer>
+    <footer><span>发送给：陈晓晓</span><Button variant="primary" className="greeting-send" disabled={!text.trim() || text.length > 200} onClick={send}>发送IM祝福</Button></footer>
   </dialog>;
 }
 export function DailyBrief({ onOpenIM }: { onOpenIM: (id: string) => void }) {
@@ -50,7 +51,7 @@ export function DailyBrief({ onOpenIM }: { onOpenIM: (id: string) => void }) {
     </header>
     <div className="wb-brief daily-brief-content" role="region" aria-label="简报内容" tabIndex={0}>
       <article><h4><span className="brief-icon red"><FileText size={14}/></span>今天的导读</h4><div><p>{dailyBrief.introduction}</p></div></article>
-      <article className="brief-care"><h4><span className="brief-icon red"><FileText size={14}/></span>员工关怀</h4><img className="brief-care-banner" src="assets/workbench/anniversary-care.png" alt="入职周年快乐，感恩同行，未来可期"/><div><h5>今天是陈晓晓的入职 1 周年</h5><p>根据入职时间记录，您的同事「陈晓晓」今天在公司工作满 1 年。感谢陈晓晓一直以来的付出，也欢迎您在部门内送上感谢与鼓励。</p></div><footer><button className="brief-write-thanks" onClick={() => setGreetingOpen(true)}>AI 帮写感谢</button></footer></article>
+      <article className="brief-care"><h4><span className="brief-icon red"><FileText size={14}/></span>员工关怀</h4><img className="brief-care-banner" src="assets/workbench/anniversary-care.png" alt="入职周年快乐，感恩同行，未来可期"/><div><h5>今天是陈晓晓的入职 1 周年</h5><p>根据入职时间记录，您的同事「陈晓晓」今天在公司工作满 1 年。感谢陈晓晓一直以来的付出，也欢迎您在部门内送上感谢与鼓励。</p></div><footer><Button variant="primary" className="brief-write-thanks" onClick={() => setGreetingOpen(true)}>AI 帮写感谢</Button></footer></article>
       {dailyBrief.sections.map(section => <article key={section.title}><h4><span className={`brief-icon ${section.color}`}><FileText size={14}/></span>{section.title}</h4><div>{section.items.map((item, index) => <div className="brief-item" key={index}>{item.title && <h5>{item.title}</h5>}<p>{item.text}</p></div>)}</div></article>)}
     </div>
     {greetingOpen && <GreetingDialog onClose={() => setGreetingOpen(false)} onOpenIM={onOpenIM}/>}

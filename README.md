@@ -34,3 +34,15 @@ DEPLOY_BASE=/guangzhixin/ npm run build
 ```
 
 默认构建路径为 `/`；GitHub Pages 构建使用仓库子路径。页面使用查询参数切换预览场景，例如 `?view=dashboard`、`?view=portal`、`?view=im`、`?view=drive`。
+
+## 设计规范
+
+入口：`?view=design-system`，或右上角“帮助与反馈 → 设计规范”。
+
+包含共享样式参数、可交互组件、14 个页面场景、业务规则和验收清单。开发说明见 [设计规范文档](docs/design-system/README.md)。
+
+```sh
+npm run check:design
+# 本地预览启动后，配置 Playwright / Chrome 再执行：
+npm run check:ui
+```

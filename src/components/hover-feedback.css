@@ -1,9 +1,6 @@
 /* User-approved hover treatments from audit items 02–17. */
 .app-shell {
-  --control-hover-bg:#F1F5F9;
-  --control-hover-text:#E60101;
   --card-hover-shift:-2px;
-  --card-hover-shadow:0 6px 18px rgba(30,41,59,.10);
 }
 
 /* 07, 15, 17: compact controls with 4px corners. */
@@ -65,6 +62,6 @@
 @media(hover:hover) and (pointer:fine){
   .app-shell .header-tabs>button:not([aria-current="page"]):hover,
   .app-shell .agents-view [role="tab"]:hover,
-  .app-shell .wb-icon-grid>button:hover{color:#E60101;}
-  .app-shell :is(.header-search,.header-settings>.header-menu-anchor>button):hover .header-action-icon{background-color:#E60101;}
+  .app-shell .wb-icon-grid>button:hover{color:var(--gx-hover-text);}
+  .app-shell :is(.header-search,.header-settings>.header-menu-anchor>button):hover .header-action-icon{background-color:var(--gx-hover-text);}
 }

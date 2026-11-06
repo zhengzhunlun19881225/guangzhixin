@@ -1,3 +1,4 @@
+import { Button } from './UI';
 import React, { useEffect, useRef, useState } from 'react';
 import { Minus, Plus, X } from 'lucide-react';
 import { appCatalogs, appCategories, type AppScope, type WorkbenchApp } from '../data/workbenchApps';
@@ -93,7 +94,7 @@ export function ApplicationManager({ scope, selectedIds, onClose, onSave, onOpen
         {!available.length && <div className="app-manager-empty">已添加全部应用</div>}
       </section>
     </div>
-    {isEditing && <footer className="app-manager-footer">{saveError && <p role="alert">{saveError}</p>}<button className="app-manager-cancel" onClick={cancelEditing}>取消</button><button className="app-manager-save" onClick={save}>保存</button></footer>}
+    {isEditing && <footer className="app-manager-footer">{saveError && <p role="alert">{saveError}</p>}<Button className="app-manager-cancel" onClick={cancelEditing}>取消</Button><Button variant="primary" className="app-manager-save" onClick={save}>保存</Button></footer>}
     <span className="sr-only" role="status" aria-live="polite">{announcement}</span>
   </dialog>;
 }

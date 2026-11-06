@@ -1,3 +1,4 @@
+import { PanelHeading, StatusBadge } from './UI';
 import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { DailyBrief } from './DailyBrief';
@@ -75,10 +76,7 @@ export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNaviga
       })}
     </div>
   ) : <div className="wb-apps-empty">暂未添加<button onClick={() => setManagerScope(scope)}>添加{scope === 'common' ? '应用' : '系统'}</button></div>;
-  const heading = (title: string, icon: string, action = onNavigateToTodos) => <div className="wb-heading">
-    <h3><img src={asset(icon)} alt="" />{title}</h3>
-    <button onClick={action} aria-label={`${title}更多`}>更多<ChevronRight size={13} /></button>
-  </div>;
+  const heading = (title: string, icon: string, action = onNavigateToTodos) => <PanelHeading className="wb-heading" title={title} icon={<img src={asset(icon)} alt="" />} onAction={action} />;
 
   return <div className="workbench-dashboard overflow-y-auto flex-1">
     <div className="workbench-grid">
@@ -97,7 +95,7 @@ export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNaviga
             }} onClick={() => setTaskTab(tab.id)}>{tab.label} {taskGroups[tab.id].length}</button>)}</div>
             <div className="wb-task-list" id="wb-task-panel" role="tabpanel" aria-labelledby={`wb-tab-${taskTab}`}>{taskGroups[taskTab].map(([name, author, time, status], i) => <button key={i} onClick={onNavigateToTodos}>
               <div><h4 title={`[系统来源] ${name}`}>[系统来源] {name}</h4><p>发起人 <img className="wb-person" src={asset(i === 2 ? 'avatar-junwei' : 'avatar-zhang')} alt="" /><b>{author}</b><span className="wb-time">时间</span><b>{time}</b></p></div>
-              <span className={`wb-status ${status === '未读' ? 'waiting' : 'normal'}`}>{status}</span>
+              <StatusBadge tone={status === '未读' ? 'info' : status === '已读' ? 'neutral' : 'success'}>{status}</StatusBadge>
             </button>)}</div>
           </section>
           <div className="wb-utilities">
@@ -129,7 +127,7 @@ export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNaviga
                 </div>
               </div>
               <div className="wb-agenda">{[['09:00', '新产品发布会筹备会议', '已完成', '王武'], ['13:00', '高级职位候选人面试', '未开始', '王武'], ['15:00', '安排新员工入职培训', '未开始', '张三']].map(([time, title, status, person]) => <button key={time} onClick={() => onNavigateToAIChat(title)}>
-                <h4><time>{time}</time><span>{title}</span></h4><p><span className={status === '已完成' ? 'wb-status' : 'wb-status pending'}>{status}</span><small>指派人</small><b><img src={asset(person === '王武' ? 'avatar-wang' : 'avatar-san')} alt="" />{person}</b></p>
+                <h4><time>{time}</time><span>{title}</span></h4><p><StatusBadge tone={status === '已完成' ? 'success' : 'neutral'}>{status}</StatusBadge><small>指派人</small><b><img src={asset(person === '王武' ? 'avatar-wang' : 'avatar-san')} alt="" />{person}</b></p>
               </button>)}</div>
             </div>
           </section>

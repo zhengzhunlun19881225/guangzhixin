@@ -24,6 +24,7 @@ const preferenceItems = [
   { label: '退出系统', icon: menuIcon('4d4e9536-f75a-487b-b761-c82fcc617929') },
 ];
 const helpItems = [
+  { label: '设计规范', icon: undefined },
   { label: '反馈', icon: menuIcon('8ca2cab4-eb65-4768-9322-24efbec47daf') },
   { label: '帮助', icon: menuIcon('b01d2966-9bec-4d6d-9778-9cd1971516f7') },
 ];
@@ -62,9 +63,10 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, sidebar
       {(kind === 'help' ? helpItems : preferenceItems).map(item => (
         <button key={item.label} role="menuitem" onClick={() => {
           setMenu(null);
+          if (item.label === '设计规范') window.location.assign('?view=design-system');
           if (item.label === '自定义工作台') onSwitchToWorkbenchDashboard?.();
         }}>
-          <img src={item.icon} width="15" height="15" alt="" />
+          {item.icon && <img src={item.icon} width="15" height="15" alt="" />}
           <span>{item.label}</span>
         </button>
       ))}

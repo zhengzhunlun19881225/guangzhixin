@@ -14,8 +14,8 @@
 .brief-icon{width:24px;height:24px;flex-shrink:0;}
 .brief-icon.blue{background:#38a4ff;}
 .wb-brief article>div{padding-left:34px;}
-.wb-brief h5{font-size:14px;font-weight:600;line-height:22px;margin:0 0 4px;color:#03091b;}
-.wb-brief p{font-size:12px;line-height:18px;font-weight:400;color:#83899f;}
+.wb-brief h5{font-size:14px;font-weight:600;line-height:22px;margin:0 0 4px;color:var(--gx-text-primary);}
+.wb-brief p{font-size:12px;line-height:18px;font-weight:400;color:var(--gx-text-muted);}
 .wb-brief-important{min-height:126px;}
 .wb-brief-important .brief-item+.brief-item{margin-top:26px;}
 .wb-brief-news{min-height:240px;}
@@ -29,52 +29,52 @@
 .wb-heading{height:54px;}
 .wb-heading h3{font-weight:600;gap:10px;}
 .wb-heading h3>img{width:23px;height:24px;object-fit:contain;}
-.wb-heading>button{color:#4e5969;}
+.wb-heading>button{color:var(--gx-text-secondary);}
 .wb-tasks{padding-bottom:11px;background:linear-gradient(180deg,#e7eaffb3 0,#ffffff70 64px);}
 .wb-tasks .wb-heading{height:52px;}
 .wb-tabs{height:49px;gap:30px;align-items:flex-start;padding-top:8px;}
-.wb-tabs button{height:33px;position:relative;font-size:14px;line-height:22px;color:#83899f;}
+.wb-tabs button{height:33px;position:relative;font-size:14px;line-height:22px;color:var(--gx-text-muted);}
 .wb-tabs .active{border:0;color:#ff0000;font-weight:600;}
 .wb-tabs .active:after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:20px;height:2px;background:#ff0000;}
 .wb-task-list{gap:10px;}
 .wb-task-list>button{height:76px;padding:12px 16px;border-radius:12px;position:relative;gap:0;}
 .wb-task-list>button>div{width:100%;}
-.wb-task-list h4{font-size:14px;font-weight:600;line-height:22px;margin:0 0 4px;padding-right:38px;color:#03091b;}
+.wb-task-list h4{font-size:14px;font-weight:600;line-height:22px;margin:0 0 4px;padding-right:38px;color:var(--gx-text-primary);}
 .wb-task-list p{display:flex;align-items:center;gap:8px;font-size:12px;line-height:18px;}
 .wb-person{width:14px;height:14px;border-radius:50%;object-fit:cover;padding:0;margin:0 0 0 2px;}
 .wb-time{font-size:12px;margin-left:16px;margin-right:0;}
-.wb-task-list>button>.wb-status{position:absolute;right:16px;top:27px;bottom:auto;font-size:12px;padding:0 6px;line-height:21px;}
+.wb-task-list>button>.ui-status{position:absolute;right:16px;top:27px;bottom:auto;font-size:12px;padding:0 6px;line-height:21px;}
 .wb-status.normal{color:#00b578;background:#eaf8ed;}
 .wb-status.waiting{color:#006dff;background:#e7f1ff;}
 .wb-common-apps .wb-heading h3,.wb-system-apps .wb-heading h3{gap:8px;}
 .wb-system-apps{padding-bottom:14px;}
 .wb-common-apps .wb-heading h3>img,.wb-system-apps .wb-heading h3>img{width:10px;height:18px;object-fit:fill;margin-left:-3px;}
 .wb-icon-grid{gap:18px 12px;padding-top:7px;grid-template-columns:repeat(6,52px);justify-content:space-between;}
-.wb-icon-grid>button{gap:6px;line-height:20px;font-size:14px;color:#03091b;}
+.wb-icon-grid>button{gap:6px;line-height:20px;font-size:14px;color:var(--gx-text-primary);}
 .wb-app-art{width:34px;height:34px;object-fit:contain;}
 .wb-systems{padding-top:7px;row-gap:20px;}
 .wb-systems .wb-app-art{width:32px;height:32px;}
-.wb-systems>button{color:#03091b;}
+.wb-systems>button{color:var(--gx-text-primary);}
 .wb-mail .wb-heading,.wb-schedule .wb-heading{height:58px;}
 .wb-mail .wb-heading h3,.wb-schedule .wb-heading h3{gap:6px;}
 .wb-mail-list{gap:10px;}
 .wb-mail-list>button{height:100px;border-radius:12px;padding:16px 14px 12px 22px;gap:8px;}
 .wb-mail-list>button:nth-child(n+2){height:100px;}
-.wb-mail-list h4{font-size:16px;font-weight:600;padding-right:70px;margin-bottom:2px;color:#03091b;}
+.wb-mail-list h4{font-size:16px;font-weight:600;padding-right:70px;margin-bottom:2px;color:var(--gx-text-primary);}
 .wb-mail-list p{margin:0;}
-.wb-mail-list small{line-height:20px;color:#83899f;}
+.wb-mail-list small{line-height:20px;color:var(--gx-text-muted);}
 .mail-avatar{border-radius:50%;margin-top:5px;}
 .mail-dot{left:8px;top:34px;background:#ff0000;}
 .mail-date{top:18px;font-size:12px;gap:8px;}
 .mail-date svg{color:#ff3d49;}
-.wb-mail-list .read,.wb-mail-list .read h4{color:#83899f;}
-.wb-mail-list .read .mail-dot{background:#83899f;}
+.wb-mail-list .read,.wb-mail-list .read h4{color:var(--gx-text-muted);}
+.wb-mail-list .read .mail-dot{background:var(--gx-text-muted);}
 .wb-schedule{padding-left:14px;padding-right:14px;}
 .wb-schedule .wb-heading{padding-right:5px;}
 .wb-schedule-body{grid-template-columns:minmax(0,245fr) minmax(0,256fr);gap:10px;margin-top:11px;}
 .wb-calendar{padding-right:17px;border-right:1px solid #e2e6ee;margin-top:8px;padding-bottom:19px;}
 .calendar-heading{height:24px;margin-bottom:8px;font-size:14px;}
-.calendar-heading button{color:#4e5969;}
+.calendar-heading button{color:var(--gx-text-secondary);}
 .calendar-grid{font-size:14px;row-gap:16px;}
 .calendar-grid .weekday{font-size:12px;height:20px;line-height:20px;}
 .calendar-grid button{position:relative;width:24px;height:24px;line-height:24px;}
@@ -87,7 +87,7 @@
 .wb-agenda>button:first-child time{font-weight:600;}
 .wb-agenda p{gap:8px;}
 .wb-agenda .wb-status{color:#00ba33;background:#e8ffe8;line-height:22px;}
-.wb-agenda .wb-status.pending{color:#4e5969;background:#e5e7eb;}
+.wb-agenda .wb-status.pending{color:var(--gx-text-secondary);background:#e5e7eb;}
 .wb-agenda small{margin-left:8px;}
 .wb-agenda b{display:flex;align-items:center;gap:4px;}
 .wb-agenda b img{width:14px;height:14px;border-radius:50%;object-fit:cover;}
@@ -95,7 +95,7 @@
 .app-shell[data-view="dashboard"] .floating-tools>button[title="常用工具"]>span:last-child{color:red;}
 .app-shell[data-view="dashboard"] .floating-apps-icon img{filter:brightness(0) saturate(100%) invert(17%) sepia(98%) saturate(7480%) hue-rotate(360deg);opacity:1;}
 .app-shell[data-view="dashboard"] .floating-tools>button[title="广新AI助手"]{background:transparent;justify-content:center;padding:0;border:0;}
-.app-shell[data-view="dashboard"] .floating-tools>button[title="广新AI助手"]>span:last-child{color:#03091b;}
+.app-shell[data-view="dashboard"] .floating-tools>button[title="广新AI助手"]>span:last-child{color:var(--gx-text-primary);}
 @media(max-width:1500px){
   .workbench-grid{grid-template-columns:minmax(320px,1fr) minmax(0,2fr);min-height:0;}
   .wb-quick{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -112,7 +112,7 @@
   .wb-brief-news article>div{padding-left:28px;}
   .brief-timeline:before,.brief-timeline .brief-item>img{display:none;}
 }
-@media(max-width:900px){.workbench-grid{grid-template-columns:1fr;}.brief-column{overflow:visible;}.wb-greeting{overflow:hidden;border-radius:16px 16px 0 0;}.wb-schedule-body{grid-template-columns:1fr;}.wb-calendar{border-right:0;padding-right:0;}.wb-task-list h4{font-size:14px;}.wb-task-list p{font-size:12px;}.wb-task-list>button>.wb-status{right:8px;bottom:12px;}}
+@media(max-width:900px){.workbench-grid{grid-template-columns:1fr;}.brief-column{overflow:visible;}.wb-greeting{overflow:hidden;border-radius:16px 16px 0 0;}.wb-schedule-body{grid-template-columns:1fr;}.wb-calendar{border-right:0;padding-right:0;}.wb-task-list h4{font-size:14px;}.wb-task-list p{font-size:12px;}.wb-task-list>button>.ui-status{right:8px;bottom:12px;}}
 
 
 .calendar-grid.six-weeks{row-gap:12px;}
@@ -136,11 +136,11 @@
 .wb-recent-forms .wb-heading h3{gap:8px;}
 .wb-recent-forms .wb-heading h3>img{width:10px;height:18px;object-fit:fill;margin-left:-3px;}
 .wb-form-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px;padding-top:3px;}
-.wb-form-list>button{display:flex;align-items:center;gap:10px;min-width:0;height:36px;padding:0 12px;border-radius:8px;background:white;color:#03091B;font-size:14px;line-height:22px;text-align:left;transition:color 160ms ease;}
+.wb-form-list>button{display:flex;align-items:center;gap:10px;min-width:0;height:36px;padding:0 12px;border-radius:8px;background:white;color:var(--gx-text-primary);font-size:14px;line-height:22px;text-align:left;transition:color 160ms ease;}
 .wb-form-list>button:nth-child(10){grid-column:1;}
 .wb-form-icon{width:16px;height:18px;flex-shrink:0;}
 .wb-form-list>button>span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.wb-form-list>button:hover{color:#E60101;}
-.wb-form-list>button:focus-visible{outline:2px solid #E60101;outline-offset:2px;}
+.wb-form-list>button:hover{color:var(--gx-hover-text);}
+.wb-form-list>button:focus-visible{outline:2px solid var(--gx-hover-text);outline-offset:2px;}
 @media(max-width:1500px){.wb-recent-forms{min-height:390px;}}
 @media(max-width:550px){.wb-form-list{grid-template-columns:minmax(0,1fr);}}

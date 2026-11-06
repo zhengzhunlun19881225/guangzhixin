@@ -1,37 +1,37 @@
 /* Search and date inputs: default → hover → focus / filled. */
 .app-shell .ui-field.ui-field{
   display:flex;align-items:center;gap:8px;position:relative;box-sizing:border-box;
-  height:32px;min-height:32px;max-height:32px;padding:0 10px;
-  border:1px solid #EBEEF5;border-radius:8px;background:#fff;box-shadow:none;
-  font-family:var(--app-font-family);font-size:14px;line-height:20px;color:#878B99;
+  height:var(--gx-control-height);min-height:var(--gx-control-height);max-height:var(--gx-control-height);padding:0 10px;
+  border:1px solid var(--gx-border);border-radius:var(--gx-radius-control);background:#fff;box-shadow:none;
+  font-family:var(--app-font-family);font-size:var(--gx-font-body);line-height:20px;color:var(--gx-text-placeholder);
   transition:border-color 160ms ease;
 }
 .app-shell .ui-field.ui-field input{
   position:static;flex:1;min-width:0;width:100%;height:30px;margin:0;padding:0;
   border:0;border-radius:0;outline:none;box-shadow:none;background:transparent;
-  font:inherit;line-height:20px;color:#03091B;
+  font:inherit;line-height:20px;color:var(--gx-text-primary);
 }
-.app-shell .ui-field.ui-field input::placeholder{font-size:14px;color:#878B99;opacity:1;}
-.app-shell .ui-field.ui-field .ui-field-icon{position:static;width:14px;height:14px;flex-shrink:0;color:#878B99;pointer-events:none;}
+.app-shell .ui-field.ui-field input::placeholder{font-size:var(--gx-font-body);color:var(--gx-text-placeholder);opacity:1;}
+.app-shell .ui-field.ui-field .ui-field-icon{position:static;width:14px;height:14px;flex-shrink:0;color:var(--gx-text-placeholder);pointer-events:none;}
 .app-shell .ui-field .ui-field-clear{
   display:flex!important;align-items:center;justify-content:center;position:static;
   flex-shrink:0;width:auto!important;min-width:14px!important;height:20px!important;
   margin:0!important;padding:0!important;border:0!important;border-radius:4px!important;
   background:transparent!important;box-shadow:none!important;font-size:12px!important;
-  line-height:20px!important;color:#878B99;white-space:nowrap;
+  line-height:20px!important;color:var(--gx-text-placeholder);white-space:nowrap;
 }
 .app-shell .ui-field .ui-field-clear svg{position:static;width:14px;height:14px;color:inherit;}
-.app-shell .ui-field .ui-field-clear:hover{color:#E60101;}
-.app-shell .ui-field .ui-field-clear:focus-visible{outline:2px solid #CC0000;outline-offset:2px;}
-@media(hover:hover){.app-shell .ui-field.ui-field:hover{border-color:#E60101;}}
+.app-shell .ui-field .ui-field-clear:hover{color:var(--gx-hover-text);}
+.app-shell .ui-field .ui-field-clear:focus-visible{outline:2px solid var(--gx-focus);outline-offset:2px;}
+@media(hover:hover){.app-shell .ui-field.ui-field:hover{border-color:var(--gx-hover-text);}}
 .app-shell .ui-field.ui-field:focus-within,
-.app-shell .ui-field.ui-field[data-filled=true]{border-color:#CC0000;}
+.app-shell .ui-field.ui-field[data-filled=true]{border-color:var(--gx-focus);}
 .app-shell .ui-date-range.ui-field{gap:4px;width:250px;flex-shrink:0;}
 .app-shell .ui-date-range.ui-field .ui-date-part{position:relative;flex:1;min-width:0;margin:0;height:30px;}
-.app-shell .ui-date-range.ui-field .ui-date-part span{position:absolute;inset:0;display:flex;align-items:center;pointer-events:none;background:#fff;font-size:14px;color:#878B99;white-space:nowrap;}
-.app-shell .ui-date-range.ui-field .ui-date-part span.has-value{color:#03091B;}
+.app-shell .ui-date-range.ui-field .ui-date-part span{position:absolute;inset:0;display:flex;align-items:center;pointer-events:none;background:#fff;font-size:var(--gx-font-body);color:var(--gx-text-placeholder);white-space:nowrap;}
+.app-shell .ui-date-range.ui-field .ui-date-part span.has-value{color:var(--gx-text-primary);}
 .app-shell .ui-date-range.ui-field .ui-date-part:focus-within span{display:none;}
-.app-shell .ui-date-range.ui-field b{font-size:14px;font-weight:400;color:#878B99;flex-shrink:0;}
+.app-shell .ui-date-range.ui-field b{font-size:var(--gx-font-body);font-weight:400;color:var(--gx-text-placeholder);flex-shrink:0;}
 .app-shell .ui-date-range.ui-field input::-webkit-calendar-picker-indicator{display:none;}
 .app-shell .ui-date-range.ui-field input::-webkit-datetime-edit{padding:0;}
 .app-shell .ui-date-range.ui-field input::-webkit-datetime-edit-fields-wrapper{padding:0;}

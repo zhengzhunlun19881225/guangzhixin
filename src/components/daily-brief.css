@@ -15,11 +15,11 @@
 .daily-brief .wb-brief article{width:calc(100cqw - 40px);padding:12px 16px;margin-bottom:12px;}
 .daily-brief .wb-brief article>div{padding-left:0;}
 .daily-brief .brief-item+.brief-item{margin-top:18px;}
-.daily-brief .wb-brief p{font-size:14px;line-height:22px;white-space:pre-line;}
-.daily-brief .brief-icon.muted{background:#83899f;}
+.daily-brief .wb-brief p{font-size:var(--gx-font-body);line-height:var(--gx-line-body);white-space:pre-line;}
+.daily-brief .brief-icon.muted{background:var(--gx-text-muted);}
 .brief-care-banner{display:block;width:100%;aspect-ratio:3/1;object-fit:cover;border-radius:10px;margin-bottom:16px;}
 .brief-care footer{display:flex;justify-content:flex-end;margin-top:16px;}
-.brief-write-thanks,.greeting-send{height:32px;padding:0 16px;border-radius:8px;background:var(--warm-gradient);color:white;font-size:14px;line-height:22px;}
+.brief-write-thanks,.greeting-send{height:32px;padding:0 16px;border-radius:8px;background:var(--warm-gradient);color:white;font-size:var(--gx-font-body);line-height:var(--gx-line-body);}
 .brief-write-thanks:hover,.greeting-send:hover{filter:brightness(1.04);}
 .brief-greeting-dialog{position:fixed;inset:0;margin:auto;width:min(800px,calc(100vw - 48px));max-width:none;max-height:calc(100dvh - 64px);padding:0;border:1px solid var(--line);border-radius:16px;background:white;color:var(--ink);font-family:var(--app-font-family);font-size:14px;box-shadow:0 16px 60px #17203326;overflow:auto;}
 .brief-greeting-dialog::backdrop{background:#10182833;backdrop-filter:blur(3px);}
@@ -30,7 +30,7 @@
 .greeting-body{padding:20px 24px;}
 .greeting-banner{display:block;width:100%;height:auto;object-fit:contain;border-radius:12px;margin-bottom:20px;}
 .greeting-tones{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
-.greeting-tones button{height:32px;padding:0 16px;border-radius:20px;background:#f5f6f8;color:#4e5969;}
+.greeting-tones button{height:32px;padding:0 16px;border-radius:20px;background:#f5f6f8;color:var(--gx-text-secondary);}
 .greeting-tones button[aria-pressed=true]{background:#fff1f0;color:#ff0000;}
 .greeting-editor{border:1px solid var(--line);border-radius:12px;padding:16px;}
 .greeting-editor:focus-within{border-color:#ffad94;}
@@ -40,7 +40,7 @@
 .greeting-emoji>button{display:grid;place-items:center;width:28px;height:28px;}
 .greeting-emoji-picker{position:absolute;left:0;bottom:36px;display:flex;gap:4px;padding:8px;background:white;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px #0001;}
 .greeting-emoji-picker button{font-size:20px;padding:4px;}
-.greeting-refresh{display:flex;align-items:center;gap:6px;font-size:14px;color:#4e5969;}
+.greeting-refresh{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--gx-text-secondary);}
 .brief-greeting-dialog>footer{padding:18px 24px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .brief-greeting-dialog>footer>span{color:var(--muted);font-size:12px;}
 .greeting-send:disabled{opacity:.45;cursor:not-allowed;}

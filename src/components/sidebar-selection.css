@@ -1,6 +1,6 @@
 /* Shared sidebar selection colors, with the requested 8px corners. */
 .app-shell .app-sidebar :is(nav,div:first-child)>button[aria-current="page"] {
-  background:var(--color-red-50,#fff1f2);
+  background:var(--color-red-50,var(--gx-selected-bg));
   color:#ff0000;
   border-radius:8px;
   font-weight:400;
@@ -36,5 +36,5 @@
   margin-left:-10px;margin-right:-10px;padding-right:0;
 }
 .app-shell .app-sidebar .sidebar-history .sidebar-history-list>.sidebar-history-item{
-  padding-left:10px;padding-right:10px;color:#03091B;
+  padding-left:10px;padding-right:10px;color:var(--gx-text-primary);
 }

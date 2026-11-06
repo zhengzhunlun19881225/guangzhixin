@@ -9,10 +9,10 @@
 .voice-input .voice-wave i{width:2px;flex-shrink:0;border-radius:4px;background:linear-gradient(#ff9a45,#ff4725);transform:scaleY(.3);}
 .voice-input.is-listening .voice-wave i{animation:voice-wave .9s ease-in-out infinite alternate;}
 .voice-input.is-speaking .voice-wave i{animation-duration:.45s;}
-.voice-input .voice-caption{font-size:16px;color:#83899f;}
+.voice-input .voice-caption{font-size:16px;color:var(--gx-text-muted);}
 .voice-input .voice-actions{margin-left:auto;display:flex;gap:16px;}
 .voice-input .voice-actions button{height:38px;width:38px;padding:0;border-radius:50%;border:0;display:grid;place-items:center;}
-.voice-input .voice-cancel{background:#f7f7f8;color:#4e5969;}
+.voice-input .voice-cancel{background:#f7f7f8;color:var(--gx-text-secondary);}
 .voice-input .voice-send{background:linear-gradient(150deg,#ff992c,#ff1807 80%);color:#fff;}
 .voice-input .voice-send:disabled{opacity:.4;cursor:not-allowed;}
 .voice-input .voice-actions button:not(:disabled):hover{filter:brightness(.96);}

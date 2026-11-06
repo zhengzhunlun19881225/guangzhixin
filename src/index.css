@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./design/tokens.css";
 @import "./design-system.css";
 @import "./components/workbench-dashboard.css";
 @import "./components/ai-home-refinement.css";
@@ -6,6 +7,7 @@
 @import "./components/workspace-refinement.css";
 @import "./components/hover-feedback.css";
 @import "./components/field-controls.css";
+@import "./design/components.css";
 
 @theme inline {
   --font-sans: var(--app-font-family);
@@ -20,7 +22,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #ffffff;
-    color: #0f172a;
+    color: var(--gx-text-primary);
     overflow: hidden;
   }
 

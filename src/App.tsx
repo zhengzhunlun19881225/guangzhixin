@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { EmptyState } from './components/UI';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { AIChatView } from './components/AIChatView';
@@ -19,7 +20,7 @@ import { Users, Cloud } from 'lucide-react';
 
 export default function App() {
   const [mainTab, setMainTab] = useState<MainTab>(() => new URLSearchParams(window.location.search).get('view') === 'portal' ? 'portal' : new URLSearchParams(window.location.search).get('view') === 'im' ? 'im' : 'workbench');
-  const [sidebarMenu, setSidebarMenu] = useState<SidebarMenu>(() => { const view = new URLSearchParams(window.location.search).get('view'); return view === 'agents' || view === 'skills' ? 'agents_skills' : view === 'knowledge' ? 'knowledge_base' : view === 'todos' ? 'todos' : view === 'drive' ? 'cloud_drive' : 'new_chat'; });
+  const [sidebarMenu, setSidebarMenu] = useState<SidebarMenu>(() => { const view = new URLSearchParams(window.location.search).get('view'); return view === 'agents' || view === 'skills' ? 'agents_skills' : view === 'knowledge' ? 'knowledge_base' : view === 'employees' ? 'digital_employee' : view === 'todos' ? 'todos' : view === 'drive' ? 'cloud_drive' : 'new_chat'; });
   const [portalSubView, setPortalSubView] = useState<PortalSubView>(() => new URLSearchParams(window.location.search).get('section') === 'data' ? 'data' : 'news');
   const [imTargetContact, setIMTargetContact] = useState<string | undefined>();
   const [imSubView, setIMSubView] = useState<IMSubView>(() => new URLSearchParams(window.location.search).get('section') === 'contacts' ? 'org' : 'chat');
@@ -179,9 +180,7 @@ export default function App() {
                   onOpenItem={(title) => handleSendQuery(title)}
                 />
               ) : sidebarMenu === 'digital_employee' ? (
-                <div className="digital-employee-empty flex-1 flex items-center justify-center" role="status">
-                  <p>暂无内容</p>
-                </div>
+                <EmptyState className="digital-employee-empty flex-1" />
               ) : (
                 <CloudDriveView onOpenIM={contactId => { setIMTargetContact(contactId); setMainTab('im'); setIMSubView('chat'); }} />
               )}
