@@ -36,13 +36,13 @@ Button 默认 type=button，表单提交需显式指定 type=submit；loading �
 3. 业务 CSS 负责布局和已登记的场景差异；保留历史选择器以降低回归风险。
 4. spec.css 只影响 `.spec-*` 示例页面，不能覆盖生产组件的通用规则。
 
-浮层菜单通过 portal 渲染在 body，需要根级 token；不能依赖 `.app-shell` 局部变量。原生 dialog 的按钮同样直接读取根级 token。
+浮层菜单通常通过 portal 渲染在 body；触发器处于原生 dialog 内时，挂载到最近的 dialog，避免背景 inert 导致菜单无法操作。菜单仍使用 Popover 顶层定位。需要根级 token，不能依赖 `.app-shell` 局部变量。原生 dialog 的按钮同样直接读取根级 token。
 
 ## 新增组件的完成标准
 
 必须说明：用途/禁止场景、结构、尺寸/间距、API、默认值、适用状态、键盘操作、焦点、关闭规则、长文本、边界/空数据、使用例子、生产消费者。优先使用现有组件变体，不新增只有名字不同的实现。
 
-涉及视觉例外时记录：页面、理由、具体参数、验收方式。已登记例外：门户 26px 紧凑选择；智能体分类 38px；模型胶囊；AI 16/28 正文；日历蓝色选中；内容图表和文件类型色；主操作白字渐变。
+涉及视觉例外时记录：页面、理由、具体参数、验收方式。已登记例外：门户 26px 紧凑选择；模型胶囊；AI 16/28 正文；内容图表和文件类型色；页面主操作白字渐变；弹窗主操作纯红白字。
 
 ## 检查命令
 
@@ -75,3 +75,47 @@ CI 每次发布必须通过类型检查、规范静态检查和生产构建。�
 - [ ] 键盘、清空、取消、错误、边界行为均验证。
 - [ ] 1920 / 1440 / 1280px 桌面检查无页面级横向溢出。
 - [ ] 规范页和 catalog 已同步；验收记录写明实际范围与遗留项。
+
+## 日程增量
+
+接口、布局例外及本地存储边界见 [SCHEDULE.md](SCHEDULE.md)。新增回归命令 `npm run check:schedule`，浏览器环境变量与 check:ui 相同；默认本地预览为 5196，输出 `output/schedule/`。
+
+系统弹窗接入 `ModalSurface` 或为已有原生 dialog 添加 `gx-dialog`；结构槽、业务宽度与例外见 [DIALOGS.md](DIALOGS.md)。
+
+## 组件全览接入（v3.1）
+
+`src/design/componentReference.json` 是 59 项规范的结构化来源；`ComponentReference.tsx` 提供检索与规格面板，`ComponentExamples.tsx` 提供隔离的可操作预览。`component-reference.css` 仅作用于 cr-* 示例；共享组件样式与业务 API 未修改。示例中的建议契约不作为已发布公共 API。
+
+修改条目后执行 `npm run docs:components`，同时更新文档和公开下载文件；`npm run check:components` 校验覆盖、非空字段、源码路径和生成文件同步。浏览器专项：`npm run check:component-ui`，沿用 PLAYWRIGHT_MODULE / CHROME_PATH / BASE_URL 配置。
+
+反馈专项：`npm run check:feedback-ui`。参考图控件专项：`npm run check:reference-patterns`；后者覆盖v3.3六类隔离示例，不代表已接入业务页面。检查报告分别写入 `output/design-system/feedback/` 与 `output/playwright/reference-patterns/`。
+
+图标清单与文档：`npm run docs:icons`；一致性检查`npm run check:icons`已接入check:design。浏览器专项`npm run check:icon-ui`检查图标加载、分类/搜索/尺寸/配色及Tabs/Slider颜色修正，输出`output/playwright/icon-catalog/`。图标初始仅用于规范页；2026-11-07用户已授权资讯详情使用“点赞/踩”与已选变体，直接引用原SVG并以CSS mask着色，原始图标文件保留。
+
+双月日期范围专项：`npm run check:date-range-ui`，输出`output/playwright/date-range/`。覆盖日历尺寸隔离、范围草稿、同日/跨月/跨年/闰年、键盘与窄屏滚动；仅用于规范示例。
+
+组件全览现为单列连续瀑布流，59个示例同时存在。每项拥有独立状态和重置计数，二级目录与滚动位置联动；自动化需按 `.cr-detail[data-component="组件ID"]` 定位预览，不能依赖全页只有一个按钮或字段。
+
+模式二入口按用户要求隐藏而不删除，Header保留选项并用hidden和专用规则隐藏，方向键导航排除隐藏项；已有模式偏好与样式实现保留。
+
+模式隔离：`useUIMode`管理original/spec偏好，根节点data-ui-mode覆盖原生dialog及portal。`ui-modes.css`业务规则必须以html[data-ui-mode=spec]限定；模式一不增加覆盖，禁止为模式二改写旧业务样式。新增设置菜单专用类例外。
+
+用户2026-11-07新增授权：知识库文件列表与云盘接入`Pagination`及`usePagination`，规范示例复用。真实总数由过滤后集合计算，页码变化仅切片，不修改数据；切换筛选回首页，末页删除后回退，当前页全选与跨页已选独立处理。
+
+同日用户明确要求全系统复选框统一：`checkboxes.css`同时适用于模式一/模式二，覆盖原生checkbox的未选、已选、半选、禁用和焦点；原生输入始终appearance:none以保留4px圆角，移除云盘/知识库中appearance:auto旧规则。role=switch及带data-custom-checkbox的隐藏输入排除，自绘rp-checkbox同步4px。此项为用户新授权的模式一例外，不扩大到其他控件。
+
+分页专项`npm run check:pagination-ui`；复选框专项`npm run check:checkbox-ui`，复用上述Playwright环境变量。分页测试在独立浏览器上下文生成文件并验证删除，不接触用户浏览器中的云盘数据。证据位于`output/playwright/pagination/`与`checkboxes/`。
+
+
+## 2026-11-07 资讯和控件增量
+
+- Button支持variant=solid（主题红白字）和size=small（26px）；默认32px。规范提供普通、带图标及小号三排，已有调用无需传新参数。
+- 业务表单/搜索/详情/列表弹窗标题18/28；六类反馈规范保留原字号，圆角统一--gx-radius-feedback=12px。DateRangeExample时间使用带leadingIcon/showArrow/menuClassName的SelectField列表，仅替换规范示例；业务日期字段保留原契约。
+- 资讯“更多”复用NewsList和Pagination，保留门户筛选、展示模式、返回焦点；正文列最大1080px，分页与之等宽并计算滚动条占位。文章左右及底部30px，资讯列表标题16/400，卡片悬浮无阴影。
+- 订阅选择项间距12px、保存名称统一；切换栏260×32灰底分段，保留AI星光图标、原有草稿与键盘操作。资讯详情以规范库点赞/踩按钮替换“示例资讯”，互斥且可取消，guangxin-news-feedback只存本机偏好，不模拟远程推荐成功。
+- 分页页容量选择框90px且不参与flex压缩；表头--gx-table-header-bg=#F9F9F9，排除role=grid日历。边框型单选和复选选中使用--gx-choice-selected-border（主题色50%），内部指示器与禁用状态独立。
+- 移除概览章节后目录六节；旧#overview转至#foundations，旧#components仍转至#library，59项预览继续同时挂载。
+
+新增浏览器专项命令：npm run check:news-more-ui（更多列表、阅读边距、业务标题、反馈圆角、按钮）；npm run check:table-controls-ui（90px分页、表头、单选/复选外边框及保存）；npm run check:news-detail-ui（隐藏模式二入口、资讯反馈、订阅分段、规范目录）。沿用PLAYWRIGHT_MODULE、CHROME_PATH、BASE_URL，结果分别在output/playwright/news-more、final-controls、news-detail；运行结果以ACCEPTANCE.md为准。
+
+完整规范导出由scripts/build-full-spec.mjs组装，固定三个顶层模块：基础样式、组件规范全览、状态与交互。线上配色/文字/间距/圆角和通用状态共用foundationReference.json；参数直接读取tokens.css。组件与Hover继续使用原JSON，生成器验证59项和三个模块并同步COMPONENTS.md与公开下载文件。下载仍沿用旧URL以兼容已有链接，文件名为“广智新完整设计规范-v3.6.0.md”；不包含其他三个在线章节。

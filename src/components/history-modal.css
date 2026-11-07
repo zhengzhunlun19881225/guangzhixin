@@ -6,9 +6,9 @@
 .history-dialog button{cursor:pointer;}
 .history-dialog-header{display:flex;align-items:center;gap:12px;padding:0 24px;flex-shrink:0;}
 .history-search-field{height:36px;display:flex;align-items:center;gap:10px;border:1px solid #dfe2e9;border-radius:8px;padding:0 12px;flex:1;min-width:0;color:var(--gx-text-muted);}
-.history-search-field:focus-within{border-color:#ffac93;box-shadow:0 0 0 2px #ff4e1d0a;}
+.history-search-field:focus-within{border-color:var(--gx-focus);box-shadow:none;}
 .history-search-field input{height:100%;width:100%;min-width:0;font-size:14px;outline:none;background:transparent;color:var(--ink);border:0;}
-.history-search-field input::placeholder{color:#9ba3b4;}
+.history-search-field input::placeholder{color:var(--gx-text-placeholder);}
 .history-search-field button{display:flex;color:var(--gx-text-muted);}
 .history-dialog-close{display:grid;place-items:center;width:24px;height:28px;color:var(--gx-text-muted);flex-shrink:0;border-radius:6px;}
 .history-dialog-close:hover{background:#f3f4f7;color:var(--ink);}
@@ -18,24 +18,24 @@
 .history-quick-create>button{display:flex;align-items:center;gap:10px;width:100%;height:38px;padding:0 8px 0 0;border-radius:8px;text-align:left;font-size:14px;}
 .history-quick-create>button:hover{background:#f6f7f9;}
 .history-result-row{position:relative;height:38px;border-radius:8px;display:flex;align-items:center;}
-.history-result-row:hover,.history-result-row:focus-within{background:#f5f6f8;}
+.history-result-row:hover,.history-result-row:focus-within{background:var(--gx-neutral-bg);}
 .history-open-entry{display:flex;align-items:center;gap:10px;height:100%;width:100%;text-align:left;padding-right:10px;font-size:14px;min-width:0;}
 .history-entry-title{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:calc(100% - 188px);}
-.history-open-entry time{margin-left:auto;font-size:13px;white-space:nowrap;color:#9ba3b4;}
+.history-open-entry time{margin-left:auto;font-size:13px;white-space:nowrap;color:var(--gx-text-placeholder);}
 .history-open-arrow{display:none;position:absolute;right:10px;color:var(--gx-text-muted);}
 .history-result-row:hover time,.history-result-row:focus-within time{visibility:hidden;}
 .history-result-row:hover .history-open-arrow,.history-result-row:focus-within .history-open-arrow{display:block;}
-.history-pin{position:absolute;right:34px;display:grid;place-items:center;width:22px;height:24px;color:#9ba3b4;border-radius:5px;opacity:0;}
+.history-pin{position:absolute;right:34px;display:grid;place-items:center;width:22px;height:24px;color:var(--gx-text-placeholder);border-radius:5px;opacity:0;}
 .history-result-row:hover .history-pin,.history-pin:focus-visible{opacity:1;}
-.history-pin:hover{color:#ff4e1d;background:#fff2ef;}
+.history-pin:hover{color:var(--gx-accent);background:#fff2ef;}
 .history-notice{color:#ff4e37;flex-shrink:0;}
-.history-result-count{font-size:12px;color:#9ba3b4;}
-.history-no-results{padding:64px 12px;text-align:center;color:#9ba3b4;}
+.history-result-count{font-size:12px;color:var(--gx-text-placeholder);}
+.history-no-results{padding:64px 12px;text-align:center;color:var(--gx-text-placeholder);}
 .history-no-results svg{margin:0 auto 16px;}.history-no-results p{font-size:14px;color:var(--gx-text-secondary);margin-bottom:8px;}.history-no-results span{font-size:12px;}
 @media(max-width:600px){.history-dialog{width:calc(100vw - 24px);height:calc(100dvh - 40px);padding-top:18px;}.history-dialog-header{padding:0 16px;}.history-results{padding-left:16px;}.history-open-entry time{font-size:11px;}.history-entry-title{max-width:calc(100% - 152px);}.history-pin{right:34px;}}
 
-.history-inline-pin{color:#9ba3b4;flex-shrink:0;}
+.history-inline-pin{color:var(--gx-text-placeholder);flex-shrink:0;}
 
 
 .history-search-field .history-clear-search{font-size:12px;white-space:nowrap;flex-shrink:0;padding:2px 0;line-height:20px;color:var(--gx-text-muted);}
-.history-search-field .history-clear-search:hover{color:#ff4e1d;}
+.history-search-field .history-clear-search:hover{color:var(--gx-accent);}

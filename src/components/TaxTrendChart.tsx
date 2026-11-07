@@ -18,8 +18,8 @@ export function TaxTrendChart({ color }: { color: string }) {
         <rect x={x(i)-5} y="105" width="10" height="5" fill={color}/>
         <text x={x(i)} y="130" textAnchor="middle">{i+1}月</text>
       </g>)}
-      <polyline points={rates.map((v,i)=>`${x(i)},${y(v)}`).join(' ')} fill="none" stroke="#006dff" strokeWidth="2"/>
-      {rates.map((v,i)=><circle key={i} cx={x(i)} cy={y(v)} r="2.8" fill="white" stroke="#006dff" strokeWidth="2"><title>{i+1}月整体税负率：{v}%</title></circle>)}
+      <polyline points={rates.map((v,i)=>`${x(i)},${y(v)}`).join(' ')} fill="none" stroke="var(--gx-info)" strokeWidth="2"/>
+      {rates.map((v,i)=><circle key={i} cx={x(i)} cy={y(v)} r="2.8" fill="white" stroke="var(--gx-info)" strokeWidth="2"><title>{i+1}月整体税负率：{v}%</title></circle>)}
     </svg>
   </div>;
 }

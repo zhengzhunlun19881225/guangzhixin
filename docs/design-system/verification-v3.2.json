@@ -1,0 +1,219 @@
+{
+  "date": "2026-11-06T15:23:22.077Z",
+  "base": "http://127.0.0.1:5196/",
+  "results": [
+    {
+      "name": "规范页目录、颜色参数与示例",
+      "status": "passed"
+    },
+    {
+      "name": "确认弹窗校验、焦点和退出",
+      "status": "passed"
+    },
+    {
+      "name": "页面目录过滤、空态与样式参数下载",
+      "status": "passed"
+    },
+    {
+      "name": "规范示例状态颜色与轮播",
+      "status": "passed"
+    },
+    {
+      "name": "home / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "answer / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "dashboard / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "agents / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "skills / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "knowledge / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "knowledge-detail / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "drive / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "todos / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "employees / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "portal / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "data / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "im / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "contacts / 1920px",
+      "status": "passed"
+    },
+    {
+      "name": "home / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "answer / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "dashboard / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "agents / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "skills / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "knowledge / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "knowledge-detail / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "drive / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "todos / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "employees / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "portal / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "data / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "im / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "contacts / 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "home / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "answer / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "dashboard / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "agents / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "skills / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "knowledge / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "knowledge-detail / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "drive / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "todos / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "employees / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "portal / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "data / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "im / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "contacts / 1280px",
+      "status": "passed"
+    },
+    {
+      "name": "工作台公共按钮和原生弹窗",
+      "status": "passed"
+    },
+    {
+      "name": "门户轮播悬浮、标题和左右切换",
+      "status": "passed"
+    },
+    {
+      "name": "两组资讯卡片/列表切换、筛选与详情",
+      "status": "passed"
+    },
+    {
+      "name": "资讯两行摘要、完整详情和真实附件",
+      "status": "passed"
+    },
+    {
+      "name": "帮助菜单提供规范入口",
+      "status": "passed"
+    },
+    {
+      "name": "规范页 390px 窄屏",
+      "status": "passed"
+    },
+    {
+      "name": "浏览器运行错误与资源请求",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

@@ -3,11 +3,11 @@
 .ai-composer .agent-composer-tools button:disabled{cursor:default;opacity:.55;}
 .ai-composer .agent-composer-tools button:focus-visible{outline:2px solid #ff6a45;outline-offset:3px;}
 .ai-composer .selected-agent-pill{display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 10px;border-radius:18px;background:#fff2f3;flex-shrink:0;}
-.ai-composer .selected-agent-pill button{color:#ff0000;padding:0;height:32px;}
+.ai-composer .selected-agent-pill button{color:var(--gx-brand);padding:0;height:32px;}
 .agent-icon-active{filter:brightness(0) saturate(100%) invert(16%) sepia(100%) saturate(6845%) hue-rotate(358deg) brightness(102%) contrast(118%);}
 .ai-composer .agent-composer-tools .composer-agent-tool{height:32px;padding:0;border-radius:18px;}
-.ai-composer .agent-composer-tools .composer-agent-tool.is-active{color:#ff0000;background:#fff2f3;padding:0 12px;}
-.ai-composer .agent-tools-panel{position:absolute;bottom:calc(100% + 12px);left:4px;width:800px;max-width:calc(100% - 8px);background:white;border:1px solid #dce2ed;border-radius:18px;padding:14px 18px 12px;z-index:40;box-shadow:0 4px 18px #20283806;color:var(--gx-text-primary);font-size:14px;max-height:min(420px,calc(100vh - 240px));overflow:auto;}
+.ai-composer .agent-composer-tools .composer-agent-tool.is-active{color:var(--gx-brand);background:#fff2f3;padding:0 12px;}
+.ai-composer .agent-tools-panel{position:absolute;bottom:calc(100% + 12px);left:4px;width:800px;max-width:calc(100% - 8px);background:white;border:1px solid var(--gx-input-border);border-radius:18px;padding:14px 18px 12px;z-index:40;box-shadow:0 4px 18px #20283806;color:var(--gx-text-primary);font-size:14px;max-height:min(420px,calc(100vh - 240px));overflow:auto;}
 .ai-composer .agent-tools-panel header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
 .ai-composer .agent-tools-panel strong{font-weight:500;}
 .ai-composer .agent-tools-panel .agent-panel-close{width:24px;height:24px;padding:0;color:#8b95a8;flex-shrink:0;}
@@ -25,10 +25,10 @@
 .ai-composer .ppt-template-card>div .template-preview-button{color:#476080;}
 .ai-composer .agent-panel-empty{padding:36px 0;text-align:center;color:var(--gx-text-muted);}
 .ai-composer .agent-picker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-.ai-composer .agent-picker-grid button{padding:12px;border-radius:10px;background:#f8f9fb;justify-content:flex-start;}
-.ai-composer .agent-picker-grid button.is-active{color:#ff0000;background:#fff2f3;}
+.ai-composer .agent-picker-grid button{padding:12px;border-radius:10px;background:var(--gx-neutral-bg);justify-content:flex-start;}
+.ai-composer .agent-picker-grid button.is-active{color:var(--gx-brand);background:#fff2f3;}
 .ai-composer .agent-tool-options{display:grid;gap:8px;}
-.ai-composer .agent-tool-options button{white-space:normal;padding:12px;text-align:left;justify-content:flex-start;border-radius:8px;background:#f8f9fb;flex-wrap:wrap;}
+.ai-composer .agent-tool-options button{white-space:normal;padding:12px;text-align:left;justify-content:flex-start;border-radius:8px;background:var(--gx-neutral-bg);flex-wrap:wrap;}
 .ai-composer .agent-tool-options button:hover{background:#fff2f3;}
 .ai-composer .agent-tool-options small{width:100%;font-size:12px;color:var(--gx-text-muted);}
 .ai-composer .agent-share-settings{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:8px 0;}
@@ -36,17 +36,17 @@
 .ai-composer .agent-share-settings button{width:34px;height:20px;border-radius:10px;background:#d6d8e0;padding:3px;justify-content:flex-start;}
 .ai-composer .agent-share-settings button.is-on{background:#ff5932;justify-content:flex-end;}
 .agent-share-settings button span{width:14px;height:14px;background:#fff;border-radius:50%;}
-.ppt-preview-dialog{position:fixed;inset:0;margin:auto;width:min(780px,calc(100vw - 40px));max-height:90vh;overflow:auto;border:1px solid #dce2ed;border-radius:20px;padding:20px;background:#fff;color:var(--gx-text-primary);box-shadow:0 20px 80px #20283830;}
+.ppt-preview-dialog{position:fixed;inset:0;margin:auto;width:min(780px,calc(100vw - 40px));max-height:90vh;overflow:auto;border:1px solid var(--gx-input-border);border-radius:20px;padding:20px;background:#fff;color:var(--gx-text-primary);box-shadow:0 20px 80px #20283830;}
 .ppt-preview-dialog::backdrop{background:#222c4455;backdrop-filter:blur(3px);}
 .ppt-preview-dialog header,.ppt-preview-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:12px;}
 .ppt-preview-dialog header{margin-bottom:16px;}.ppt-preview-dialog header strong{font-size:16px;font-weight:500;}
 .ppt-preview-dialog>img{width:100%;border-radius:10px;}.ppt-preview-dialog footer{justify-content:flex-end;margin-top:20px;}
-.ppt-preview-dialog footer button{border:1px solid #dce2ed;border-radius:8px;padding:8px 18px;font-size:14px;}.ppt-preview-dialog footer .use-ppt-template{background:var(--warm-gradient);color:white;border-color:transparent;}
+.ppt-preview-dialog footer button{border:1px solid var(--gx-input-border);border-radius:8px;padding:8px 18px;font-size:14px;}.ppt-preview-dialog footer .use-ppt-template{background:var(--warm-gradient);color:white;border-color:transparent;}
 @media(max-width:1500px){.ai-composer .agent-composer-tools{gap:12px;}}
 @media(max-width:1200px){.ai-composer .agent-composer-tools{flex-wrap:wrap;gap:10px;}.ai-composer .agent-tools-panel{max-height:calc(100vh - 280px);}.ai-composer .agent-picker-grid{grid-template-columns:repeat(3,1fr);}}
 
 /* Match the selected toolbar spacing in the supplied design. */
 .ai-composer .agent-composer-tools[data-selected=true]{gap:12px;}
-.ai-composer .agent-composer-tools .composer-attachment{width:32px;height:32px;min-width:32px;padding:0;border-radius:50%;background:#f7f7f7;}
+.ai-composer .agent-composer-tools .composer-attachment{width:32px;height:32px;min-width:32px;padding:0;border-radius:50%;background:var(--gx-neutral-bg);}
 .ai-composer .agent-composer-tools[data-selected=true] .composer-agent-tool{margin-left:4px;}
 .ai-composer .ppt-categories{justify-content:flex-start;gap:4px;}

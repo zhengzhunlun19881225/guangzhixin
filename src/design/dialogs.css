@@ -1,0 +1,68 @@
+/* System dialogs v2: meeting dialog is the reference. Keep business widths;
+   share header, scroll body, footer, backdrop and solid-red primary actions. */
+.gx-dialog.gx-dialog{position:fixed;inset:0;margin:auto;padding:0;border:0;border-radius:var(--gx-radius-card);max-height:calc(100dvh - 40px);max-width:calc(100vw - 32px);background:var(--gx-surface);color:var(--gx-text-primary);font-family:var(--gx-font-family);font-size:var(--gx-font-body);line-height:var(--gx-line-body);overflow:hidden;box-shadow:var(--gx-shadow-dialog);}
+dialog.gx-dialog[open],.gx-dialog[role=dialog]{display:flex;flex-direction:column;}
+.gx-dialog::backdrop,.gx-dialog-shade{background:var(--gx-dialog-backdrop);backdrop-filter:none;}
+.gx-dialog .gx-dialog-header{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;height:auto;min-height:64px;flex:0 0 auto;padding:20px 30px;margin:0;border:0;background:var(--gx-surface);transform:none;}
+.gx-dialog .gx-dialog-header :is(h2,h3,strong){margin:0;font-size:var(--gx-font-section);line-height:var(--gx-line-section);font-weight:600;color:var(--gx-text-primary);overflow-wrap:anywhere;}
+/* Business form/search/detail/list titles; feedback reference Dialog retains its own type scale. */
+.gx-dialog.gx-dialog:not(.cr-modal) .gx-dialog-header :is(h2,h3,strong){font-size:var(--gx-font-heading);line-height:var(--gx-line-answer);}
+.gx-dialog .gx-dialog-header>button{position:static;display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;padding:0;margin:0;border:0;border-radius:var(--gx-radius-small);color:var(--gx-text-muted);background:transparent;}
+.gx-dialog .gx-dialog-header>button:not(:disabled):hover{color:var(--gx-hover-text);background:var(--gx-hover-bg);}
+.gx-dialog .gx-dialog-form{display:flex;flex-direction:column;flex:1;min-height:0;padding:0;margin:0;overflow:hidden;}
+.gx-dialog .gx-dialog-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:8px 30px 16px;scrollbar-width:thin;scrollbar-color:var(--gx-scrollbar-thumb) transparent;}
+.gx-dialog .gx-dialog-body:is(:hover,:focus-within){scrollbar-color:var(--gx-text-placeholder) transparent;}
+.gx-dialog .gx-dialog-footer{position:relative;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px 40px;flex:0 0 auto;height:auto;min-height:80px;margin:0;padding:20px 30px 24px;border:0;background:var(--gx-surface);}
+.gx-dialog .gx-dialog-footer>button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:78px;height:36px;padding:0 20px;border:1px solid var(--gx-border);border-radius:var(--gx-radius-control);font:inherit;line-height:22px;background:var(--gx-surface);color:var(--gx-text-primary);white-space:nowrap;}
+.gx-dialog .gx-dialog-footer>button:not(:disabled):hover{border-color:var(--gx-hover-text);color:var(--gx-hover-text);}
+.gx-dialog .gx-dialog-footer>:is(p,span){flex-basis:100%;margin:0;text-align:center;font-size:var(--gx-font-caption);line-height:var(--gx-line-caption);}
+.gx-dialog .gx-dialog-footer>[role=alert]{color:var(--gx-danger);}
+.gx-dialog.gx-dialog :is(.ui-button-primary,.gx-dialog-primary){background:var(--gx-dialog-primary);background-image:none;border-color:transparent;color:var(--gx-text-on-accent);filter:none;}
+.gx-dialog.gx-dialog :is(.ui-button-primary,.gx-dialog-primary):not(:disabled):hover{background:var(--gx-hover-text);background-image:none;border-color:transparent;color:var(--gx-text-on-accent);filter:none;}
+.gx-dialog.gx-dialog :is(.ui-button-primary,.gx-dialog-primary):not(:disabled):active{background:var(--gx-focus);color:var(--gx-text-on-accent);}
+.gx-dialog :is(button:not(.ui-select):not(.sch-time-trigger),input[type=checkbox],input[type=radio]):focus-visible{outline:2px solid var(--gx-focus);outline-offset:2px;}
+.gx-dialog button:disabled{opacity:.45;cursor:not-allowed;}
+/* Subscription has a supplementary reset action, separate from the centered pair. */
+.gx-dialog.ns-dialog .ns-form{max-height:calc(100dvh - 40px);}
+.gx-dialog.ns-dialog .ns-footer{padding:0;border:0;}
+.gx-dialog.ns-dialog .ns-footer>:is(p){margin:8px 30px 0;}
+.gx-dialog .gx-dialog-footer>.gx-dialog-reset{position:absolute;left:30px;min-width:0;padding:0;border-color:transparent;background:transparent;color:var(--gx-text-muted);}
+.gx-dialog .gx-dialog-footer>.gx-dialog-reset:hover{border-color:transparent;background:var(--gx-hover-bg);}
+/* Body adapters keep existing professional content layouts without double padding. */
+.gx-dialog.app-manager-dialog .app-manager-body{padding:8px 0 16px;scrollbar-gutter:auto;}
+.gx-dialog.app-manager-dialog .app-manager-section{padding-inline:30px;}
+.gx-dialog.history-dialog .history-dialog-header{padding:8px 30px 16px;}
+.gx-dialog.history-dialog .history-results{padding:0 30px 16px;}
+.gx-dialog.pn-article-detail .gx-dialog-body{padding-inline:30px;padding-bottom:30px;}
+.gx-dialog.pn-article-detail .pn-article-meta{margin-top:0;}
+.gx-dialog.pn-detail .gx-dialog-body>p{white-space:pre-line;color:var(--gx-text-secondary);font-size:14px;line-height:22px;}
+.gx-dialog.pn-detail .gx-dialog-body>ul>li>button{display:flex;justify-content:space-between;gap:16px;width:100%;padding:14px 0;border-bottom:1px solid var(--gx-border);text-align:left;}
+.gx-dialog.drive-dialog .drive-name-input input{height:32px;}
+.gx-dialog.ppt-preview-dialog .gx-dialog-body>img{width:100%;border-radius:8px;}
+.gx-dialog.agent-create-dialog{width:448px;}
+.gx-dialog.agent-create-dialog .gx-dialog-body{display:flex;flex-direction:column;gap:16px;}
+.gx-dialog.agent-create-dialog :is(input,.ui-select){height:32px;background:var(--gx-surface);}
+.gx-dialog.agent-create-dialog textarea{background:var(--gx-surface);}
+.gx-dialog.im-modal .im-modal-actions{justify-content:center;}
+.gx-dialog.im-modal .im-profile-avatar{margin-bottom:12px;}
+.gx-dialog.search-dialog{width:560px;max-height:calc(100dvh - 40px);height:522px;}
+.gx-dialog.search-dialog .gx-dialog-body{max-height:none;}
+.gx-dialog.search-dialog .gx-search-field{margin:8px 30px 16px;flex-shrink:0;}
+@media(max-width:600px){
+ .gx-dialog.gx-dialog{max-height:calc(100dvh - 24px);max-width:calc(100vw - 24px);}
+ .gx-dialog .gx-dialog-header{padding-inline:20px;}
+ .gx-dialog .gx-dialog-body,.gx-dialog.app-manager-dialog .app-manager-section{padding-inline:20px;}
+ .gx-dialog.pn-article-detail :is(.gx-dialog-header,.gx-dialog-body){padding-inline:30px;}
+ .gx-dialog .gx-dialog-footer{padding:20px;column-gap:20px;}
+ .gx-dialog .gx-dialog-footer>.gx-dialog-reset{position:static;width:100%;height:24px;}
+ .gx-dialog.ns-dialog .ns-form{max-height:calc(100dvh - 24px);}
+ .gx-dialog.history-dialog .history-dialog-header{padding-inline:20px;}
+ .gx-dialog.history-dialog .history-results{padding-inline:20px;}
+ .gx-dialog.search-dialog .gx-search-field{margin-inline:20px;}
+}
+/* Standard single-column input fields used by compact creation dialogs. */
+.gx-dialog-field{display:flex;flex-direction:column;gap:8px;color:var(--gx-text-secondary);}
+.gx-dialog-field>input,.gx-dialog-field>textarea{width:100%;min-width:0;border:1px solid var(--gx-input-border);border-radius:var(--gx-radius-control);background:var(--gx-surface);color:var(--gx-text-primary);font:inherit;padding:4px 10px;outline:none;}
+.gx-dialog-field>input{height:32px;}.gx-dialog-field>textarea{resize:vertical;min-height:80px;}
+.gx-dialog-field>input:focus,.gx-dialog-field>textarea:focus{border-color:var(--gx-focus);}
+.gx-dialog-field>input::placeholder,.gx-dialog-field>textarea::placeholder{color:var(--gx-text-placeholder);}

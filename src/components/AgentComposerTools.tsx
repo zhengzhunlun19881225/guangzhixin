@@ -82,8 +82,8 @@ export function AgentComposerTools({ agent, onSelect, onInsert, busy }: {
           <span>{panel === '提示词模板' ? promptLabels[i] : text}</span>{panel === '提示词模板' && <small>{text}</small>}{knowledge === text && <Check size={14}/>}</button>)}</div>}
       </>}
     </section>}
-    {preview && createPortal(<dialog ref={dialog} className="ppt-preview-dialog" aria-label={`${preview.name}模板预览`} onCancel={e => { e.preventDefault(); closePreview(); }} onClick={e => { if (e.target === e.currentTarget) closePreview(); }}>
-      <header><strong>{preview.name} · 模板预览</strong><button aria-label="关闭模板预览" onClick={closePreview}><X size={18}/></button></header><img src={`assets/ppt-templates/${preview.id}.png`} alt={`${preview.name}模板封面预览`}/><footer><button onClick={closePreview}>返回模板</button><button className="use-ppt-template" onClick={() => useTemplate(preview)}>使用此模板</button></footer>
+    {preview && createPortal(<dialog ref={dialog} className="gx-dialog ppt-preview-dialog" aria-label={`${preview.name}模板预览`} onCancel={e => { e.preventDefault(); closePreview(); }} onClick={e => { if (e.target === e.currentTarget) closePreview(); }}>
+      <header className="gx-dialog-header"><strong>{preview.name} · 模板预览</strong><button aria-label="关闭模板预览" onClick={closePreview}><X size={18}/></button></header><div className="gx-dialog-body"><img src={`assets/ppt-templates/${preview.id}.png`} alt={`${preview.name}模板封面预览`}/></div><footer className="gx-dialog-footer"><button onClick={closePreview}>返回模板</button><button className="gx-dialog-primary use-ppt-template" onClick={() => useTemplate(preview)}>使用此模板</button></footer>
     </dialog>, document.body)}
   </div>;
 }

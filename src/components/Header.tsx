@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronDown, PanelLeft } from 'lucide-react';
+import { Check, ChevronDown, PanelLeft } from 'lucide-react';
+import type { UIMode } from '../design/useUIMode';
 import { MainTab } from '../types';
 import { figmaAssets } from '../data/figmaAssets';
 import { BrandLogo } from './BrandLogo';
@@ -13,6 +14,8 @@ interface HeaderProps {
   onToggleSidebar: () => void;
   onOpenSearch: () => void;
   onSwitchToWorkbenchDashboard?: () => void;
+  uiMode: UIMode;
+  onUIModeChange: (mode: UIMode) => void;
 }
 
 type Menu = 'settings' | 'help' | 'user' | null;
@@ -30,7 +33,7 @@ const helpItems = [
 ];
 
 export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, sidebarCollapsed,
-  showSidebarToggle = true, contextLabel, onToggleSidebar, onOpenSearch, onSwitchToWorkbenchDashboard }) => {
+  showSidebarToggle = true, contextLabel, onToggleSidebar, onOpenSearch, onSwitchToWorkbenchDashboard, uiMode, onUIModeChange }) => {
   const [menu, setMenu] = useState<Menu>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
   const lastTrigger = useRef<HTMLButtonElement | null>(null);
@@ -44,6 +47,13 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, sidebar
       if (event.key === 'Escape') {
         setMenu(null);
         lastTrigger.current?.focus();
+      }
+      if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
+        const items = Array.from(actionsRef.current?.querySelectorAll<HTMLButtonElement>('[role=menuitem]:not([hidden]), [role=menuitemradio]:not([hidden])') || []);
+        if (!items.length) return;
+        event.preventDefault();
+        const current = items.indexOf(document.activeElement as HTMLButtonElement);
+        items[event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : current < 0 ? 0 : (current + (event.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length]?.focus();
       }
     };
     document.addEventListener('pointerdown', dismiss);
@@ -60,6 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, sidebar
   };
   const renderMenu = (kind: Exclude<Menu, null>) => (
     <div className={`header-menu header-menu-${kind}`} role="menu" aria-label={kind === 'help' ? '帮助与反馈' : '个人设置'}>
+      {kind === 'settings' && <><p className="ui-mode-label">界面模式</p>{([{ value: 'original', label: '模式一', description: '当前样式' }, { value: 'spec', label: '模式二', description: '设计规范样式' }] as const).map(option => <button key={option.value} hidden={option.value === 'spec'} role="menuitemradio" aria-checked={uiMode === option.value} className="ui-mode-option" onClick={() => { onUIModeChange(option.value); setMenu(null); lastTrigger.current?.focus(); }}><span>{option.label}<small>{option.description}</small></span>{uiMode === option.value && <Check size={16} aria-hidden="true"/>}</button>)}<div className="ui-mode-separator" role="separator"/></>}
       {(kind === 'help' ? helpItems : preferenceItems).map(item => (
         <button key={item.label} role="menuitem" onClick={() => {
           setMenu(null);

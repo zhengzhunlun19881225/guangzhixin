@@ -1,70 +1,82 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowUpRight, Check, Copy, Download, FileText, Layers, Plus, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowLeft, ArrowUpRight, Check, Copy, Download, ChevronDown, Layers, X } from 'lucide-react';
 import { Button, EmptyState, PanelHeading, StatusBadge } from '../components/UI';
-import { SearchField, DateRangeField } from '../components/FieldControls';
+import { SearchField } from '../components/FieldControls';
 import { SelectField } from '../components/SelectField';
-import { NewsCarousel } from '../components/NewsCarousel';
-import { components, interactions, pages, rules, sections, specVersion } from './catalog';
+import { interactions, pages, rules, sections, specVersion } from './catalog';
+import { HoverExamples } from './HoverExamples';
 import tokenSource from './tokens.css?raw';
+import foundation from './foundationReference.json';
 import './spec.css';
+import { ComponentNavigation, ComponentReference, useComponentCatalogue } from './ComponentReference';
 
-const palette = [
-  ['主文字', 'text-primary'], ['次级文字', 'text-secondary'], ['辅助文字', 'text-muted'], ['占位文字', 'text-placeholder'],
-  ['悬浮文字', 'hover-text'], ['焦点边框', 'focus'], ['悬浮背景', 'hover-bg'], ['选中背景', 'selected-bg'],
-  ['分隔线', 'border'], ['面板背景', 'surface'], ['成功', 'success'], ['错误', 'danger'],
-];
+const paletteGroups = foundation.paletteGroups;
 function tokenValue(name: string) { return tokenSource.match(new RegExp(`--gx-${name}:\\s*([^;]+)`))?.[1] ?? ''; }
-const typography = [ ['大标题','title','title','首页欢迎语'], ['回答标题','heading','answer','AI 回答与详情标题'], ['区块标题','section','section','业务模块标题 / AI 正文用 16/28'], ['正文','body','body','业务内容与简报'], ['辅助说明','caption','caption','时间、来源和辅助状态'] ];
+const typography = foundation.typography;
 function SpecSection({ id, title, subtitle, children }: { id:string; title:string; subtitle:string; children:React.ReactNode }) {
   return <section id={id} className="spec-section" aria-labelledby={`${id}-heading`}><div className="spec-section-title"><span>{String(sections.findIndex(s=>s[0]===id)+1).padStart(2,'0')}</span><div><h2 id={`${id}-heading`}>{title}</h2><p>{subtitle}</p></div></div>{children}</section>;
 }
 export default function DesignSpec() {
-  const [active,setActive]=useState('overview');
+  const [active,setActive]=useState('foundations');
   const [notice,setNotice]=useState('');
   const [search,setSearch]=useState('');
   const [group,setGroup]=useState('全部页面');
-  const [sampleSearch,setSampleSearch]=useState('');
-  const [start,setStart]=useState('');const [end,setEnd]=useState('');
-  const [selected,setSelected]=useState('Word文档');
-  const [busy,setBusy]=useState(false);const timer=useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [tab,setTab]=useState('待办');const [name,setName]=useState('');const [formError,setFormError]=useState(false);
-  const dialog=useRef<HTMLDialogElement>(null);const opener=useRef<HTMLElement | null>(null);
-  useEffect(()=>()=>{if(timer.current)clearTimeout(timer.current);},[]);
-  useEffect(()=>{const target=window.location.hash.slice(1);if(target)document.getElementById(target)?.scrollIntoView();},[]);
-  useEffect(()=>{ const root=document.querySelector('.spec-main');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)setActive(e.target.id);},{root,rootMargin:'0px 0px -70% 0px',threshold:0});document.querySelectorAll('.spec-section').forEach(el=>observer.observe(el));return()=>observer.disconnect();},[]);
+  const catalogue = useComponentCatalogue();
+  const [navigationOpen, setNavigationOpen] = useState(false);
+  useEffect(()=>{
+    const followHash=()=>{
+      const target=window.location.hash.slice(1);
+      if(!target)return;
+      const id=target==='components'?'library':target==='overview'?'foundations':target;
+      if(id!==target){const url=new URL(location.href);url.hash=id;history.replaceState(null,'',url);}
+      const component=new URLSearchParams(location.search).get('component');
+      document.getElementById(id==='library'&&component?`component-${component}`:id)?.scrollIntoView();
+    };
+    followHash();window.addEventListener('hashchange',followHash);
+    return()=>window.removeEventListener('hashchange',followHash);
+  },[]);
+  useEffect(() => {
+    const root = document.querySelector('.spec-main');
+    if (!root) return;
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const threshold = root.getBoundingClientRect().top + 80;
+        const visible = Array.from(root.querySelectorAll<HTMLElement>('.spec-section')).filter(el => el.getBoundingClientRect().top <= threshold);
+        setActive(visible.at(-1)?.id || 'foundations');
+      });
+    };
+    root.addEventListener('scroll', update, { passive: true });
+    const observer = new ResizeObserver(update); observer.observe(root); update();
+    return () => { cancelAnimationFrame(frame); root.removeEventListener('scroll', update); observer.disconnect(); };
+  }, []);
   async function copy(text:string){try{await navigator.clipboard.writeText(text);setNotice(`已复制 ${text}`);}catch{setNotice('无法访问剪贴板，请选中文本手动复制。');}}
-  function download(){const url=URL.createObjectURL(new Blob([tokenSource],{type:'text/css;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='guangzhixin-tokens-v1.css';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setNotice('已下载当前系统使用的样式参数。');}
-  function closeDialog(){dialog.current?.close();opener.current?.focus();}
+  function download(){const url=URL.createObjectURL(new Blob([tokenSource],{type:'text/css;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='guangzhixin-tokens-v3.css';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setNotice('已下载当前系统使用的样式参数。');}
   const filtered=pages.filter(p=>(group==='全部页面'||p.group===group)&&`${p.name}${p.rules}${p.source}`.toLowerCase().includes(search.toLowerCase()));
   return <div className="app-shell spec-app">
     <a className="spec-skip" href="?view=design-system#spec-content">跳到规范内容</a>
     <header className="spec-header"><a href="?view=dashboard" className="spec-brand"><span>广智新</span><i/>设计规范</a><div><StatusBadge>v{specVersion}</StatusBadge><a href="?view=dashboard" className="spec-back"><ArrowLeft size={15}/>返回系统</a><Button onClick={download}><Download size={14}/>下载样式参数</Button></div></header>
-    <div className="spec-layout"><aside className="spec-sidebar"><p>产品设计系统</p><nav aria-label="规范目录">{sections.map(([id,label],i)=><a key={id} href={`?view=design-system#${id}`} aria-current={active===id?'location':undefined} onClick={()=>setActive(id)}><span>{String(i+1).padStart(2,'0')}</span>{label}</a>)}</nav><div className="spec-sidebar-note"><Layers size={20}/><strong>与产品共用组件</strong><p>示例直接引用系统组件，样式参数与实际页面同步。</p><a href="https://github.com/zhengzhunlun19881225/guangzhixin/tree/main/docs/design-system" target="_blank" rel="noreferrer">查看开发文档 <ArrowUpRight size={14}/></a></div></aside>
-    <main className="spec-main" id="spec-content" tabIndex={-1}>
-      <SpecSection id="overview" title="广智新设计规范" subtitle="从已确认的设计到可复用、可检查的产品标准。">
-        <div className="spec-hero"><div><span className="spec-eyebrow">GUANGZHIXIN · DESIGN SYSTEM</span><h1>一致的体验，<br/>从每一个细节开始。</h1><p>覆盖工作台、AI 对话、门户、文档和协作。统一基础规则，保留业务场景所需的差异。</p><div className="spec-hero-links"><a href="?view=design-system#components">查看组件示例 <ArrowUpRight size={16}/></a><a href="?view=design-system#acceptance">开发与验收清单</a></div></div><div className="spec-hero-art" aria-hidden="true"><div><Layers size={40}/></div><div><span>Aa</span></div><div><span className="spec-dot"/><span className="spec-dot"/><span className="spec-dot"/></div></div></div>
-        <div className="spec-metrics">{[[pages.length,'页面与场景'],[components.length,'公共组件'],[interactions.length,'交互状态'],['1','样式参数来源']].map(([n,label])=><div key={label}><strong>{n}</strong><span>{label}</span></div>)}</div>
-        <div className="spec-note"><strong>使用顺序</strong><p>先查基础参数，再选公共组件，最后套用业务模式。新增规则需记录用途与适用页面，不能只在单页叠加覆盖。</p></div>
-      </SpecSection>
+    <div className="spec-layout"><aside className="spec-sidebar" data-expanded={navigationOpen}><p>产品设计系统</p>
+      <button type="button" className="spec-mobile-nav-toggle" aria-expanded={navigationOpen} aria-controls="spec-navigation" onClick={()=>setNavigationOpen(v=>!v)}>规范目录<ChevronDown size={16}/></button>
+      <nav id="spec-navigation" className="spec-navigation" aria-label="规范目录">{sections.map(([id,label],i)=><div className="spec-nav-item" key={id}>
+        <a href={`?view=design-system#${id}`} aria-current={active===id?'location':undefined} aria-controls={id==='library'?'component-navigation':undefined} aria-expanded={id==='library'?active==='library':undefined} onClick={e=>{e.preventDefault();setActive(id);const url=new URL(location.href);url.hash=id;history.pushState(null,'',url);document.getElementById(id)?.scrollIntoView();if(id!=='library')setNavigationOpen(false);}}><span>{String(i+1).padStart(2,'0')}</span>{label}{id==='library'&&<ChevronDown size={14} className={active==='library'?'is-expanded':''}/>}</a>
+        {id==='library'&&<div hidden={active!=='library'}><ComponentNavigation catalogue={catalogue} onChoose={id=>{setActive('library');setNavigationOpen(false);requestAnimationFrame(()=>{document.getElementById(`component-${id}`)?.scrollIntoView({block:'start',behavior:'instant'});if(window.matchMedia('(max-width:800px)').matches)document.getElementById('spec-content')?.focus({preventScroll:true});});}}/></div>}
+      </div>)}</nav><div className="spec-sidebar-note"><Layers size={20}/><strong>与产品共用组件</strong><p>组件规范全览区分公共组件、业务实现和新增规范示例。</p><a href="https://github.com/zhengzhunlun19881225/guangzhixin/tree/main/docs/design-system" target="_blank" rel="noreferrer">查看开发文档 <ArrowUpRight size={14}/></a></div></aside>
+    <main className="spec-main" id="spec-content" aria-label="广智新设计规范" tabIndex={-1}>
       <SpecSection id="foundations" title="基础样式" subtitle="颜色来自语义参数；字号、间距与圆角各有明确用途。">
-        <div className="spec-colors">{palette.map(([label,name])=><button key={name} onClick={()=>copy(`var(--gx-${name})`)} className="spec-swatch" aria-label={`复制${label}变量`}><span style={{background:`var(--gx-${name})`}}/><strong>{label}</strong><code>{tokenValue(name)}</code><small>--gx-{name}<Copy size={12}/></small></button>)}</div>
+        <div className="spec-palette-groups">{paletteGroups.map(group=><section className="spec-palette-group" key={group.title}><h3>{group.title}</h3><div className="spec-colors">{group.colors.map(([label,name,usage])=><button key={name} onClick={()=>copy(`var(--gx-${name})`)} className="spec-swatch" aria-label={`复制${label}变量`}><span style={{background:`var(--gx-${name})`}}/><strong>{label}</strong><code>{tokenValue(name)}</code><p>{usage}</p><small>--gx-{name}<Copy size={12}/></small></button>)}</div></section>)}</div>
         <div className="spec-note">辅助灰色适用于次要元信息。关键操作、错误和主要正文不得仅使用浅灰；状态必须同时有文字说明。</div>
         <div className="spec-card"><PanelHeading title="文字层级"/>{typography.map(([label,size,line,usage])=><div className="spec-type-row" key={label}><span style={{fontSize:`var(--gx-font-${size})`,lineHeight:`var(--gx-line-${line})`}}>{label} · 广智新</span><code>{tokenValue(`font-${size}`)} / {tokenValue(`line-${line}`)}</code><small>{usage}</small></div>)}</div>
-        <div className="spec-two-col"><div className="spec-card"><PanelHeading title="间距节奏"/><div className="spec-spacing">{[1,2,3,4,5,6,8].map(n=><div key={n}><i style={{width:`var(--gx-space-${n})`}}/><code>{tokenValue(`space-${n}`)}</code></div>)}</div><p>4/8px 用于局部间隔，12/16px 用于组件内容，20px 用于业务面板，24/32px 用于大区块。</p></div><div className="spec-card"><PanelHeading title="圆角与层次"/><div className="spec-radii">{['small','control','card','pill'].map(n=><div key={n} style={{borderRadius:`var(--gx-radius-${n})`}}><span>{tokenValue(`radius-${n}`)}</span></div>)}</div><p>菜单选项 4px、控件 8px、面板 16px、胶囊 999px。菜单使用统一阴影；静态面板不使用悬浮抬升。</p></div></div>
+        <div className="spec-two-col"><div className="spec-card"><PanelHeading title="间距节奏"/><div className="spec-spacing">{foundation.spacing.map(n=><div key={n}><i style={{width:`var(--gx-space-${n})`}}/><code>{tokenValue(`space-${n}`)}</code></div>)}</div><p>4/8px 用于局部间隔，12/16px 用于组件内容，20px 用于业务面板，24/32px 用于大区块。</p></div><div className="spec-card"><PanelHeading title="圆角与层次"/><div className="spec-radii">{foundation.radii.map(n=><div key={n} style={{borderRadius:`var(--gx-radius-${n})`}}><span>{tokenValue(`radius-${n}`)}</span></div>)}</div><p>菜单选项 4px、控件 8px、反馈浮层 12px、面板 16px、胶囊 999px。菜单使用统一阴影；静态面板不使用悬浮抬升。</p></div></div>
       </SpecSection>
-      <SpecSection id="components" title="公共组件" subtitle="下方均为实际组件，可直接操作检查状态与行为。">
-        <div className="spec-card"><PanelHeading title="按钮与状态"/><div className="spec-demo-row"><Button variant="primary" onClick={()=>setNotice('主操作示例已触发。')}><Plus size={14}/>创建</Button><Button onClick={()=>setNotice('次操作示例已触发。')}>次操作</Button><Button variant="text" onClick={()=>setNotice('文字操作示例已触发。')}>文字操作</Button><Button variant="danger" onClick={()=>{opener.current=document.activeElement as HTMLElement;setName('');setFormError(false);dialog.current?.showModal();}}>打开确认示例</Button><Button disabled>不可用</Button><Button variant="primary" loading={busy} onClick={()=>{setBusy(true);timer.current=setTimeout(()=>{setBusy(false);setNotice('演示完成，没有提交业务数据。');},1200);}}>{busy?'处理中':'演示加载'}</Button></div><div className="spec-demo-row">{(['success','info','warning','danger','neutral'] as const).map((tone,i)=><StatusBadge key={tone} tone={tone}>{['已完成','待处理','待确认','失败','未开始'][i]}</StatusBadge>)}</div><p>主按钮保留白字与品牌渐变。状态标签兼用文字和颜色；成功色统一为更易辨认的深绿色。</p></div>
-        <div className="spec-card"><PanelHeading title="搜索与筛选"/><div className="spec-demo-row"><SearchField label="组件搜索示例" value={sampleSearch} onChange={setSampleSearch}/><SelectField label="文件类型示例" options={['文件夹','Word文档','PDF文档',{value:'archive',label:'归档文件（不可选）',disabled:true}]} value={selected} onChange={setSelected}/><SelectField label="带图标示例" options={[{value:'word',label:'Word文档',icon:<FileText/>},{value:'pdf',label:'PDF文档',icon:<FileText/>}]}/><SelectField label="紧凑筛选示例" variant="compact" options={['全部企业','集团合并']}/><SelectField label="禁用选择示例" options={[{value:'disabled',label:'暂不可用',disabled:true}]}/><DateRangeField className="spec-date-range" start={start} end={end} onStartChange={setStart} onEndChange={setEnd}/></div><p>当前搜索：{sampleSearch||'未输入'}；文件类型：{selected}。无图标选项不预留图标列。默认 32px，数据页紧凑筛选 26px。</p><details><summary>查看组件用法</summary><pre>{`<SearchField label="搜索文件" value={query} onChange={setQuery} />\n<SelectField label="文件类型" value={kind} onChange={setKind}\n  options={[{ value: 'pdf', label: 'PDF文档' }]} />\n<Button variant="primary" loading={saving} onClick={save}>保存</Button>`}</pre></details></div>
-        <div className="spec-two-col"><div className="spec-card"><PanelHeading title="区块标题" onAction={()=>setNotice('“更多”应打开该模块的完整列表。')}/><div className="spec-segments" aria-label="示例分类">{['待办','已办','消息'].map(t=><button key={t} aria-pressed={tab===t} onClick={()=>setTab(t)}>{t}</button>)}</div><div className="spec-example-task"><strong>{tab==='待办'?'请确认本周项目进度':tab==='已办'?'季度采购计划已处理':'您有一条新的协作消息'}</strong><StatusBadge tone={tab==='已办'?'success':'info'}>{tab}</StatusBadge></div><p>区块标题不因图标缺失留下空槽；“更多”的可访问名称包含模块名。</p></div><div className="spec-card"><PanelHeading title="空状态"/><EmptyState title={sampleSearch?'暂无匹配结果':'暂无内容'} description={sampleSearch?'请调整关键词或清空筛选条件。':'内容准备好后会展示在这里。'} action={sampleSearch?<Button onClick={()=>setSampleSearch('')}>清空筛选</Button>:undefined}/></div></div>
-        <div className="spec-card"><PanelHeading title="资讯轮播"/><NewsCarousel label="规范示例资讯" count={6} resetKey="spec">{['数字化协作与业务创新','智能服务提升办公效率','统一设计让协作更顺畅','知识管理与信息共享','工作台常用功能指南','数据看板与分析方法'].map((title,i)=><button className="spec-news-card" key={title} onClick={()=>setNotice(`已打开示例：${title}`)}><span className="spec-news-art"><Layers size={28}/><b>0{i+1}</b></span><strong>{title}</strong><small>示例内容 · 2026-11-06</small></button>)}</NewsCarousel><p>移入区域显示切换箭头；列表可用左右方向键滚动。卡片标题悬浮变红。</p></div>
-        <div className="spec-table-wrap"><table><caption>组件与代码对应关系</caption><thead><tr><th>组件</th><th>参数与行为</th><th>实际使用</th><th>尺寸</th></tr></thead><tbody>{components.map(([name,source,api,usage,size])=><tr key={name}><td><strong>{name}</strong><small>{source}</small></td><td>{api}</td><td>{usage}</td><td>{size}</td></tr>)}</tbody></table></div>
-      </SpecSection>
-      <SpecSection id="interaction" title="状态与交互" subtitle="相同状态保持一致；确有用途的差异明确登记。"><div className="spec-table-wrap"><table><thead><tr><th>状态</th><th>标准</th><th>边界与例外</th></tr></thead><tbody>{interactions.map(row=><tr key={row[0]}>{row.map((cell,i)=>i===0?<th scope="row" key={i}>{cell}</th>:<td key={i}>{cell}</td>)}</tr>)}</tbody></table></div><div className="spec-note"><strong>键盘与浮层</strong><p>下拉框支持方向键、Home/End、Enter、Escape 和 Tab。浮层接近屏幕底部时向上展开。原生弹窗演示支持焦点约束与关闭后返回触发点。</p></div></SpecSection>
+      <SpecSection id="library" title="组件规范全览" subtitle="六类 59 项组件，涵盖使用场景、视觉结构、交互状态、键盘操作及接入边界。"><ComponentReference catalogue={catalogue}/></SpecSection>
+      <SpecSection id="interaction" title="状态与交互" subtitle="相同状态保持一致；确有用途的差异明确登记。"><HoverExamples/><div className="spec-table-wrap"><table><thead><tr><th>状态</th><th>标准</th><th>边界与例外</th></tr></thead><tbody>{interactions.map(row=><tr key={row[0]}>{row.map((cell,i)=>i===0?<th scope="row" key={i}>{cell}</th>:<td key={i}>{cell}</td>)}</tr>)}</tbody></table></div><div className="spec-note"><strong>键盘与浮层</strong><p>下拉框支持方向键、Home/End、Enter、Escape 和 Tab。浮层接近屏幕底部时向上展开。原生弹窗演示支持焦点约束与关闭后返回触发点。</p></div></SpecSection>
       <SpecSection id="patterns" title="页面与业务模式" subtitle="组件组合规则，以及不能被全局样式覆盖的场景要求。"><div className="spec-two-col">{rules.map(rule=><article className="spec-card" key={rule.title}><h3>{rule.title}</h3><p>{rule.text}</p></article>)}</div></SpecSection>
       <SpecSection id="inventory" title="页面盘点" subtitle="包含当前页面、进入方式、代码入口和验收重点。"><div className="spec-demo-row"><SearchField label="查找页面规范" placeholder="搜索页面、规则或组件" value={search} onChange={setSearch}/><SelectField label="页面分组" options={['全部页面','工作台','文档','门户','协作']} value={group} onChange={setGroup}/><span>{filtered.length} 个场景</span></div><div className="spec-table-wrap"><table><thead><tr><th>页面 / 场景</th><th>适用规则</th><th>验收重点</th><th>查看</th></tr></thead><tbody>{filtered.map(page=><tr key={page.name}><td><strong>{page.name}</strong><small>{page.source}</small></td><td>{page.rules}</td><td>{page.check}</td><td><a href={page.url||'?view=chat'} target="_blank" rel="noreferrer" aria-label={`打开${page.name}`}>打开 <ArrowUpRight size={13}/></a></td></tr>)}</tbody></table></div>{!filtered.length&&<EmptyState title="暂无匹配页面" action={<Button onClick={()=>{setSearch('');setGroup('全部页面');}}>清空筛选</Button>}/>}</SpecSection>
-      <SpecSection id="acceptance" title="开发与验收" subtitle="设计变更、组件实现和页面检查组成同一个交付流程。"><div className="spec-card"><ol className="spec-checks">{['确认页面属于现有模式，记录新增状态及业务例外。','优先引用公共组件；颜色、尺寸使用语义参数。','检查默认、悬浮、选中、聚焦、禁用、加载、错误、空状态。','验证键盘、长文本、空结果、弹窗层级和滚动边界。','运行类型检查、规范检查、构建与浏览器回归。','同步更新规范、验收记录和版本号，再发布。'].map(text=><li key={text}><Check size={16}/>{text}</li>)}</ol><pre>{`npm run lint\nnpm run check:design\nnpm run build\nnpm run check:ui  # 启动本地预览后执行，需 Playwright + Chrome`}</pre></div><div className="spec-note"><strong>本版覆盖与边界</strong><p>统一核心颜色、字段尺寸、菜单状态、工作台状态标签，新增公共组件并接入现有业务页面。浏览器回归覆盖桌面代表性页面与关键交互；完整人工可访问性审计、企业后端接入及移动端重设计不属于本版验收结论。详细结果与遗留项见开发文档。</p></div><footer className="spec-footer">广智新设计规范 · v{specVersion} · 2026-11-06</footer></SpecSection>
+      <SpecSection id="acceptance" title="开发与验收" subtitle="设计变更、组件实现和页面检查组成同一个交付流程。"><div className="spec-card"><ol className="spec-checks">{['确认页面属于现有模式，记录新增状态及业务例外。','优先引用公共组件；颜色、尺寸使用语义参数。','检查默认、悬浮、选中、聚焦、禁用、加载、错误、空状态。','验证键盘、长文本、空结果、弹窗层级和滚动边界。','运行类型检查、规范检查、构建与浏览器回归。','同步更新规范、验收记录和版本号，再发布。'].map(text=><li key={text}><Check size={16}/>{text}</li>)}</ol><pre>{`npm run lint\nnpm run check:design\nnpm run build\nnpm run check:ui  # 启动本地预览后执行，需 Playwright + Chrome`}</pre></div><div className="spec-note"><strong>本版覆盖与边界</strong><p>统一核心颜色、字段尺寸、菜单状态、工作台状态标签，新增公共组件并接入现有业务页面。浏览器回归覆盖桌面代表性页面与关键交互；完整人工可访问性审计、企业后端接入及移动端重设计不属于本版验收结论。详细结果与遗留项见开发文档。</p></div><footer className="spec-footer">广智新设计规范 · v{specVersion} · 2026-11-07</footer></SpecSection>
     </main></div>
     <div className="spec-notice" role="status" aria-live="polite">{notice&&<><Check size={16}/><span>{notice}</span><button aria-label="关闭提示" onClick={()=>setNotice('')}><X size={14}/></button></>}</div>
-    <dialog ref={dialog} className="spec-dialog" aria-labelledby="spec-dialog-title" onCancel={e=>{e.preventDefault();closeDialog();}}><header><h2 id="spec-dialog-title">确认操作示例</h2><button aria-label="关闭确认示例" onClick={closeDialog}><X size={18}/></button></header><form onSubmit={e=>{e.preventDefault();if(name.trim()!=='确认'){setFormError(true);return;}closeDialog();setNotice('确认流程完成，没有删除业务数据。');}}><p>输入“确认”体验校验和确认流程。</p><label htmlFor="spec-confirm-input">确认文字</label><input id="spec-confirm-input" value={name} onChange={e=>{setName(e.target.value);setFormError(false);}} aria-invalid={formError} aria-describedby={formError?'spec-form-error':undefined}/>{formError&&<p id="spec-form-error" role="alert">请输入“确认”后继续。</p>}<footer><Button onClick={closeDialog}>取消</Button><Button variant="danger" type="submit">确认操作</Button></footer></form></dialog>
+
   </div>;
 }

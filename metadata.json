@@ -1,0 +1,6 @@
+{
+  "name": "广智新 - 企业智能协同平台",
+  "description": "广智新是广新控股集团打造的企业级一站式智能协同与AI门户系统，深度融合AI智能体、知识库、协同工作台、广新门户与即时通讯。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

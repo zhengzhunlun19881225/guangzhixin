@@ -1,7 +1,7 @@
 /* Shared sidebar selection colors, with the requested 8px corners. */
 .app-shell .app-sidebar :is(nav,div:first-child)>button[aria-current="page"] {
   background:var(--color-red-50,var(--gx-selected-bg));
-  color:#ff0000;
+  color:var(--gx-selected-text);
   border-radius:8px;
   font-weight:400;
 }
@@ -20,7 +20,7 @@
   font-size:14px;line-height:20px;transition-property:color,background-color;
 }
 .app-shell .app-sidebar .sidebar-menu-button:not([aria-current="page"]):hover{
-  background:#f5f6f8;color:var(--ink);
+  background:var(--gx-neutral-bg);color:var(--ink);
 }
 
 /* The history section stays anchored below the same fixed menu block. */

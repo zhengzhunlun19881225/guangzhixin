@@ -110,10 +110,10 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
 
             <div className="ai-feature-cards">
               {[
-                {title:'AI+财务自动差旅',description:'一句话提交出差申请单',asset:'img10',color:'#1677ff'},
-                {title:'法智小新',description:'解法规，答操作',asset:'img2',color:'#7f37eb'},
-                {title:'制作PPT',description:'从需求到方案一键生成完整方案',asset:'img7',color:'#ff7800'},
-                {title:'AI+员工服务',description:'一句话提交请假、加班申请单',asset:'img5',color:'#ff0000'}
+                {title:'AI+财务自动差旅',description:'一句话提交出差申请单',asset:'img10',color:'var(--gx-info)'},
+                {title:'法智小新',description:'解法规，答操作',asset:'img2',color:'var(--gx-purple)'},
+                {title:'制作PPT',description:'从需求到方案一键生成完整方案',asset:'img7',color:'var(--gx-warning)'},
+                {title:'AI+员工服务',description:'一句话提交请假、加班申请单',asset:'img5',color:'var(--gx-brand)'}
               ].map(card => <button key={card.title} onClick={() => handleCardClick(card.title)} className="ai-feature-card" style={{'--feature-color':card.color} as React.CSSProperties}>
                 <div className="ai-feature-art"><img src={figmaAssets['71-5548:'+card.asset]} alt="" /><h3>{card.title}</h3></div>
                 <p>{card.description}</p>

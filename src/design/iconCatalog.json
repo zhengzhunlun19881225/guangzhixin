@@ -1,0 +1,2473 @@
+{
+  "version": "3.4.0",
+  "sourceCount": 138,
+  "uniqueCount": 133,
+  "sources": [
+    {
+      "index": 0,
+      "name": "TTS",
+      "source": "/Users/alien/Desktop/图标/icon/TTS.svg",
+      "sha256": "b4c85a08a4d6b30ed9aeb0431e7e773e6db631bb3b6f8f43bbe8ba1d39cb709d",
+      "canonicalSourceIndex": 0,
+      "status": "retained"
+    },
+    {
+      "index": 1,
+      "name": "上",
+      "source": "/Users/alien/Desktop/图标/icon/上.svg",
+      "sha256": "d5027de148551e782439e396b8b1b05c7e54f43db8f45a126f195b495b24ae63",
+      "canonicalSourceIndex": 1,
+      "status": "retained"
+    },
+    {
+      "index": 2,
+      "name": "上传",
+      "source": "/Users/alien/Desktop/图标/icon/上传.svg",
+      "sha256": "a28e3f10a7c10f5dcc25117a38d645344269586dfff6383d00044b0377b80d75",
+      "canonicalSourceIndex": 2,
+      "status": "retained"
+    },
+    {
+      "index": 3,
+      "name": "上传备份",
+      "source": "/Users/alien/Desktop/图标/icon/上传备份.svg",
+      "sha256": "fb9173561cc26bfcddf00bb2a5a6cd3c2fa30cbfed3aef96ec07f474a1e646ce",
+      "canonicalSourceIndex": 11,
+      "status": "duplicate"
+    },
+    {
+      "index": 4,
+      "name": "上箭头",
+      "source": "/Users/alien/Desktop/图标/icon/上箭头.svg",
+      "sha256": "810fb8475e9856e5d602f201880106cee42ceb998fc88aeaf826d4398c1db5d4",
+      "canonicalSourceIndex": 4,
+      "status": "retained"
+    },
+    {
+      "index": 5,
+      "name": "下",
+      "source": "/Users/alien/Desktop/图标/icon/下.svg",
+      "sha256": "b200fdd85f5f6543c3c6a8f303ba0e849f15cc0f70c32c1b1c72a0e12f02414b",
+      "canonicalSourceIndex": 5,
+      "status": "retained"
+    },
+    {
+      "index": 6,
+      "name": "下箭头",
+      "source": "/Users/alien/Desktop/图标/icon/下箭头.svg",
+      "sha256": "bbb2ca4d1780ce21fa171e101bfef89980251ec5d535c370f7c6391a67a6b3e0",
+      "canonicalSourceIndex": 6,
+      "status": "retained"
+    },
+    {
+      "index": 7,
+      "name": "下载",
+      "source": "/Users/alien/Desktop/图标/icon/下载.svg",
+      "sha256": "e2a6c0d0c0fe0dd6a3179337feb97c8854ff0db66d2160197e255fb605d453e1",
+      "canonicalSourceIndex": 7,
+      "status": "retained"
+    },
+    {
+      "index": 8,
+      "name": "个人信息",
+      "source": "/Users/alien/Desktop/图标/icon/个人信息.svg",
+      "sha256": "6743f33e1fb4edcf09ae01671810f4473a1a3004a54975963727ec22b40c86c9",
+      "canonicalSourceIndex": 8,
+      "status": "retained"
+    },
+    {
+      "index": 9,
+      "name": "中心",
+      "source": "/Users/alien/Desktop/图标/icon/中心.svg",
+      "sha256": "f4cf5e5721777828cdb9c6e75da5790b6958c55c4a78111134d8f53e95a6b7bf",
+      "canonicalSourceIndex": 9,
+      "status": "retained"
+    },
+    {
+      "index": 10,
+      "name": "书本",
+      "source": "/Users/alien/Desktop/图标/icon/书本.svg",
+      "sha256": "97317fe6b70d39ce92fd91536f468dd67cd2c2329a6511724e704750c3919c7e",
+      "canonicalSourceIndex": 10,
+      "status": "retained"
+    },
+    {
+      "index": 11,
+      "name": "人员",
+      "source": "/Users/alien/Desktop/图标/icon/人员.svg",
+      "sha256": "b3a5b15da6ae28efedf2850942d7ddc20b92753d9e4f8705feb9493b102e6ee4",
+      "canonicalSourceIndex": 11,
+      "status": "retained"
+    },
+    {
+      "index": 12,
+      "name": "修改",
+      "source": "/Users/alien/Desktop/图标/icon/修改.svg",
+      "sha256": "ec54a4bbfceb97549a68be58e23a06f35c64a631302bffcacfc718a6367dddb2",
+      "canonicalSourceIndex": 12,
+      "status": "retained"
+    },
+    {
+      "index": 13,
+      "name": "修改备份 2",
+      "source": "/Users/alien/Desktop/图标/icon/修改备份 2.svg",
+      "sha256": "74a4f1bad8bb6e0618d0054d30c1dce3cdf80f84f307e221122f822954468fac",
+      "canonicalSourceIndex": 16,
+      "status": "duplicate"
+    },
+    {
+      "index": 14,
+      "name": "修改备份 3",
+      "source": "/Users/alien/Desktop/图标/icon/修改备份 3.svg",
+      "sha256": "8bb259d70c7a31231aefe52ae8a73767fa7477c8325b3f51b0b3908c55a2f623",
+      "canonicalSourceIndex": 14,
+      "status": "retained"
+    },
+    {
+      "index": 15,
+      "name": "公文包",
+      "source": "/Users/alien/Desktop/图标/icon/公文包.svg",
+      "sha256": "e50f93bb310c5ff794f3de37be4db8fde65efadc23971e3c71f0419be117d017",
+      "canonicalSourceIndex": 15,
+      "status": "retained"
+    },
+    {
+      "index": 16,
+      "name": "关闭",
+      "source": "/Users/alien/Desktop/图标/icon/关闭.svg",
+      "sha256": "7322d4d029a523a2cf199a501321478ecda82ef7e4eb4497ab035ba57cdb5946",
+      "canonicalSourceIndex": 16,
+      "status": "retained"
+    },
+    {
+      "index": 17,
+      "name": "关闭麦克风",
+      "source": "/Users/alien/Desktop/图标/icon/关闭麦克风.svg",
+      "sha256": "2dd1944c7a87cfa9fab8e81fc6c3f9fd0ba52bf495cc7a57745690f79ae92d2e",
+      "canonicalSourceIndex": 17,
+      "status": "retained"
+    },
+    {
+      "index": 18,
+      "name": "分享",
+      "source": "/Users/alien/Desktop/图标/icon/分享.svg",
+      "sha256": "a60a06f7604e815bf472f5a8a6162626edf3ba6e4a24e8b5e552e4808e800e71",
+      "canonicalSourceIndex": 18,
+      "status": "retained"
+    },
+    {
+      "index": 19,
+      "name": "分享备份 25",
+      "source": "/Users/alien/Desktop/图标/icon/分享备份 25.svg",
+      "sha256": "c05a946a0a434b91e7da426c620db4e7d7039cdda4d01456d9b6d79fb9cce30d",
+      "canonicalSourceIndex": 19,
+      "status": "retained"
+    },
+    {
+      "index": 20,
+      "name": "分享管理",
+      "source": "/Users/alien/Desktop/图标/icon/分享管理.svg",
+      "sha256": "1af1d47bee328d90c845c6e9c7619032afe952da5c96c397adcf876c2a76f970",
+      "canonicalSourceIndex": 20,
+      "status": "retained"
+    },
+    {
+      "index": 21,
+      "name": "列表设置",
+      "source": "/Users/alien/Desktop/图标/icon/列表设置.svg",
+      "sha256": "80317c914b2850d65f1a86c7187cc15cf36d242b442294347c11f84f29a36d52",
+      "canonicalSourceIndex": 21,
+      "status": "retained"
+    },
+    {
+      "index": 22,
+      "name": "刷新",
+      "source": "/Users/alien/Desktop/图标/icon/刷新.svg",
+      "sha256": "9f5979c76f43c8ed8b10ebd386b45560b86ddad4062f3f78646141f74cddea71",
+      "canonicalSourceIndex": 22,
+      "status": "retained"
+    },
+    {
+      "index": 23,
+      "name": "剪切",
+      "source": "/Users/alien/Desktop/图标/icon/剪切.svg",
+      "sha256": "6d8142463176305835ab23ef56f2faa99e3564ebbb286b3bed53d1e92fca1f20",
+      "canonicalSourceIndex": 23,
+      "status": "retained"
+    },
+    {
+      "index": 24,
+      "name": "右",
+      "source": "/Users/alien/Desktop/图标/icon/右.svg",
+      "sha256": "ea74bf1df753f12212cd97ba4c581a9e85ce8c5f39060f87f190d16e2c18613c",
+      "canonicalSourceIndex": 24,
+      "status": "retained"
+    },
+    {
+      "index": 25,
+      "name": "右撤",
+      "source": "/Users/alien/Desktop/图标/icon/右撤.svg",
+      "sha256": "cfadc21d6064552ac23b4f33c196b698584039eb0358828d6066080f93e042de",
+      "canonicalSourceIndex": 25,
+      "status": "retained"
+    },
+    {
+      "index": 26,
+      "name": "右箭头",
+      "source": "/Users/alien/Desktop/图标/icon/右箭头.svg",
+      "sha256": "fe81e7191bc3120dd07a267359fffc30ef09e5e93aca9794efc46cf50a914595",
+      "canonicalSourceIndex": 26,
+      "status": "retained"
+    },
+    {
+      "index": 27,
+      "name": "合同",
+      "source": "/Users/alien/Desktop/图标/icon/合同.svg",
+      "sha256": "ebf469311ddcadd815ffce80d0ac1129da2c426f78885a4137d989afa07bff4a",
+      "canonicalSourceIndex": 27,
+      "status": "retained"
+    },
+    {
+      "index": 28,
+      "name": "合同通",
+      "source": "/Users/alien/Desktop/图标/icon/合同通.svg",
+      "sha256": "c55e908b6eef5eeaf872ddaad8349832f69935c72be03ac6356e24de669b29c7",
+      "canonicalSourceIndex": 28,
+      "status": "retained"
+    },
+    {
+      "index": 29,
+      "name": "合并",
+      "source": "/Users/alien/Desktop/图标/icon/合并.svg",
+      "sha256": "0d02b7cf3383fd49e81bbbf048f6a0b3a7063925064a5da1191e5d2372e783d9",
+      "canonicalSourceIndex": 29,
+      "status": "retained"
+    },
+    {
+      "index": 30,
+      "name": "名片",
+      "source": "/Users/alien/Desktop/图标/icon/名片.svg",
+      "sha256": "ed3ad1e978fc6c0c0af69dead7c10deba3307b19e41a60ddb2083e141b64f76c",
+      "canonicalSourceIndex": 30,
+      "status": "retained"
+    },
+    {
+      "index": 31,
+      "name": "名牌",
+      "source": "/Users/alien/Desktop/图标/icon/名牌.svg",
+      "sha256": "da45e1260af24a51178e5d621edc9a8749a6529c3e0b39c34dc9f078cc1e7678",
+      "canonicalSourceIndex": 31,
+      "status": "retained"
+    },
+    {
+      "index": 32,
+      "name": "图谱",
+      "source": "/Users/alien/Desktop/图标/icon/图谱.svg",
+      "sha256": "4ce51285398179b438673d2b9542094038481e6f1813d5cb1a944ec66f2fecd4",
+      "canonicalSourceIndex": 32,
+      "status": "retained"
+    },
+    {
+      "index": 33,
+      "name": "图谱备份",
+      "source": "/Users/alien/Desktop/图标/icon/图谱备份.svg",
+      "sha256": "937a94ad27b86f44c672536b075835f3d22b5656603ed34d27ed5e200dbaa3c2",
+      "canonicalSourceIndex": 33,
+      "status": "retained"
+    },
+    {
+      "index": 34,
+      "name": "垃圾",
+      "source": "/Users/alien/Desktop/图标/icon/垃圾.svg",
+      "sha256": "a8359d3c3f80f7de079933a348cfa485056e5fc6f19ee657bfa4eb01b60656c0",
+      "canonicalSourceIndex": 34,
+      "status": "retained"
+    },
+    {
+      "index": 35,
+      "name": "复制",
+      "source": "/Users/alien/Desktop/图标/icon/复制.svg",
+      "sha256": "7d85e8c8dc2bb2a79aadc4d5f51b0c51fa07beef3ca46086659a269f7a4e81e5",
+      "canonicalSourceIndex": 35,
+      "status": "retained"
+    },
+    {
+      "index": 36,
+      "name": "学历",
+      "source": "/Users/alien/Desktop/图标/icon/学历.svg",
+      "sha256": "d6e6fbdf2f32e71ce27cc52723574ac910b140c6db2fdf987baca7145676e53a",
+      "canonicalSourceIndex": 36,
+      "status": "retained"
+    },
+    {
+      "index": 37,
+      "name": "审核",
+      "source": "/Users/alien/Desktop/图标/icon/审核.svg",
+      "sha256": "6a772ead25a793256f7153c7b6d8c8197baa15bd5c01fc8d4fec68687f945436",
+      "canonicalSourceIndex": 37,
+      "status": "retained"
+    },
+    {
+      "index": 38,
+      "name": "对话 2",
+      "source": "/Users/alien/Desktop/图标/icon/对话 2.svg",
+      "sha256": "b264e4d76c38a7387115a0c15cf145457f8c30d3bf00a4e179438761d42fb8b2",
+      "canonicalSourceIndex": 38,
+      "status": "retained"
+    },
+    {
+      "index": 39,
+      "name": "对话 3",
+      "source": "/Users/alien/Desktop/图标/icon/对话 3.svg",
+      "sha256": "42dbbb18d133c9706e32485f5e380e49011dfeb14d6be9fc3c59c8a6b8ec8f25",
+      "canonicalSourceIndex": 38,
+      "status": "duplicate"
+    },
+    {
+      "index": 40,
+      "name": "对话",
+      "source": "/Users/alien/Desktop/图标/icon/对话.svg",
+      "sha256": "9a3d127c05995ad85fa2645d681446964736c05e94737e3e3d9deef1e68b3f72",
+      "canonicalSourceIndex": 40,
+      "status": "retained"
+    },
+    {
+      "index": 41,
+      "name": "对齐",
+      "source": "/Users/alien/Desktop/图标/icon/对齐.svg",
+      "sha256": "f5f66bb73c16a481a455bfa0d44fb457f8290a8fd6591227a90f991a1f002ff6",
+      "canonicalSourceIndex": 41,
+      "status": "retained"
+    },
+    {
+      "index": 42,
+      "name": "展开 2",
+      "source": "/Users/alien/Desktop/图标/icon/展开 2.svg",
+      "sha256": "e19612acbb63160b8cd38fe6aa9d1fe829d34bd47d4c949d36a4a5c3155134fd",
+      "canonicalSourceIndex": 42,
+      "status": "retained"
+    },
+    {
+      "index": 43,
+      "name": "展开",
+      "source": "/Users/alien/Desktop/图标/icon/展开.svg",
+      "sha256": "f5888929e0e3429fb377896a6b46c3219c6132b1311b3ddb13757778bf5acb4c",
+      "canonicalSourceIndex": 43,
+      "status": "retained"
+    },
+    {
+      "index": 44,
+      "name": "工作",
+      "source": "/Users/alien/Desktop/图标/icon/工作.svg",
+      "sha256": "0e90e03c0ab13cddb1f227df5eafcbccb1d8f2bf3333b58205e9b090a7d72492",
+      "canonicalSourceIndex": 44,
+      "status": "retained"
+    },
+    {
+      "index": 45,
+      "name": "左",
+      "source": "/Users/alien/Desktop/图标/icon/左.svg",
+      "sha256": "08a6a2ccf5812de01855be0e14e304bbdab109bf144c1a2dcb1ce8f32bf041f9",
+      "canonicalSourceIndex": 45,
+      "status": "retained"
+    },
+    {
+      "index": 46,
+      "name": "左撤",
+      "source": "/Users/alien/Desktop/图标/icon/左撤.svg",
+      "sha256": "5353ee4c2dd18f2af0a91287a1e0d9792c342196e6613adc9db53311ee220e56",
+      "canonicalSourceIndex": 46,
+      "status": "retained"
+    },
+    {
+      "index": 47,
+      "name": "左箭头",
+      "source": "/Users/alien/Desktop/图标/icon/左箭头.svg",
+      "sha256": "27fc3b4ea90560ed2b5f84dbac659c25c17d8125eac48957fca647f54cdd93bd",
+      "canonicalSourceIndex": 47,
+      "status": "retained"
+    },
+    {
+      "index": 48,
+      "name": "差旅",
+      "source": "/Users/alien/Desktop/图标/icon/差旅.svg",
+      "sha256": "2b9cb03a9715dc1efd908eb2caa3cba6caf3f1322141b6fd977ea4e14ea019d9",
+      "canonicalSourceIndex": 48,
+      "status": "retained"
+    },
+    {
+      "index": 49,
+      "name": "带圆添加",
+      "source": "/Users/alien/Desktop/图标/icon/带圆添加.svg",
+      "sha256": "20c5a782e0159c671997aa576d4a9f34e90b55ffe35a777d80df008815832302",
+      "canonicalSourceIndex": 49,
+      "status": "retained"
+    },
+    {
+      "index": 50,
+      "name": "带圆键盘",
+      "source": "/Users/alien/Desktop/图标/icon/带圆键盘.svg",
+      "sha256": "f97007714ad5362afebfdf00c45225c323a2e2089f37627e3b415c60e66b26a4",
+      "canonicalSourceIndex": 50,
+      "status": "retained"
+    },
+    {
+      "index": 51,
+      "name": "我",
+      "source": "/Users/alien/Desktop/图标/icon/我.svg",
+      "sha256": "b723a87fd2791dfdf639fe23d697999deaeb94184410a61e717bcc0b69978ee3",
+      "canonicalSourceIndex": 51,
+      "status": "retained"
+    },
+    {
+      "index": 52,
+      "name": "打包",
+      "source": "/Users/alien/Desktop/图标/icon/打包.svg",
+      "sha256": "b2296204880197dba425bac1b9edd2b85443df2176d7439698ce8e79e5ae8567",
+      "canonicalSourceIndex": 52,
+      "status": "retained"
+    },
+    {
+      "index": 53,
+      "name": "扫描",
+      "source": "/Users/alien/Desktop/图标/icon/扫描.svg",
+      "sha256": "581db30a727e89dc1ef1050d678cf23f19b0371e769ff0e58cea2012fa06eb0c",
+      "canonicalSourceIndex": 53,
+      "status": "retained"
+    },
+    {
+      "index": 54,
+      "name": "折线",
+      "source": "/Users/alien/Desktop/图标/icon/折线.svg",
+      "sha256": "31699f901122ca09be887360f16dda317f01557674df1c5cb2e44e86de5794bf",
+      "canonicalSourceIndex": 54,
+      "status": "retained"
+    },
+    {
+      "index": 55,
+      "name": "招聘",
+      "source": "/Users/alien/Desktop/图标/icon/招聘.svg",
+      "sha256": "e6d3eba340502966696231def027b2e2e316d11a9d970cac28ceea8cbff3bdd9",
+      "canonicalSourceIndex": 55,
+      "status": "retained"
+    },
+    {
+      "index": 56,
+      "name": "提交",
+      "source": "/Users/alien/Desktop/图标/icon/提交.svg",
+      "sha256": "9e18a40de872f4df264acd81795d644cba4b4e88ee72909329b5dc0eb02bc282",
+      "canonicalSourceIndex": 56,
+      "status": "retained"
+    },
+    {
+      "index": 57,
+      "name": "插入",
+      "source": "/Users/alien/Desktop/图标/icon/插入.svg",
+      "sha256": "0084368eb323481f0e14865e40ddb25b8000d3134eacb193e39629e6150a6dec",
+      "canonicalSourceIndex": 57,
+      "status": "retained"
+    },
+    {
+      "index": 58,
+      "name": "搜索",
+      "source": "/Users/alien/Desktop/图标/icon/搜索.svg",
+      "sha256": "d646dc853c2a1535a3be983f43e0c6b636783f2f03803fd7285532ffbdcf6840",
+      "canonicalSourceIndex": 58,
+      "status": "retained"
+    },
+    {
+      "index": 59,
+      "name": "摘要",
+      "source": "/Users/alien/Desktop/图标/icon/摘要.svg",
+      "sha256": "17eeedaf08e29185752963366ab9e0b58f8f1114051117a5e661bd027db822f7",
+      "canonicalSourceIndex": 59,
+      "status": "retained"
+    },
+    {
+      "index": 60,
+      "name": "撤回",
+      "source": "/Users/alien/Desktop/图标/icon/撤回.svg",
+      "sha256": "0c60a814c3b06dbbbdaf2bb0ac9338ad498cfe892f32ae34f17aa596dc51e734",
+      "canonicalSourceIndex": 60,
+      "status": "retained"
+    },
+    {
+      "index": 61,
+      "name": "播放",
+      "source": "/Users/alien/Desktop/图标/icon/播放.svg",
+      "sha256": "e51fc1dcf7a70ebdba0fa6c1a4efb2fcd9c42cbdc7b61b9c7fc101275987f664",
+      "canonicalSourceIndex": 61,
+      "status": "retained"
+    },
+    {
+      "index": 62,
+      "name": "收起 2",
+      "source": "/Users/alien/Desktop/图标/icon/收起 2.svg",
+      "sha256": "5f45ad809dc9f5eca8481c4901387cac849baed43b6e37935e51a885014a0c22",
+      "canonicalSourceIndex": 62,
+      "status": "retained"
+    },
+    {
+      "index": 63,
+      "name": "收起",
+      "source": "/Users/alien/Desktop/图标/icon/收起.svg",
+      "sha256": "bfc376a0457bc5962d4370d0d2287d9c4dbb9eeed80fb354c8ee591b2049dce1",
+      "canonicalSourceIndex": 63,
+      "status": "retained"
+    },
+    {
+      "index": 64,
+      "name": "放大",
+      "source": "/Users/alien/Desktop/图标/icon/放大.svg",
+      "sha256": "62656ed1df9e7ac3f1b9abb3694c5abdf3d82cb5b38c486ab2530ce7fc8b3971",
+      "canonicalSourceIndex": 64,
+      "status": "retained"
+    },
+    {
+      "index": 65,
+      "name": "数据",
+      "source": "/Users/alien/Desktop/图标/icon/数据.svg",
+      "sha256": "87f8cc99737f0ef0c2bb1636b9a9c1df69e8db9049b3e24a195b6ef5040b443c",
+      "canonicalSourceIndex": 65,
+      "status": "retained"
+    },
+    {
+      "index": 66,
+      "name": "数据图",
+      "source": "/Users/alien/Desktop/图标/icon/数据图.svg",
+      "sha256": "1a03ef0e4bd0d5ad1fd248eeb087ccfb4eff9d89eee1e5ceb421a0216eb2aa0b",
+      "canonicalSourceIndex": 66,
+      "status": "retained"
+    },
+    {
+      "index": 67,
+      "name": "数据集",
+      "source": "/Users/alien/Desktop/图标/icon/数据集.svg",
+      "sha256": "12276dfde73c38de1084f3887679ceaf915bef0d466b8418a6770e0e0e94c695",
+      "canonicalSourceIndex": 67,
+      "status": "retained"
+    },
+    {
+      "index": 68,
+      "name": "文字",
+      "source": "/Users/alien/Desktop/图标/icon/文字.svg",
+      "sha256": "a48b05c8fd2208824f048b20618b899daafc8e85166d420e915367b16823e1b7",
+      "canonicalSourceIndex": 68,
+      "status": "retained"
+    },
+    {
+      "index": 69,
+      "name": "文档",
+      "source": "/Users/alien/Desktop/图标/icon/文档.svg",
+      "sha256": "cab58823f95e2e7c416a6fccd84ec6b91b63c8dc1468accb16dd4a2566ff2e96",
+      "canonicalSourceIndex": 69,
+      "status": "retained"
+    },
+    {
+      "index": 70,
+      "name": "日期",
+      "source": "/Users/alien/Desktop/图标/icon/日期.svg",
+      "sha256": "5475c567020f9409ed582e2d82d414a952a3a9597ce16f09310a654c278ae624",
+      "canonicalSourceIndex": 70,
+      "status": "retained"
+    },
+    {
+      "index": 71,
+      "name": "明细",
+      "source": "/Users/alien/Desktop/图标/icon/明细.svg",
+      "sha256": "03bddee9b6c1936401c473b0756810f1daf3e0e41c21549a899b9b28ff6c4439",
+      "canonicalSourceIndex": 71,
+      "status": "retained"
+    },
+    {
+      "index": 72,
+      "name": "智写 2",
+      "source": "/Users/alien/Desktop/图标/icon/智写 2.svg",
+      "sha256": "0d172d5f37ebe0edd00ce8130906a5d9ba2d03a6d372d4a64d2325aed2312d1b",
+      "canonicalSourceIndex": 72,
+      "status": "retained"
+    },
+    {
+      "index": 73,
+      "name": "智写",
+      "source": "/Users/alien/Desktop/图标/icon/智写.svg",
+      "sha256": "2515c567ffe3700d57538663f9ef69d8b06d9c6bf5aee2982cbde2c73ae279dc",
+      "canonicalSourceIndex": 73,
+      "status": "retained"
+    },
+    {
+      "index": 74,
+      "name": "智数",
+      "source": "/Users/alien/Desktop/图标/icon/智数.svg",
+      "sha256": "06d03296c1f52c65f4f922a9048a6d012a58d7b9c7ef71a9b64a529cae9b10ab",
+      "canonicalSourceIndex": 74,
+      "status": "retained"
+    },
+    {
+      "index": 75,
+      "name": "智能体",
+      "source": "/Users/alien/Desktop/图标/icon/智能体.svg",
+      "sha256": "0e1fba29ff2a27bc7017d8be735d15ffbab8bd8c3d78610539a7395904c6d37b",
+      "canonicalSourceIndex": 75,
+      "status": "retained"
+    },
+    {
+      "index": 76,
+      "name": "替换",
+      "source": "/Users/alien/Desktop/图标/icon/替换.svg",
+      "sha256": "a53adf801582555ac8790152b875ee113b195785117a1463a63a680c25a882e5",
+      "canonicalSourceIndex": 76,
+      "status": "retained"
+    },
+    {
+      "index": 77,
+      "name": "最小化",
+      "source": "/Users/alien/Desktop/图标/icon/最小化.svg",
+      "sha256": "8d072e9fc13061b22338cc00b0ed9334ce9d3a5670a101e91ea33817ae332f30",
+      "canonicalSourceIndex": 77,
+      "status": "retained"
+    },
+    {
+      "index": 78,
+      "name": "权限",
+      "source": "/Users/alien/Desktop/图标/icon/权限.svg",
+      "sha256": "4a5d6616333734619fa59677b2eb7f362674d43f8099db24af52823f6781b7ab",
+      "canonicalSourceIndex": 78,
+      "status": "retained"
+    },
+    {
+      "index": 79,
+      "name": "柱状图",
+      "source": "/Users/alien/Desktop/图标/icon/柱状图.svg",
+      "sha256": "4e1c4c5ff1113363a2a8d9a9a871baa3ae2d1a6e0e1009790956ac0c917b0f50",
+      "canonicalSourceIndex": 79,
+      "status": "retained"
+    },
+    {
+      "index": 80,
+      "name": "标签",
+      "source": "/Users/alien/Desktop/图标/icon/标签.svg",
+      "sha256": "e2c90f013bb28e1c78c45f290656e6aee10fc9a3da9017fc8f89fbf9ea37da0e",
+      "canonicalSourceIndex": 80,
+      "status": "retained"
+    },
+    {
+      "index": 81,
+      "name": "检索",
+      "source": "/Users/alien/Desktop/图标/icon/检索.svg",
+      "sha256": "f4daf3a4d41f1166d5ee5aee0b233f1c4728bb94cc308cb41666d063960db3b4",
+      "canonicalSourceIndex": 81,
+      "status": "retained"
+    },
+    {
+      "index": 82,
+      "name": "横柱状图",
+      "source": "/Users/alien/Desktop/图标/icon/横柱状图.svg",
+      "sha256": "99d6a06055979df8c9ff538d447f9d1284417534bcc2bbb000c9c5c8296237fc",
+      "canonicalSourceIndex": 82,
+      "status": "retained"
+    },
+    {
+      "index": 83,
+      "name": "正确",
+      "source": "/Users/alien/Desktop/图标/icon/正确.svg",
+      "sha256": "fb4d77483e17c95f1c7a2c208710aa389615c7510afa9ecc6870962526b1ee84",
+      "canonicalSourceIndex": 83,
+      "status": "retained"
+    },
+    {
+      "index": 84,
+      "name": "法务",
+      "source": "/Users/alien/Desktop/图标/icon/法务.svg",
+      "sha256": "de169fed5809389fe585674e184dd39d4819aeb9cd6c73cad0163b2e1da8eb06",
+      "canonicalSourceIndex": 84,
+      "status": "retained"
+    },
+    {
+      "index": 85,
+      "name": "注意",
+      "source": "/Users/alien/Desktop/图标/icon/注意.svg",
+      "sha256": "5c97d2a9906af7d14a27b20882829f29ca4436d56773a88febe9a951cf94b980",
+      "canonicalSourceIndex": 85,
+      "status": "retained"
+    },
+    {
+      "index": 86,
+      "name": "深度思考",
+      "source": "/Users/alien/Desktop/图标/icon/深度思考.svg",
+      "sha256": "1d22c912b1888510bd3216f96303edbf6f3a5c328bd63813250af69007425762",
+      "canonicalSourceIndex": 86,
+      "status": "retained"
+    },
+    {
+      "index": 87,
+      "name": "添加",
+      "source": "/Users/alien/Desktop/图标/icon/添加.svg",
+      "sha256": "22acb08e1efd952cc4aa7095c8ad80760b5f52a46fe362f4eb7176fc82c6508f",
+      "canonicalSourceIndex": 87,
+      "status": "retained"
+    },
+    {
+      "index": 88,
+      "name": "清空",
+      "source": "/Users/alien/Desktop/图标/icon/清空.svg",
+      "sha256": "65ad0426dcb922579b85fd85c27308f450edc099bad1f092b313e03cb7f23898",
+      "canonicalSourceIndex": 88,
+      "status": "retained"
+    },
+    {
+      "index": 89,
+      "name": "点赞",
+      "source": "/Users/alien/Desktop/图标/icon/点赞.svg",
+      "sha256": "34ea38113a5f13b79d367e5fbbb5332f8cafb067018e9cdf6f052ff36f832ff2",
+      "canonicalSourceIndex": 89,
+      "status": "retained"
+    },
+    {
+      "index": 90,
+      "name": "点赞已选",
+      "source": "/Users/alien/Desktop/图标/icon/点赞已选.svg",
+      "sha256": "698e003d9e5e375ba1f7fab9fa1a4563c85dd66daa54ce517d7c5ecab1eede22",
+      "canonicalSourceIndex": 90,
+      "status": "retained"
+    },
+    {
+      "index": 91,
+      "name": "睁眼",
+      "source": "/Users/alien/Desktop/图标/icon/睁眼.svg",
+      "sha256": "61dc145e12dd1dc57bca6cda5faed98afeb2a0526452e4e46d1768fdfc077277",
+      "canonicalSourceIndex": 91,
+      "status": "retained"
+    },
+    {
+      "index": 92,
+      "name": "知识库",
+      "source": "/Users/alien/Desktop/图标/icon/知识库.svg",
+      "sha256": "f4df430e89ab555a5b61fc4ad8328c3c666aa286c086e9556d8fab6b572b5ea1",
+      "canonicalSourceIndex": 92,
+      "status": "retained"
+    },
+    {
+      "index": 93,
+      "name": "研究",
+      "source": "/Users/alien/Desktop/图标/icon/研究.svg",
+      "sha256": "e0450cadc99c55781cd99dd8613193bf2a5ebc460127128173eb9db4def04f6b",
+      "canonicalSourceIndex": 93,
+      "status": "retained"
+    },
+    {
+      "index": 94,
+      "name": "移动",
+      "source": "/Users/alien/Desktop/图标/icon/移动.svg",
+      "sha256": "688a79c1f1b5cc6740426b1608ce7f102e3e3eea7b9f6fa9478105c9032f17a5",
+      "canonicalSourceIndex": 94,
+      "status": "retained"
+    },
+    {
+      "index": 95,
+      "name": "移除",
+      "source": "/Users/alien/Desktop/图标/icon/移除.svg",
+      "sha256": "f31043881a0b74023147a62018599fa08cca3abecd0033de239318c05994e233",
+      "canonicalSourceIndex": 95,
+      "status": "retained"
+    },
+    {
+      "index": 96,
+      "name": "移除掉",
+      "source": "/Users/alien/Desktop/图标/icon/移除掉.svg",
+      "sha256": "1202b58b52f2ea90f9fb2c8de8b74c96874ad3fffa8585f3c58c1f7c678fc811",
+      "canonicalSourceIndex": 95,
+      "status": "duplicate"
+    },
+    {
+      "index": 97,
+      "name": "粘贴",
+      "source": "/Users/alien/Desktop/图标/icon/粘贴.svg",
+      "sha256": "2a85604c78cbd38fea1dc9b513758065dad252e3fed9b30c7627c16cddece140",
+      "canonicalSourceIndex": 97,
+      "status": "retained"
+    },
+    {
+      "index": 98,
+      "name": "编辑",
+      "source": "/Users/alien/Desktop/图标/icon/编辑.svg",
+      "sha256": "9f960e6b24c8f183fb96f8037a8f587330e4cfa0cf864c158f08e40d87964a92",
+      "canonicalSourceIndex": 98,
+      "status": "retained"
+    },
+    {
+      "index": 99,
+      "name": "缩小",
+      "source": "/Users/alien/Desktop/图标/icon/缩小.svg",
+      "sha256": "64352114c392d2e9f950fccab2f2389d491efe48406d6666bf456450fe6738d0",
+      "canonicalSourceIndex": 99,
+      "status": "retained"
+    },
+    {
+      "index": 100,
+      "name": "联网",
+      "source": "/Users/alien/Desktop/图标/icon/联网.svg",
+      "sha256": "a7958cc328bb6bc3e5e25be070b2c7741155e7a595928fd4f09cb0a6029bcfaf",
+      "canonicalSourceIndex": 100,
+      "status": "retained"
+    },
+    {
+      "index": 101,
+      "name": "节点",
+      "source": "/Users/alien/Desktop/图标/icon/节点.svg",
+      "sha256": "b70d0547d79849c811fc0b780dcc678bb6c17f042a1b6d897638da4d42b9fc62",
+      "canonicalSourceIndex": 101,
+      "status": "retained"
+    },
+    {
+      "index": 102,
+      "name": "表格",
+      "source": "/Users/alien/Desktop/图标/icon/表格.svg",
+      "sha256": "2c070ce43fe88b366d4899c16fdc314898e41b463785ea72f0476936be1f9a8e",
+      "canonicalSourceIndex": 102,
+      "status": "retained"
+    },
+    {
+      "index": 103,
+      "name": "裁剪",
+      "source": "/Users/alien/Desktop/图标/icon/裁剪.svg",
+      "sha256": "8275eec8126da60521fd4df2e5437b848ee696a3cf4883c883f91182e5e08191",
+      "canonicalSourceIndex": 23,
+      "status": "duplicate"
+    },
+    {
+      "index": 104,
+      "name": "记录",
+      "source": "/Users/alien/Desktop/图标/icon/记录.svg",
+      "sha256": "e71f2162a85877ae61cfcd066597fded1e1f36521bbb26bce8fb0b55eb828b7e",
+      "canonicalSourceIndex": 104,
+      "status": "retained"
+    },
+    {
+      "index": 105,
+      "name": "设置",
+      "source": "/Users/alien/Desktop/图标/icon/设置.svg",
+      "sha256": "5b2a7a4609e609c32391a3260c9e133f5908e4097e9ca86f72800f43b445fa42",
+      "canonicalSourceIndex": 105,
+      "status": "retained"
+    },
+    {
+      "index": 106,
+      "name": "语音",
+      "source": "/Users/alien/Desktop/图标/icon/语音.svg",
+      "sha256": "31efeeb29697704a17c5d34810e38acb25f123f496da02f416217b917d2fb04b",
+      "canonicalSourceIndex": 106,
+      "status": "retained"
+    },
+    {
+      "index": 107,
+      "name": "语音模版",
+      "source": "/Users/alien/Desktop/图标/icon/语音模版.svg",
+      "sha256": "9cafc6ff1d66d653963e78b71e11a8cb88a9619dc20f41c244c330beb5aa89c8",
+      "canonicalSourceIndex": 107,
+      "status": "retained"
+    },
+    {
+      "index": 108,
+      "name": "财务",
+      "source": "/Users/alien/Desktop/图标/icon/财务.svg",
+      "sha256": "122079e33860ec9b96512f623ec465a8d5c8973a557545d20af8d66ce47fb282",
+      "canonicalSourceIndex": 108,
+      "status": "retained"
+    },
+    {
+      "index": 109,
+      "name": "跟多",
+      "source": "/Users/alien/Desktop/图标/icon/跟多.svg",
+      "sha256": "957f27b06f9c39c08465c877efd97a931c2b63a89e6339516d21d310549e7de7",
+      "canonicalSourceIndex": 109,
+      "status": "retained"
+    },
+    {
+      "index": 110,
+      "name": "踩",
+      "source": "/Users/alien/Desktop/图标/icon/踩.svg",
+      "sha256": "79103c7c42caf873daf3226d0c41664858dd11cfcb296846aa31e0bb7c59621f",
+      "canonicalSourceIndex": 110,
+      "status": "retained"
+    },
+    {
+      "index": 111,
+      "name": "踩已选",
+      "source": "/Users/alien/Desktop/图标/icon/踩已选.svg",
+      "sha256": "eb119e7053af95bb7c3c2d43840ea3ac4ac7b40e8671aa54b2b20998617a3d14",
+      "canonicalSourceIndex": 111,
+      "status": "retained"
+    },
+    {
+      "index": 112,
+      "name": "退出",
+      "source": "/Users/alien/Desktop/图标/icon/退出.svg",
+      "sha256": "d12bd879b872aed3c2899e55119a09ab96d568e78d848b027c8e45585e19be5c",
+      "canonicalSourceIndex": 112,
+      "status": "retained"
+    },
+    {
+      "index": 113,
+      "name": "退出备份 2",
+      "source": "/Users/alien/Desktop/图标/icon/退出备份 2.svg",
+      "sha256": "b89de05f0836ff1d2e66179485527f071ada28fb8bd81807ec1a411e90de878e",
+      "canonicalSourceIndex": 113,
+      "status": "retained"
+    },
+    {
+      "index": 114,
+      "name": "邀请人",
+      "source": "/Users/alien/Desktop/图标/icon/邀请人.svg",
+      "sha256": "e593939e45c72bb6145495ba3890a479a731283edc054ac6557337d1ba69d977",
+      "canonicalSourceIndex": 114,
+      "status": "retained"
+    },
+    {
+      "index": 115,
+      "name": "部门",
+      "source": "/Users/alien/Desktop/图标/icon/部门.svg",
+      "sha256": "30fdd15b757e2f41107ecb416705d599b52d026ec6a8b45808cd93bd55849bff",
+      "canonicalSourceIndex": 115,
+      "status": "retained"
+    },
+    {
+      "index": 116,
+      "name": "部门备份 2",
+      "source": "/Users/alien/Desktop/图标/icon/部门备份 2.svg",
+      "sha256": "75e6a61c5e56eed2679d038e8921ec3d28b607c3023d4dc7fa5084f1d3a23ce2",
+      "canonicalSourceIndex": 116,
+      "status": "retained"
+    },
+    {
+      "index": 117,
+      "name": "部门备份",
+      "source": "/Users/alien/Desktop/图标/icon/部门备份.svg",
+      "sha256": "a9a4e0bbc7e0452cf96da98774424b6145a4e9c653eba261588bd5e8cc3afd68",
+      "canonicalSourceIndex": 117,
+      "status": "retained"
+    },
+    {
+      "index": 118,
+      "name": "配置",
+      "source": "/Users/alien/Desktop/图标/icon/配置.svg",
+      "sha256": "c649dd1f6c53153aaf1f847d3dcce32523619b27be89382dc849949ce42c19c7",
+      "canonicalSourceIndex": 118,
+      "status": "retained"
+    },
+    {
+      "index": 119,
+      "name": "钥匙",
+      "source": "/Users/alien/Desktop/图标/icon/钥匙.svg",
+      "sha256": "554930e91c49a3b9fe028978a611ba3b7066fd9a79a8ad650faac6897d90890a",
+      "canonicalSourceIndex": 119,
+      "status": "retained"
+    },
+    {
+      "index": 120,
+      "name": "锁",
+      "source": "/Users/alien/Desktop/图标/icon/锁.svg",
+      "sha256": "07b561f22b73a78bdf9a9f0e11b6f516e49359accbc62eb8e4fdd1e62c971d3e",
+      "canonicalSourceIndex": 120,
+      "status": "retained"
+    },
+    {
+      "index": 121,
+      "name": "闭眼",
+      "source": "/Users/alien/Desktop/图标/icon/闭眼.svg",
+      "sha256": "fa2a3b90065cecfd0565124241a895768b056d0ee347db9ed1eb4ae342ec905b",
+      "canonicalSourceIndex": 121,
+      "status": "retained"
+    },
+    {
+      "index": 122,
+      "name": "问",
+      "source": "/Users/alien/Desktop/图标/icon/问.svg",
+      "sha256": "45f11cf925ade025cec4415fb633a180343844b856f9509e99d5e169e6e3174e",
+      "canonicalSourceIndex": 122,
+      "status": "retained"
+    },
+    {
+      "index": 123,
+      "name": "问答",
+      "source": "/Users/alien/Desktop/图标/icon/问答.svg",
+      "sha256": "f4963529b46aefa6dd1ed6b1f94a94853152217289076581e80e7f40f9cc147d",
+      "canonicalSourceIndex": 123,
+      "status": "retained"
+    },
+    {
+      "index": 124,
+      "name": "附件",
+      "source": "/Users/alien/Desktop/图标/icon/附件.svg",
+      "sha256": "9a86698352072adfa3fc5542858840ee6688e18e1dcf09b7921871b8dcbe3b32",
+      "canonicalSourceIndex": 124,
+      "status": "retained"
+    },
+    {
+      "index": 125,
+      "name": "饼图",
+      "source": "/Users/alien/Desktop/图标/icon/饼图.svg",
+      "sha256": "97c10ce19db6e788da7fb71c9bc489a78563593012d9b38a4f7dd64cd7763ded",
+      "canonicalSourceIndex": 125,
+      "status": "retained"
+    },
+    {
+      "index": 126,
+      "name": "麦克风",
+      "source": "/Users/alien/Desktop/图标/icon/麦克风.svg",
+      "sha256": "a7179eecde1e123e8bf3b6a3cbf4e77848d705f47d017d2397ad280631db9403",
+      "canonicalSourceIndex": 126,
+      "status": "retained"
+    },
+    {
+      "index": 127,
+      "name": "更多",
+      "source": "/Users/alien/Desktop/icon/更多.svg",
+      "sha256": "9fcb62451ce0d9a9b065aadf8b1638213cf33e9732aad7bec7d63d3529442572",
+      "canonicalSourceIndex": 127,
+      "status": "retained"
+    },
+    {
+      "index": 128,
+      "name": "汽车",
+      "source": "/Users/alien/Desktop/icon/汽车.svg",
+      "sha256": "83e8040c89c2599b40f9da76685385259a8a21fb98bb1e5b1158a99d7ae55579",
+      "canonicalSourceIndex": 128,
+      "status": "retained"
+    },
+    {
+      "index": 129,
+      "name": "飞机",
+      "source": "/Users/alien/Desktop/icon/飞机.svg",
+      "sha256": "39a797ae2325c83ea887b270d3798a5a8d4c79edb0dfe8721823cce44937e2ee",
+      "canonicalSourceIndex": 129,
+      "status": "retained"
+    },
+    {
+      "index": 130,
+      "name": "电话",
+      "source": "/Users/alien/Desktop/icon/电话.svg",
+      "sha256": "f3ed1f3c3a5bb8df89d8443db90dd0cb7eefcf6f925472055dda1c5ae557ac7f",
+      "canonicalSourceIndex": 130,
+      "status": "retained"
+    },
+    {
+      "index": 131,
+      "name": "酒店",
+      "source": "/Users/alien/Desktop/icon/酒店.svg",
+      "sha256": "af69aafae803cfe6a24ad5808b04a9325d3f3a531adfa2ea604c1f9e0ef697e2",
+      "canonicalSourceIndex": 131,
+      "status": "retained"
+    },
+    {
+      "index": 132,
+      "name": "票",
+      "source": "/Users/alien/Desktop/icon/票.svg",
+      "sha256": "92f1c27f14b4c60a74e6a85b2267b77244c18bc180f5a4432005e911586b3c5e",
+      "canonicalSourceIndex": 132,
+      "status": "retained"
+    },
+    {
+      "index": 133,
+      "name": "事件",
+      "source": "/Users/alien/Desktop/icon/事件.svg",
+      "sha256": "2614645a0fe5e80f1f451be5077fb6d1dca0bd382369b1f36c30d4fa2a8c1404",
+      "canonicalSourceIndex": 133,
+      "status": "retained"
+    },
+    {
+      "index": 134,
+      "name": "*助手",
+      "source": "/Users/alien/Desktop/icon/*助手.svg",
+      "sha256": "02e9ca130d96ed6f4af2695956f8bd5f1a48c8fd9c7fcb78ca77cd56dd7458da",
+      "canonicalSourceIndex": 134,
+      "status": "retained"
+    },
+    {
+      "index": 135,
+      "name": "单选已选 (1)",
+      "source": "/Users/alien/Downloads/单选已选 (1).svg",
+      "sha256": "10c8dda71ac5fb8f0c9baea0a3e35ea220f40c50ac207d48056c25ead6820f46",
+      "canonicalSourceIndex": 135,
+      "status": "retained"
+    },
+    {
+      "index": 136,
+      "name": "警告",
+      "source": "/Users/alien/Downloads/警告.svg",
+      "sha256": "627c4266438e8868391f46eeecb2b6adb24884b116595f44e719867c01d8eff2",
+      "canonicalSourceIndex": 136,
+      "status": "retained"
+    },
+    {
+      "index": 137,
+      "name": "提示",
+      "source": "/Users/alien/Downloads/提示.svg",
+      "sha256": "42a7eac0d5d39c5a148411214b9470e5f7394faa994b057dbe9ee5a6cfd555a6",
+      "canonicalSourceIndex": 137,
+      "status": "retained"
+    }
+  ],
+  "entries": [
+    {
+      "id": "icon-b4c85a08a4d6b30e",
+      "name": "TTS",
+      "category": "line",
+      "file": "b4c85a08a4d6b30e.svg",
+      "aliases": [],
+      "sourceIndex": 0,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-d5027de148551e78",
+      "name": "上",
+      "category": "line",
+      "file": "d5027de148551e78.svg",
+      "aliases": [],
+      "sourceIndex": 1,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a28e3f10a7c10f5d",
+      "name": "上传",
+      "category": "line",
+      "file": "a28e3f10a7c10f5d.svg",
+      "aliases": [],
+      "sourceIndex": 2,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-810fb8475e9856e5",
+      "name": "上箭头",
+      "category": "line",
+      "file": "810fb8475e9856e5.svg",
+      "aliases": [],
+      "sourceIndex": 4,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-b200fdd85f5f6543",
+      "name": "下",
+      "category": "line",
+      "file": "b200fdd85f5f6543.svg",
+      "aliases": [],
+      "sourceIndex": 5,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-bbb2ca4d1780ce21",
+      "name": "下箭头",
+      "category": "line",
+      "file": "bbb2ca4d1780ce21.svg",
+      "aliases": [],
+      "sourceIndex": 6,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e2a6c0d0c0fe0dd6",
+      "name": "下载",
+      "category": "line",
+      "file": "e2a6c0d0c0fe0dd6.svg",
+      "aliases": [],
+      "sourceIndex": 7,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-6743f33e1fb4edcf",
+      "name": "个人信息",
+      "category": "line",
+      "file": "6743f33e1fb4edcf.svg",
+      "aliases": [],
+      "sourceIndex": 8,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f4cf5e5721777828",
+      "name": "中心",
+      "category": "line",
+      "file": "f4cf5e5721777828.svg",
+      "aliases": [],
+      "sourceIndex": 9,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-97317fe6b70d39ce",
+      "name": "书本",
+      "category": "line",
+      "file": "97317fe6b70d39ce.svg",
+      "aliases": [],
+      "sourceIndex": 10,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-b3a5b15da6ae28ef",
+      "name": "人员",
+      "category": "line",
+      "file": "b3a5b15da6ae28ef.svg",
+      "aliases": [
+        "上传备份"
+      ],
+      "sourceIndex": 11,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-ec54a4bbfceb9754",
+      "name": "修改",
+      "category": "line",
+      "file": "ec54a4bbfceb9754.svg",
+      "aliases": [],
+      "sourceIndex": 12,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-8bb259d70c7a3123",
+      "name": "修改备份 3",
+      "category": "line",
+      "file": "8bb259d70c7a3123.svg",
+      "aliases": [],
+      "sourceIndex": 14,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e50f93bb310c5ff7",
+      "name": "公文包",
+      "category": "line",
+      "file": "e50f93bb310c5ff7.svg",
+      "aliases": [],
+      "sourceIndex": 15,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-7322d4d029a523a2",
+      "name": "关闭",
+      "category": "line",
+      "file": "7322d4d029a523a2.svg",
+      "aliases": [
+        "修改备份 2"
+      ],
+      "sourceIndex": 16,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-2dd1944c7a87cfa9",
+      "name": "关闭麦克风",
+      "category": "line",
+      "file": "2dd1944c7a87cfa9.svg",
+      "aliases": [],
+      "sourceIndex": 17,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a60a06f7604e815b",
+      "name": "分享",
+      "category": "line",
+      "file": "a60a06f7604e815b.svg",
+      "aliases": [],
+      "sourceIndex": 18,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-c05a946a0a434b91",
+      "name": "分享备份 25",
+      "category": "line",
+      "file": "c05a946a0a434b91.svg",
+      "aliases": [],
+      "sourceIndex": 19,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-1af1d47bee328d90",
+      "name": "分享管理",
+      "category": "line",
+      "file": "1af1d47bee328d90.svg",
+      "aliases": [],
+      "sourceIndex": 20,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-80317c914b2850d6",
+      "name": "列表设置",
+      "category": "line",
+      "file": "80317c914b2850d6.svg",
+      "aliases": [],
+      "sourceIndex": 21,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-9f5979c76f43c8ed",
+      "name": "刷新",
+      "category": "line",
+      "file": "9f5979c76f43c8ed.svg",
+      "aliases": [],
+      "sourceIndex": 22,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-6d81424631763058",
+      "name": "剪切",
+      "category": "line",
+      "file": "6d81424631763058.svg",
+      "aliases": [
+        "裁剪"
+      ],
+      "sourceIndex": 23,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-ea74bf1df753f122",
+      "name": "右",
+      "category": "line",
+      "file": "ea74bf1df753f122.svg",
+      "aliases": [],
+      "sourceIndex": 24,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-cfadc21d6064552a",
+      "name": "右撤",
+      "category": "line",
+      "file": "cfadc21d6064552a.svg",
+      "aliases": [],
+      "sourceIndex": 25,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-fe81e7191bc3120d",
+      "name": "右箭头",
+      "category": "line",
+      "file": "fe81e7191bc3120d.svg",
+      "aliases": [],
+      "sourceIndex": 26,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-ebf469311ddcadd8",
+      "name": "合同",
+      "category": "line",
+      "file": "ebf469311ddcadd8.svg",
+      "aliases": [],
+      "sourceIndex": 27,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-c55e908b6eef5eea",
+      "name": "合同通",
+      "category": "line",
+      "file": "c55e908b6eef5eea.svg",
+      "aliases": [],
+      "sourceIndex": 28,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-0d02b7cf3383fd49",
+      "name": "合并",
+      "category": "line",
+      "file": "0d02b7cf3383fd49.svg",
+      "aliases": [],
+      "sourceIndex": 29,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-ed3ad1e978fc6c0c",
+      "name": "名片",
+      "category": "line",
+      "file": "ed3ad1e978fc6c0c.svg",
+      "aliases": [],
+      "sourceIndex": 30,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-da45e1260af24a51",
+      "name": "名牌",
+      "category": "line",
+      "file": "da45e1260af24a51.svg",
+      "aliases": [],
+      "sourceIndex": 31,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-4ce51285398179b4",
+      "name": "图谱",
+      "category": "line",
+      "file": "4ce51285398179b4.svg",
+      "aliases": [],
+      "sourceIndex": 32,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-937a94ad27b86f44",
+      "name": "图谱备份",
+      "category": "line",
+      "file": "937a94ad27b86f44.svg",
+      "aliases": [],
+      "sourceIndex": 33,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a8359d3c3f80f7de",
+      "name": "垃圾",
+      "category": "line",
+      "file": "a8359d3c3f80f7de.svg",
+      "aliases": [],
+      "sourceIndex": 34,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-7d85e8c8dc2bb2a7",
+      "name": "复制",
+      "category": "line",
+      "file": "7d85e8c8dc2bb2a7.svg",
+      "aliases": [],
+      "sourceIndex": 35,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-d6e6fbdf2f32e71c",
+      "name": "学历",
+      "category": "line",
+      "file": "d6e6fbdf2f32e71c.svg",
+      "aliases": [],
+      "sourceIndex": 36,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-6a772ead25a79325",
+      "name": "审核",
+      "category": "line",
+      "file": "6a772ead25a79325.svg",
+      "aliases": [],
+      "sourceIndex": 37,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-b264e4d76c38a738",
+      "name": "对话2",
+      "category": "line",
+      "file": "b264e4d76c38a738.svg",
+      "aliases": [
+        "对话 3",
+        "对话 2"
+      ],
+      "sourceIndex": 38,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-9a3d127c05995ad8",
+      "name": "对话",
+      "category": "line",
+      "file": "9a3d127c05995ad8.svg",
+      "aliases": [],
+      "sourceIndex": 40,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f5f66bb73c16a481",
+      "name": "对齐",
+      "category": "line",
+      "file": "f5f66bb73c16a481.svg",
+      "aliases": [],
+      "sourceIndex": 41,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e19612acbb63160b",
+      "name": "展开 2",
+      "category": "line",
+      "file": "e19612acbb63160b.svg",
+      "aliases": [],
+      "sourceIndex": 42,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f5888929e0e3429f",
+      "name": "展开",
+      "category": "line",
+      "file": "f5888929e0e3429f.svg",
+      "aliases": [],
+      "sourceIndex": 43,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-0e90e03c0ab13cdd",
+      "name": "工作",
+      "category": "line",
+      "file": "0e90e03c0ab13cdd.svg",
+      "aliases": [],
+      "sourceIndex": 44,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-08a6a2ccf5812de0",
+      "name": "左",
+      "category": "line",
+      "file": "08a6a2ccf5812de0.svg",
+      "aliases": [],
+      "sourceIndex": 45,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-5353ee4c2dd18f2a",
+      "name": "左撤",
+      "category": "line",
+      "file": "5353ee4c2dd18f2a.svg",
+      "aliases": [],
+      "sourceIndex": 46,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-27fc3b4ea90560ed",
+      "name": "左箭头",
+      "category": "line",
+      "file": "27fc3b4ea90560ed.svg",
+      "aliases": [],
+      "sourceIndex": 47,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-2b9cb03a9715dc1e",
+      "name": "差旅",
+      "category": "line",
+      "file": "2b9cb03a9715dc1e.svg",
+      "aliases": [],
+      "sourceIndex": 48,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-20c5a782e0159c67",
+      "name": "带圆添加",
+      "category": "line",
+      "file": "20c5a782e0159c67.svg",
+      "aliases": [],
+      "sourceIndex": 49,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f97007714ad5362a",
+      "name": "带圆键盘",
+      "category": "line",
+      "file": "f97007714ad5362a.svg",
+      "aliases": [],
+      "sourceIndex": 50,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-b723a87fd2791dfd",
+      "name": "我",
+      "category": "line",
+      "file": "b723a87fd2791dfd.svg",
+      "aliases": [],
+      "sourceIndex": 51,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-b2296204880197db",
+      "name": "打包",
+      "category": "line",
+      "file": "b2296204880197db.svg",
+      "aliases": [],
+      "sourceIndex": 52,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-581db30a727e89dc",
+      "name": "扫描",
+      "category": "line",
+      "file": "581db30a727e89dc.svg",
+      "aliases": [],
+      "sourceIndex": 53,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-31699f901122ca09",
+      "name": "折线",
+      "category": "line",
+      "file": "31699f901122ca09.svg",
+      "aliases": [],
+      "sourceIndex": 54,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e6d3eba340502966",
+      "name": "招聘",
+      "category": "solid",
+      "file": "e6d3eba340502966.svg",
+      "aliases": [],
+      "sourceIndex": 55,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-9e18a40de872f4df",
+      "name": "提交",
+      "category": "line",
+      "file": "9e18a40de872f4df.svg",
+      "aliases": [],
+      "sourceIndex": 56,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-0084368eb323481f",
+      "name": "插入",
+      "category": "line",
+      "file": "0084368eb323481f.svg",
+      "aliases": [],
+      "sourceIndex": 57,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-d646dc853c2a1535",
+      "name": "搜索",
+      "category": "line",
+      "file": "d646dc853c2a1535.svg",
+      "aliases": [],
+      "sourceIndex": 58,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-17eeedaf08e29185",
+      "name": "摘要",
+      "category": "line",
+      "file": "17eeedaf08e29185.svg",
+      "aliases": [],
+      "sourceIndex": 59,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-0c60a814c3b06dbb",
+      "name": "撤回",
+      "category": "line",
+      "file": "0c60a814c3b06dbb.svg",
+      "aliases": [],
+      "sourceIndex": 60,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e51fc1dcf7a70ebd",
+      "name": "播放",
+      "category": "line",
+      "file": "e51fc1dcf7a70ebd.svg",
+      "aliases": [],
+      "sourceIndex": 61,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-5f45ad809dc9f5ec",
+      "name": "收起 2",
+      "category": "line",
+      "file": "5f45ad809dc9f5ec.svg",
+      "aliases": [],
+      "sourceIndex": 62,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-bfc376a0457bc596",
+      "name": "收起",
+      "category": "line",
+      "file": "bfc376a0457bc596.svg",
+      "aliases": [],
+      "sourceIndex": 63,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-62656ed1df9e7ac3",
+      "name": "放大",
+      "category": "line",
+      "file": "62656ed1df9e7ac3.svg",
+      "aliases": [],
+      "sourceIndex": 64,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-87f8cc99737f0ef0",
+      "name": "数据",
+      "category": "line",
+      "file": "87f8cc99737f0ef0.svg",
+      "aliases": [],
+      "sourceIndex": 65,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-1a03ef0e4bd0d5ad",
+      "name": "数据图",
+      "category": "line",
+      "file": "1a03ef0e4bd0d5ad.svg",
+      "aliases": [],
+      "sourceIndex": 66,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-12276dfde73c38de",
+      "name": "数据集",
+      "category": "line",
+      "file": "12276dfde73c38de.svg",
+      "aliases": [],
+      "sourceIndex": 67,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a48b05c8fd220882",
+      "name": "文字",
+      "category": "line",
+      "file": "a48b05c8fd220882.svg",
+      "aliases": [],
+      "sourceIndex": 68,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-cab58823f95e2e7c",
+      "name": "文档",
+      "category": "line",
+      "file": "cab58823f95e2e7c.svg",
+      "aliases": [],
+      "sourceIndex": 69,
+      "tone": "primary",
+      "preserveColor": true
+    },
+    {
+      "id": "icon-5475c567020f9409",
+      "name": "日期",
+      "category": "line",
+      "file": "5475c567020f9409.svg",
+      "aliases": [],
+      "sourceIndex": 70,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-03bddee9b6c19364",
+      "name": "明细",
+      "category": "line",
+      "file": "03bddee9b6c19364.svg",
+      "aliases": [],
+      "sourceIndex": 71,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-0d172d5f37ebe0ed",
+      "name": "智写 2",
+      "category": "line",
+      "file": "0d172d5f37ebe0ed.svg",
+      "aliases": [],
+      "sourceIndex": 72,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-2515c567ffe3700d",
+      "name": "智写",
+      "category": "line",
+      "file": "2515c567ffe3700d.svg",
+      "aliases": [],
+      "sourceIndex": 73,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-06d03296c1f52c65",
+      "name": "智数",
+      "category": "line",
+      "file": "06d03296c1f52c65.svg",
+      "aliases": [],
+      "sourceIndex": 74,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-0e1fba29ff2a27bc",
+      "name": "智能体",
+      "category": "line",
+      "file": "0e1fba29ff2a27bc.svg",
+      "aliases": [],
+      "sourceIndex": 75,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a53adf801582555a",
+      "name": "替换",
+      "category": "line",
+      "file": "a53adf801582555a.svg",
+      "aliases": [],
+      "sourceIndex": 76,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-8d072e9fc13061b2",
+      "name": "最小化",
+      "category": "line",
+      "file": "8d072e9fc13061b2.svg",
+      "aliases": [],
+      "sourceIndex": 77,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-4a5d661633373461",
+      "name": "权限",
+      "category": "line",
+      "file": "4a5d661633373461.svg",
+      "aliases": [],
+      "sourceIndex": 78,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-4e1c4c5ff1113363",
+      "name": "柱状图",
+      "category": "line",
+      "file": "4e1c4c5ff1113363.svg",
+      "aliases": [],
+      "sourceIndex": 79,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e2c90f013bb28e1c",
+      "name": "标签",
+      "category": "line",
+      "file": "e2c90f013bb28e1c.svg",
+      "aliases": [],
+      "sourceIndex": 80,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f4daf3a4d41f1166",
+      "name": "检索",
+      "category": "line",
+      "file": "f4daf3a4d41f1166.svg",
+      "aliases": [],
+      "sourceIndex": 81,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-99d6a06055979df8",
+      "name": "横柱状图",
+      "category": "line",
+      "file": "99d6a06055979df8.svg",
+      "aliases": [],
+      "sourceIndex": 82,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-fb4d77483e17c95f",
+      "name": "正确",
+      "category": "line",
+      "file": "fb4d77483e17c95f.svg",
+      "aliases": [],
+      "sourceIndex": 83,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-de169fed5809389f",
+      "name": "法务",
+      "category": "line",
+      "file": "de169fed5809389f.svg",
+      "aliases": [],
+      "sourceIndex": 84,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-5c97d2a9906af7d1",
+      "name": "注意",
+      "category": "line",
+      "file": "5c97d2a9906af7d1.svg",
+      "aliases": [],
+      "sourceIndex": 85,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-1d22c912b1888510",
+      "name": "深度思考",
+      "category": "line",
+      "file": "1d22c912b1888510.svg",
+      "aliases": [],
+      "sourceIndex": 86,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-22acb08e1efd952c",
+      "name": "添加",
+      "category": "line",
+      "file": "22acb08e1efd952c.svg",
+      "aliases": [],
+      "sourceIndex": 87,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-65ad0426dcb92257",
+      "name": "清空",
+      "category": "line",
+      "file": "65ad0426dcb92257.svg",
+      "aliases": [],
+      "sourceIndex": 88,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-34ea38113a5f13b7",
+      "name": "点赞",
+      "category": "line",
+      "file": "34ea38113a5f13b7.svg",
+      "aliases": [],
+      "sourceIndex": 89,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-698e003d9e5e375b",
+      "name": "点赞已选",
+      "category": "solid",
+      "file": "698e003d9e5e375b.svg",
+      "aliases": [],
+      "sourceIndex": 90,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-61dc145e12dd1dc5",
+      "name": "睁眼",
+      "category": "line",
+      "file": "61dc145e12dd1dc5.svg",
+      "aliases": [],
+      "sourceIndex": 91,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f4df430e89ab555a",
+      "name": "知识库",
+      "category": "line",
+      "file": "f4df430e89ab555a.svg",
+      "aliases": [],
+      "sourceIndex": 92,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e0450cadc99c5578",
+      "name": "研究",
+      "category": "line",
+      "file": "e0450cadc99c5578.svg",
+      "aliases": [],
+      "sourceIndex": 93,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-688a79c1f1b5cc67",
+      "name": "移动",
+      "category": "line",
+      "file": "688a79c1f1b5cc67.svg",
+      "aliases": [],
+      "sourceIndex": 94,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f31043881a0b7402",
+      "name": "移除",
+      "category": "line",
+      "file": "f31043881a0b7402.svg",
+      "aliases": [
+        "移除掉"
+      ],
+      "sourceIndex": 95,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-2a85604c78cbd38f",
+      "name": "粘贴",
+      "category": "line",
+      "file": "2a85604c78cbd38f.svg",
+      "aliases": [],
+      "sourceIndex": 97,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-9f960e6b24c8f183",
+      "name": "编辑",
+      "category": "line",
+      "file": "9f960e6b24c8f183.svg",
+      "aliases": [],
+      "sourceIndex": 98,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-64352114c392d2e9",
+      "name": "缩小",
+      "category": "line",
+      "file": "64352114c392d2e9.svg",
+      "aliases": [],
+      "sourceIndex": 99,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a7958cc328bb6bc3",
+      "name": "联网",
+      "category": "line",
+      "file": "a7958cc328bb6bc3.svg",
+      "aliases": [],
+      "sourceIndex": 100,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-b70d0547d79849c8",
+      "name": "节点",
+      "category": "line",
+      "file": "b70d0547d79849c8.svg",
+      "aliases": [],
+      "sourceIndex": 101,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-2c070ce43fe88b36",
+      "name": "表格",
+      "category": "line",
+      "file": "2c070ce43fe88b36.svg",
+      "aliases": [],
+      "sourceIndex": 102,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e71f2162a85877ae",
+      "name": "记录",
+      "category": "line",
+      "file": "e71f2162a85877ae.svg",
+      "aliases": [],
+      "sourceIndex": 104,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-5b2a7a4609e609c3",
+      "name": "设置",
+      "category": "line",
+      "file": "5b2a7a4609e609c3.svg",
+      "aliases": [],
+      "sourceIndex": 105,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-31efeeb29697704a",
+      "name": "语音",
+      "category": "line",
+      "file": "31efeeb29697704a.svg",
+      "aliases": [],
+      "sourceIndex": 106,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-9cafc6ff1d66d653",
+      "name": "语音模版",
+      "category": "line",
+      "file": "9cafc6ff1d66d653.svg",
+      "aliases": [],
+      "sourceIndex": 107,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-122079e33860ec9b",
+      "name": "财务",
+      "category": "line",
+      "file": "122079e33860ec9b.svg",
+      "aliases": [],
+      "sourceIndex": 108,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-957f27b06f9c39c0",
+      "name": "更多（圆形）",
+      "category": "line",
+      "file": "957f27b06f9c39c0.svg",
+      "aliases": [
+        "跟多"
+      ],
+      "sourceIndex": 109,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-79103c7c42caf873",
+      "name": "踩",
+      "category": "line",
+      "file": "79103c7c42caf873.svg",
+      "aliases": [],
+      "sourceIndex": 110,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-eb119e7053af95bb",
+      "name": "踩已选",
+      "category": "solid",
+      "file": "eb119e7053af95bb.svg",
+      "aliases": [],
+      "sourceIndex": 111,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-d12bd879b872aed3",
+      "name": "退出",
+      "category": "line",
+      "file": "d12bd879b872aed3.svg",
+      "aliases": [],
+      "sourceIndex": 112,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-b89de05f0836ff1d",
+      "name": "退出备份 2",
+      "category": "line",
+      "file": "b89de05f0836ff1d.svg",
+      "aliases": [],
+      "sourceIndex": 113,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-e593939e45c72bb6",
+      "name": "邀请人",
+      "category": "line",
+      "file": "e593939e45c72bb6.svg",
+      "aliases": [],
+      "sourceIndex": 114,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-30fdd15b757e2f41",
+      "name": "部门",
+      "category": "line",
+      "file": "30fdd15b757e2f41.svg",
+      "aliases": [],
+      "sourceIndex": 115,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-75e6a61c5e56eed2",
+      "name": "部门备份 2",
+      "category": "line",
+      "file": "75e6a61c5e56eed2.svg",
+      "aliases": [],
+      "sourceIndex": 116,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a9a4e0bbc7e0452c",
+      "name": "部门备份",
+      "category": "line",
+      "file": "a9a4e0bbc7e0452c.svg",
+      "aliases": [],
+      "sourceIndex": 117,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-c649dd1f6c53153a",
+      "name": "配置",
+      "category": "line",
+      "file": "c649dd1f6c53153a.svg",
+      "aliases": [],
+      "sourceIndex": 118,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-554930e91c49a3b9",
+      "name": "钥匙",
+      "category": "line",
+      "file": "554930e91c49a3b9.svg",
+      "aliases": [],
+      "sourceIndex": 119,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-07b561f22b73a78b",
+      "name": "锁",
+      "category": "line",
+      "file": "07b561f22b73a78b.svg",
+      "aliases": [],
+      "sourceIndex": 120,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-fa2a3b90065cecfd",
+      "name": "闭眼",
+      "category": "line",
+      "file": "fa2a3b90065cecfd.svg",
+      "aliases": [],
+      "sourceIndex": 121,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-45f11cf925ade025",
+      "name": "问",
+      "category": "line",
+      "file": "45f11cf925ade025.svg",
+      "aliases": [],
+      "sourceIndex": 122,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f4963529b46aefa6",
+      "name": "问答",
+      "category": "line",
+      "file": "f4963529b46aefa6.svg",
+      "aliases": [],
+      "sourceIndex": 123,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-9a86698352072adf",
+      "name": "附件",
+      "category": "line",
+      "file": "9a86698352072adf.svg",
+      "aliases": [],
+      "sourceIndex": 124,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-97c10ce19db6e788",
+      "name": "饼图",
+      "category": "line",
+      "file": "97c10ce19db6e788.svg",
+      "aliases": [],
+      "sourceIndex": 125,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-a7179eecde1e123e",
+      "name": "麦克风",
+      "category": "line",
+      "file": "a7179eecde1e123e.svg",
+      "aliases": [],
+      "sourceIndex": 126,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-9fcb62451ce0d9a9",
+      "name": "更多",
+      "category": "solid",
+      "file": "9fcb62451ce0d9a9.svg",
+      "aliases": [],
+      "sourceIndex": 127,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-83e8040c89c2599b",
+      "name": "汽车",
+      "category": "solid",
+      "file": "83e8040c89c2599b.svg",
+      "aliases": [],
+      "sourceIndex": 128,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-39a797ae2325c83e",
+      "name": "飞机",
+      "category": "solid",
+      "file": "39a797ae2325c83e.svg",
+      "aliases": [],
+      "sourceIndex": 129,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-f3ed1f3c3a5bb8df",
+      "name": "电话",
+      "category": "solid",
+      "file": "f3ed1f3c3a5bb8df.svg",
+      "aliases": [],
+      "sourceIndex": 130,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-af69aafae803cfe6",
+      "name": "酒店",
+      "category": "solid",
+      "file": "af69aafae803cfe6.svg",
+      "aliases": [],
+      "sourceIndex": 131,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-92f1c27f14b4c60a",
+      "name": "票",
+      "category": "solid",
+      "file": "92f1c27f14b4c60a.svg",
+      "aliases": [],
+      "sourceIndex": 132,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-2614645a0fe5e80f",
+      "name": "事件",
+      "category": "solid",
+      "file": "2614645a0fe5e80f.svg",
+      "aliases": [],
+      "sourceIndex": 133,
+      "tone": "brand",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-02e9ca130d96ed6f",
+      "name": "助手",
+      "category": "solid",
+      "file": "02e9ca130d96ed6f.svg",
+      "aliases": [
+        "*助手"
+      ],
+      "sourceIndex": 134,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-10c8dda71ac5fb8f",
+      "name": "单选已选",
+      "category": "solid",
+      "file": "10c8dda71ac5fb8f.svg",
+      "aliases": [
+        "单选已选 (1)"
+      ],
+      "sourceIndex": 135,
+      "tone": "primary",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-627c4266438e8868",
+      "name": "警告",
+      "category": "solid",
+      "file": "627c4266438e8868.svg",
+      "aliases": [],
+      "sourceIndex": 136,
+      "tone": "warning",
+      "preserveColor": false
+    },
+    {
+      "id": "icon-42a7eac0d5d39c5a",
+      "name": "提示",
+      "category": "solid",
+      "file": "42a7eac0d5d39c5a.svg",
+      "aliases": [],
+      "sourceIndex": 137,
+      "tone": "info",
+      "preserveColor": false
+    }
+  ],
+  "deduplication": {
+    "method": "SVG structure without export metadata and 128px rendered visual comparison",
+    "additionalVisualMatch": {
+      "retained": "关闭",
+      "alias": "修改备份 2",
+      "meanChannelDifference": 0.0224,
+      "scale": "0-255"
+    },
+    "reviewedCategories": {
+      "line": 119,
+      "solid": 14
+    }
+  }
+}

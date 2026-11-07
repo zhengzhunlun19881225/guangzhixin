@@ -1,0 +1,22 @@
+/* All system checkbox states share a 4px shape; native switches and custom glyph inputs are excluded. */
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]){
+  appearance:none;box-sizing:border-box;display:inline-grid;place-items:center;vertical-align:middle;
+  width:14px;height:14px;min-width:14px;margin:0;padding:0;flex-shrink:0;
+  border:1px solid var(--gx-input-border);border-radius:4px;background:var(--gx-surface);color:var(--gx-text-on-accent);
+  cursor:pointer;accent-color:var(--gx-brand);transition:border-color var(--gx-duration-fast),background-color var(--gx-duration-fast);
+}
+/* One glyph geometry for native inputs and custom reference indicators. */
+.rp-checkbox::before,
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox])::before{
+  content:'';width:10px;height:10px;background:currentColor;clip-path:polygon(10% 45%,38% 72%,88% 16%,100% 28%,39% 94%,0% 58%);visibility:hidden;
+}
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]):is(:checked,:indeterminate){background:var(--gx-brand);border-color:var(--gx-brand);}
+.rp-choice[data-selected=true] .rp-checkbox::before,
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]):is(:checked,:indeterminate)::before{visibility:visible;}
+.rp-choice[data-mixed=true] .rp-checkbox::before,
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]):indeterminate::before{width:8px;height:2px;clip-path:none;border-radius:1px;}
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]):not(:disabled):hover{border-color:var(--gx-hover-text);}
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]):not(:disabled):active{border-color:var(--gx-focus);}
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]):focus-visible{outline:2px solid var(--gx-focus);outline-offset:3px;}
+:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]):disabled{background:var(--gx-border);border-color:var(--gx-input-border);color:var(--gx-text-placeholder);cursor:not-allowed;}
+@media(prefers-reduced-motion:reduce){:is(.app-shell,.gx-dialog) input[type=checkbox]:not([role=switch]):not([data-custom-checkbox]){transition:none;}}

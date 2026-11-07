@@ -8,8 +8,30 @@
 @import "./components/hover-feedback.css";
 @import "./components/field-controls.css";
 @import "./design/components.css";
+@import "./design/dialogs.css";
 
 @theme inline {
+  /* Utility colors follow the approved semantic palette. */
+  --color-slate-900: var(--gx-text-primary);
+  --color-slate-800: var(--gx-text-primary);
+  --color-slate-700: var(--gx-text-secondary);
+  --color-slate-600: var(--gx-text-secondary);
+  --color-slate-500: var(--gx-text-muted);
+  --color-slate-400: var(--gx-text-placeholder);
+  --color-slate-300: var(--gx-input-border);
+  --color-slate-200: var(--gx-border);
+  --color-slate-100: var(--gx-neutral-bg);
+  --color-slate-50: var(--gx-neutral-bg);
+  --color-red-500: var(--gx-brand);
+  --color-blue-500: var(--gx-info);
+  --color-blue-600: var(--gx-info);
+  --color-green-500: var(--gx-success);
+  --color-emerald-500: var(--gx-success);
+  --color-orange-500: var(--gx-warning);
+  --color-purple-500: var(--gx-purple);
+  --color-purple-600: var(--gx-purple);
+  --color-teal-500: var(--gx-cyan);
+  --color-cyan-500: var(--gx-cyan);
   --font-sans: var(--app-font-family);
   --font-mono: var(--app-font-family);
 }
@@ -26,6 +48,8 @@
     overflow: hidden;
   }
 
+  /* Shared default thumb color, including native scroll areas and portal content. */
+  html { scrollbar-color: var(--gx-scrollbar-thumb) transparent; }
   /* Custom subtle scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
@@ -35,7 +59,7 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.35);
+    background: var(--gx-scrollbar-thumb);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {

@@ -1,0 +1,39 @@
+/* Only the new settings entries have unconditional styles. Original mode has no overrides. */
+.ui-mode-label{padding:8px 12px 4px;font-size:12px;color:var(--gx-text-muted);}
+.header-menu .ui-mode-option{align-items:center;gap:8px;min-height:52px;}
+/* Keep mode two implemented while hiding its menu entry from pointer and keyboard users. */
+.header-menu .ui-mode-option[hidden]{display:none;}
+.ui-mode-option>span{display:flex;flex-direction:column;gap:2px;flex:1;text-align:left;}
+.ui-mode-option small{font-size:11px;line-height:16px;color:var(--gx-text-muted);}
+.ui-mode-option[aria-checked=true]{color:var(--gx-brand);background:var(--gx-selected-bg);}
+.ui-mode-separator{height:1px;background:var(--gx-border);margin:8px 0;}
+
+/* Mode two: explicit, reversible presentation rules; never redefine source tokens. */
+html[data-ui-mode=spec] .app-shell:not(.spec-app){color:var(--gx-text-primary);}
+html[data-ui-mode=spec] .app-shell :is(.wb-panel,.pn-panel,.brief-column){background:var(--gx-surface);border:1px solid var(--gx-border);border-radius:var(--gx-radius-card);}
+html[data-ui-mode=spec] .app-shell :is(.wb-task-list>button,.wb-mail-list>button,.wb-agenda>button,.knowledge-card,.agent-card){border:1px solid var(--gx-border);border-radius:var(--gx-radius-card);background:var(--gx-surface);}
+html[data-ui-mode=spec] :is(.ui-button,.drive-upload,.drive-batch){height:var(--gx-control-height);border-radius:var(--gx-radius-control);font-size:var(--gx-font-body);}
+html[data-ui-mode=spec] :is(.ui-button-primary,.drive-upload){border:0;color:var(--gx-text-on-accent);background:var(--gx-brand-gradient);}
+html[data-ui-mode=spec] .gx-dialog :is(.ui-button-primary,.gx-dialog-primary){background:var(--gx-brand);background-image:none;color:var(--gx-text-on-accent);height:36px;}
+html[data-ui-mode=spec] .gx-dialog :is(.ui-button-primary,.gx-dialog-primary):not(:disabled):hover{background:var(--gx-hover-text);color:var(--gx-text-on-accent);filter:none;}
+html[data-ui-mode=spec] .ui-button:disabled{opacity:.45;cursor:not-allowed;}
+html[data-ui-mode=spec] :is(.ui-status,.wb-status){border-radius:4px;padding:2px 6px;font-size:12px;line-height:18px;font-weight:600;}
+html[data-ui-mode=spec] :is(.pn-tabs button:not([aria-selected=true]),.wb-tabs button:not(.active)){color:var(--gx-text-secondary);}
+html[data-ui-mode=spec] .app-shell :is(input[type=checkbox],input[type=radio]){width:14px;height:14px;accent-color:var(--gx-brand);flex-shrink:0;}
+html[data-ui-mode=spec] .app-shell input[type=range]{accent-color:var(--gx-success);}
+html[data-ui-mode=spec] :is(.gx-dialog,.drive-notice,.pn-subscription-notice){border-radius:var(--gx-radius-card);}
+html[data-ui-mode=spec] :is(.ui-select-menu,.header-menu){border:1px solid var(--gx-border);border-radius:8px;background:var(--gx-surface);box-shadow:var(--gx-shadow-menu);}
+html[data-ui-mode=spec] .ui-select-option{min-height:32px;border-radius:4px;}
+html[data-ui-mode=spec] .app-shell .drive-table :is(th,td){border-color:var(--gx-border);}
+html[data-ui-mode=spec] .app-shell .drive-table th{background:var(--gx-table-header-bg);color:var(--gx-text-primary);}
+html[data-ui-mode=spec] .app-shell .drive-table tr:is(:hover,:focus-within,.is-selected){background:var(--gx-selected-bg);}
+html[data-ui-mode=spec] .app-shell :is(.header-search,.header-settings>.header-menu-anchor>button){border-radius:8px;}
+html[data-ui-mode=spec] .app-shell :is(a,button){text-decoration:none;}
+html[data-ui-mode=spec] .app-shell :is(a,button):focus-visible{outline:2px solid var(--gx-focus);outline-offset:3px;}
+@media(hover:hover) and (pointer:fine){
+  html[data-ui-mode=spec] .app-shell :is(.header-search,.header-settings>.header-menu-anchor>button):not(:disabled):hover{background:var(--gx-hover-bg);color:var(--gx-hover-text);}
+  html[data-ui-mode=spec] .app-shell :is(.knowledge-card,.agent-card):not(:disabled):hover{transform:translateY(-2px);box-shadow:var(--gx-shadow-card-hover);}
+  html[data-ui-mode=spec] .app-shell :is(.pn-ai-card,.pn-group-card):not(:disabled):hover{transform:translateY(-2px);box-shadow:none;}
+  html[data-ui-mode=spec] .app-shell .pn-tabs button:hover{color:var(--gx-hover-text);}
+}
+@media(prefers-reduced-motion:reduce){html[data-ui-mode=spec] .app-shell :is(.knowledge-card,.agent-card,.pn-ai-card,.pn-group-card):not(:disabled):hover{transform:none;transition:none;}}

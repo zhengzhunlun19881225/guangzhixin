@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-06T16:08:36.435Z",
+  "results": [
+    {
+      "name": "133 assets load, 119 line / 14 solid, valid masks and default colors",
+      "status": "passed"
+    },
+    {
+      "name": "Classification filters and every merged alias resolve correctly",
+      "status": "passed"
+    },
+    {
+      "name": "Size and theme controls preserve semantic colors and gradient",
+      "status": "passed"
+    },
+    {
+      "name": "Tabs use body gray, selected labels and underline stay brand red",
+      "status": "passed"
+    },
+    {
+      "name": "Slider uses success accent and retains step/Home/End behavior",
+      "status": "passed"
+    },
+    {
+      "name": "1440/390 layouts and category switching without overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Confirmation warning is 16px; primary sample has no border",
+      "status": "passed"
+    },
+    {
+      "name": "Documentation and browser/resource errors",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

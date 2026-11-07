@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-06T17:05:01.542Z",
+  "results": [
+    {
+      "name": "dashboard 原样式基线与切回一致，模式二生效",
+      "status": "passed"
+    },
+    {
+      "name": "portal 原样式基线与切回一致，模式二生效",
+      "status": "passed"
+    },
+    {
+      "name": "knowledge 原样式基线与切回一致，模式二生效",
+      "status": "passed"
+    },
+    {
+      "name": "drive 原样式基线与切回一致，模式二生效",
+      "status": "passed"
+    },
+    {
+      "name": "页面状态保留、键盘选择、刷新记忆与Escape回焦",
+      "status": "passed"
+    },
+    {
+      "name": "模式二1920/1440/1280四页面布局",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

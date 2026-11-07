@@ -1,3 +1,4 @@
+import { Button, ModalSurface } from './UI';
 import { SearchField } from './FieldControls';
 import React, { useEffect, useRef, useState } from 'react';
 import { Plus, MoreHorizontal, Smile, Image as ImageIcon, Folder, Volume2, Clock, QrCode, ChevronRight, Phone, X, ArrowLeft, Send, Paperclip } from 'lucide-react';
@@ -149,10 +150,15 @@ export const IMChatView: React.FC<IMChatViewProps> = ({ subView, onSelectSubView
         {historyOpen && <aside className="im-history-panel" aria-label="聊天记录"><header><button title="关闭聊天记录" onClick={() => setHistoryOpen(false)}><ArrowLeft size={18} /></button><h3>聊天记录</h3></header><SearchBox value={historySearch} onChange={setHistorySearch} label="搜索聊天记录" />{historyMessages.filter(m => m.content.includes(historySearch)).map(m => <p key={m.id}>{m.content}</p>)}{!historyMessages.some(m => m.content.includes(historySearch)) && <p className="im-empty">暂无匹配的聊天记录</p>}</aside>}
       </div>
     </div>}
-    {modal && <div className="im-modal-shade" onClick={() => setModal(null)}><section className="im-modal" role="dialog" aria-modal="true" aria-label={modal.kind === 'profile' ? '联系人资料' : modal.kind === 'add' ? '添加群成员' : '退出群聊'} onClick={e => e.stopPropagation()}><button className="im-modal-close" title="关闭弹窗" onClick={() => setModal(null)}><X size={20} /></button>
-      {modal.kind === 'profile' && <><img className="im-profile-avatar" src={modal.avatar} alt="" /><h3>{modal.name}</h3><p>广新集团</p><button className="im-primary" onClick={() => { const known = contacts.find(c => c.name === modal.name); openChat(known || { id: `person-${modal.name}`, name: modal.name, avatar: modal.avatar, lastMessage: '开始新的会话', time: '刚刚' }); setModal(null); }}>发送消息</button></>}
-      {modal.kind === 'add' && <><h3>添加群成员</h3><SearchBox value={addSearch} onChange={setAddSearch} label="搜索可添加的联系人" />{contacts.filter(c => !c.isGroup && c.name.includes(addSearch) && !addedMembers.some(m => m.id === c.id)).map(c => <button className="im-add-option" key={c.id} onClick={() => { setAddedMembers(items => [...items, c]); setModal(null); }}><img src={c.avatar} alt="" /><span>{c.name}</span><Plus size={18} /></button>)}</>}
-      {modal.kind === 'leave' && <><h3>退出群聊</h3><p>退出后，此群将从当前会话列表中移除。</p><div className="im-modal-actions"><button onClick={() => setModal(null)}>取消</button><button className="im-primary" onClick={() => { setLeftGroups(ids => [...ids, selectedContact.id]); openChat(contacts[0]); setModal(null); }}>确认退出</button></div></>}
-    </section></div>}
+    {modal && <ModalSurface className="im-modal" label={modal.kind === 'profile' ? '联系人资料' : modal.kind === 'add' ? '添加群成员' : '退出群聊'} onClose={() => setModal(null)}>
+      <header className="gx-dialog-header"><h3>{modal.kind === 'profile' ? '联系人资料' : modal.kind === 'add' ? '添加群成员' : '退出群聊'}</h3><button aria-label="关闭弹窗" title="关闭弹窗" onClick={() => setModal(null)}><X size={18}/></button></header>
+      <div className="gx-dialog-body">
+        {modal.kind === 'profile' && <><img className="im-profile-avatar" src={modal.avatar} alt=""/><h3>{modal.name}</h3><p>广新集团</p></>}
+        {modal.kind === 'add' && <><SearchBox value={addSearch} onChange={setAddSearch} label="搜索可添加的联系人"/>{contacts.filter(c => !c.isGroup && c.name.includes(addSearch) && !addedMembers.some(m => m.id === c.id)).map(c => <button className="im-add-option" key={c.id} onClick={() => { setAddedMembers(items => [...items,c]);setModal(null); }}><img src={c.avatar} alt=""/><span>{c.name}</span><Plus size={18}/></button>)}</>}
+        {modal.kind === 'leave' && <p>退出后，此群将从当前会话列表中移除。</p>}
+      </div>
+      {modal.kind === 'profile' && <footer className="gx-dialog-footer"><Button variant="primary" onClick={() => {const known=contacts.find(c=>c.name===modal.name);openChat(known || {id:`person-${modal.name}`,name:modal.name,avatar:modal.avatar,lastMessage:'开始新的会话',time:'刚刚'});setModal(null);}}>发送消息</Button></footer>}
+      {modal.kind === 'leave' && <footer className="gx-dialog-footer"><Button onClick={() => setModal(null)}>取消</Button><Button variant="primary" onClick={() => { setLeftGroups(ids => [...ids,selectedContact.id]);openChat(contacts[0]);setModal(null); }}>确认退出</Button></footer>}
+    </ModalSurface>}
   </section>;
 };

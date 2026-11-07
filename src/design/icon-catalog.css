@@ -1,0 +1,31 @@
+/* Review-only icon catalogue. No shared icon or business selectors are changed. */
+.ig-catalog{min-width:0;color:var(--gx-text-primary);font:400 14px/22px var(--gx-font-family);}
+.ig-intro{margin:0 0 20px;color:var(--gx-text-secondary);}
+.ig-toolbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.ig-toolbar .ui-search-field{width:280px;max-width:100%;}
+.ig-count,.ig-note{font-size:12px;line-height:18px;color:var(--gx-text-muted);}
+.ig-filters,.ig-options,.ig-sizes,.ig-colors{display:flex;align-items:center;flex-wrap:wrap;gap:8px;}
+.ig-filters{margin-top:16px;}
+.ig-filters button,.ig-options button{border:1px solid var(--gx-border);border-radius:8px;min-height:32px;padding:4px 12px;background:var(--gx-surface);color:var(--gx-text-secondary);font:inherit;cursor:pointer;}
+.ig-filters button[aria-pressed=true],.ig-options button[aria-pressed=true]{border-color:var(--gx-brand);color:var(--gx-brand);}
+.ig-filters button:hover,.ig-options button:hover{color:var(--gx-hover-text);background:var(--gx-hover-bg);}
+.ig-filters button>span{margin-left:8px;font-size:12px;}
+.ig-options{margin-top:16px;gap:12px 24px;}
+.ig-options>div>span{margin-right:4px;}
+.ig-note{margin:12px 0 0;}
+.ig-section{margin-top:28px;}
+.ig-catalog h4{font-size:16px;line-height:24px;margin:0 0 16px;font-weight:600;}
+.ig-section h4>span{margin-left:8px;font-size:12px;font-weight:400;color:var(--gx-text-muted);}
+.ig-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;}
+.ig-card{min-width:0;min-height:104px;padding:12px 8px;border:1px solid var(--gx-border);border-radius:8px;text-align:center;background:var(--gx-surface);overflow-wrap:anywhere;}
+.ig-icon-area{height:32px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+.ig-glyph{display:inline-block;flex-shrink:0;vertical-align:middle;mask-repeat:no-repeat;mask-size:contain;mask-position:center;color:var(--gx-text-primary);}
+.ig-glyph[data-tone=brand]{color:var(--gx-brand);}.ig-glyph[data-tone=warning]{color:var(--gx-warning);}.ig-glyph[data-tone=info]{color:var(--gx-info);}
+.ig-monochrome{background:currentColor;}.ig-monochrome>img{opacity:0;}
+.ig-glyph>img{display:block;width:100%;height:100%;object-fit:contain;}
+.ig-name{display:block;font-size:14px;line-height:22px;}
+.ig-card small{display:block;margin-top:4px;font-size:12px;line-height:18px;color:var(--gx-text-muted);}
+.ig-unavailable{display:inline-grid;place-items:center;color:var(--gx-text-muted);background:var(--gx-neutral-bg);}
+.ig-empty{padding:32px 12px;text-align:center;}.ig-empty p{color:var(--gx-text-muted);margin:0 0 12px;}
+.ig-usage{margin-top:32px;padding-top:24px;border-top:1px solid var(--gx-border);}
+@media(max-width:700px){.ig-toolbar{gap:8px;}.ig-toolbar .ui-search-field{width:100%;}.ig-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}.ig-options{gap:12px;}.ig-options button{padding-inline:10px;}.ig-filters button{padding-inline:8px;}.ig-name{font-size:12px;line-height:18px;}}

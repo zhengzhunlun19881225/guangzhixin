@@ -17,8 +17,10 @@ import { FilePreviewDrawer } from './components/FilePreviewDrawer';
 import { FloatingAITools } from './components/FloatingAITools';
 import { MainTab, SidebarMenu, PortalSubView, IMSubView } from './types';
 import { Users, Cloud } from 'lucide-react';
+import { useUIMode } from './design/useUIMode';
 
 export default function App() {
+  const [uiMode, setUIMode] = useUIMode();
   const [mainTab, setMainTab] = useState<MainTab>(() => new URLSearchParams(window.location.search).get('view') === 'portal' ? 'portal' : new URLSearchParams(window.location.search).get('view') === 'im' ? 'im' : 'workbench');
   const [sidebarMenu, setSidebarMenu] = useState<SidebarMenu>(() => { const view = new URLSearchParams(window.location.search).get('view'); return view === 'agents' || view === 'skills' ? 'agents_skills' : view === 'knowledge' ? 'knowledge_base' : view === 'employees' ? 'digital_employee' : view === 'todos' ? 'todos' : view === 'drive' ? 'cloud_drive' : 'new_chat'; });
   const [portalSubView, setPortalSubView] = useState<PortalSubView>(() => new URLSearchParams(window.location.search).get('section') === 'data' ? 'data' : 'news');
@@ -102,6 +104,7 @@ export default function App() {
     <div className={`app-shell flex flex-col h-screen w-screen overflow-hidden antialiased selection:bg-red-500 selection:text-white ${isFilePreviewOpen ? 'has-file-preview' : ''}`} data-view={mainTab === 'workbench' ? (showWorkbenchDashboard ? 'dashboard' : sidebarMenu) : mainTab}>
       {/* Top Header */}
       <Header
+        uiMode={uiMode} onUIModeChange={setUIMode}
         currentTab={mainTab}
         onSelectTab={handleSelectTab}
         sidebarCollapsed={sidebarCollapsed}

@@ -50,17 +50,18 @@ export function HistoryModal({ isOpen, onClose, onNewChat, onSelect }: HistoryMo
   const matches = historyEntries.filter(item => `${item.title} ${AGENT_CARDS.find(agent => agent.id === item.agentId)?.title ?? ''}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))
     .sort((a, b) => Number(pinnedIds.includes(b.id)) - Number(pinnedIds.includes(a.id)));
   const closeAndSelect = (entry: HistoryEntry) => { onClose(); onSelect(entry); };
-  return <dialog ref={dialog} className="history-dialog" aria-label="历史记录" onCancel={event => { event.preventDefault(); onClose(); }} onClick={event => {
+  return <dialog ref={dialog} className="gx-dialog history-dialog" aria-label="历史记录" onCancel={event => { event.preventDefault(); onClose(); }} onClick={event => {
     if (event.target !== event.currentTarget) return;
     const bounds = event.currentTarget.getBoundingClientRect();
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) onClose();
   }}>
+    <header className="gx-dialog-header"><h2>历史记录</h2><button className="history-dialog-close" aria-label="关闭历史记录" onClick={onClose}><X size={18}/></button></header>
     <div className="history-dialog-header">
       <SearchField className="history-search-field" inputRef={search} label="搜索历史记录" value={query} onChange={setQuery} clearText="清空" onKeyDown={event => { if (event.key === 'Enter' && !event.nativeEvent.isComposing && matches.length) { event.preventDefault(); closeAndSelect(matches[0]); } }}/>
 
-      <button className="history-dialog-close" aria-label="关闭历史记录" onClick={onClose}><X size={18} /></button>
+
     </div>
-    <div className="history-results">
+    <div className="gx-dialog-body history-results">
       {!query.trim() && <section className="history-quick-create"><h3>快捷创建</h3><button onClick={() => { onClose(); onNewChat(); }}><img src="assets/sidebar/new-chat.svg" width="20" height="20" alt="" /><span>新建会话</span></button></section>}
       <section aria-label="历史列表"><h3>{query.trim() ? '搜索结果' : '最近对话'}{query.trim() && <span className="history-result-count">{matches.length} 条</span>}</h3>
         {matches.map(entry => {

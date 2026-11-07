@@ -1,5 +1,6 @@
 import { SearchField, DateRangeField } from './FieldControls';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Pagination, usePagination } from './Pagination';
 import { 
   SlidersHorizontal, 
   Search, 
@@ -35,6 +36,13 @@ export const KnowledgeBaseView: React.FC<KnowledgeBaseViewProps> = ({
   const [searchDoc, setSearchDoc] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const files = KNOWLEDGE_FILES.filter(file => !fileSearch || file.name.includes(fileSearch));
+  const pagination = usePagination(files.length, JSON.stringify([selectedFolder, fileSearch, inDetailView]));
+  const visibleFiles = files.slice(pagination.offset, pagination.offset + pagination.pageSize);
+  const allFiles = useRef<HTMLInputElement>(null), fileScroll = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (allFiles.current) allFiles.current.indeterminate = visibleFiles.some(file => selectedFiles.includes(file.id)) && !visibleFiles.every(file => selectedFiles.includes(file.id)); }, [visibleFiles, selectedFiles]);
+  useEffect(() => { fileScroll.current?.scrollTo({ top: 0 }); }, [pagination.page, pagination.pageSize, fileSearch, selectedFolder]);
+
 
   const teams = [
     '团队名称(3)',
@@ -163,10 +171,11 @@ export const KnowledgeBaseView: React.FC<KnowledgeBaseViewProps> = ({
                   <button
                     key={`${item}-${idx}`}
                     hidden={!!teamSearch && !item.includes(teamSearch)}
+                    aria-pressed={selectedTeamIndex === idx}
                     onClick={() => {setSelectedTeam(item);setSelectedTeamIndex(idx);}}
                     className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-colors ${
                       selectedTeamIndex === idx
-                        ? 'bg-slate-100 text-slate-900 font-semibold'
+                        ? 'is-selected'
                         : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
@@ -264,11 +273,11 @@ export const KnowledgeBaseView: React.FC<KnowledgeBaseViewProps> = ({
             <div className="w-64 border-r border-slate-100 p-4 flex flex-col shrink-0">
               <SearchField className="relative mb-3" label="搜索知识库目录" value={folderSearch} onChange={setFolderSearch}/>
 
-              <KnowledgeTree detail query={folderSearch} onSelect={setSelectedFolder} />
+              <KnowledgeTree detail query={folderSearch} onSelect={folder => { setSelectedFolder(folder); setSelectedFiles([]); }} />
             </div>
 
             {/* Right File Table */}
-            <div className="kb-content flex-1 flex flex-col p-6 overflow-y-auto">
+            <div className="kb-file-content kb-content flex-1 flex flex-col p-6 overflow-y-auto">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
                 <h3 className="text-sm font-bold text-slate-800">
                   {selectedFolder}
@@ -278,13 +287,13 @@ export const KnowledgeBaseView: React.FC<KnowledgeBaseViewProps> = ({
               </div>
 
               {/* Data Table */}
-              <div className="overflow-x-auto">
+              <div className="kb-file-table-scroll" ref={fileScroll}>
                 <table className="kb-files w-full text-left text-xs text-slate-700 border-collapse">
                   <colgroup><col style={{width:'36px'}}/><col/><col style={{width:'11%'}}/><col style={{width:'10%'}}/><col style={{width:'7%'}}/><col style={{width:'12.5%'}}/><col style={{width:'6%'}}/></colgroup>
                   <thead>
                     <tr className="border-b border-slate-100 text-slate-400 font-medium">
                       <th className="py-3 px-3 w-8">
-                        <input type="checkbox" aria-label="全选文件" checked={KNOWLEDGE_FILES.filter(file => !fileSearch || file.name.includes(fileSearch)).every(file => selectedFiles.includes(file.id)) && selectedFiles.length > 0} onChange={event => setSelectedFiles(event.target.checked ? KNOWLEDGE_FILES.filter(file => !fileSearch || file.name.includes(fileSearch)).map(file => file.id) : [])} className="rounded-sm border-slate-300" />
+                        <input type="checkbox" ref={allFiles} aria-label="全选文件" checked={visibleFiles.length > 0 && visibleFiles.every(file => selectedFiles.includes(file.id))} onChange={event => setSelectedFiles(ids => event.target.checked ? [...new Set([...ids, ...visibleFiles.map(file => file.id)])] : ids.filter(id => !visibleFiles.some(file => file.id === id)))} className="rounded-sm border-slate-300" />
                       </th>
                       <th className="py-3 px-3">文件名称</th>
                       <th className="py-3 px-3">文件大小</th>
@@ -295,7 +304,7 @@ export const KnowledgeBaseView: React.FC<KnowledgeBaseViewProps> = ({
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-50">
-                    {KNOWLEDGE_FILES.filter(file=>!fileSearch||file.name.includes(fileSearch)).map((file) => (
+                    {visibleFiles.map((file) => (
                       <tr key={file.id} className="hover:bg-slate-50/80 transition-colors">
                         <td className="py-3 px-3">
                           <input type="checkbox" aria-label={`选择${file.name}`} checked={selectedFiles.includes(file.id)} onChange={event => setSelectedFiles(ids => event.target.checked ? [...ids, file.id] : ids.filter(id => id !== file.id))} className="rounded-sm border-slate-300" />
@@ -322,7 +331,9 @@ export const KnowledgeBaseView: React.FC<KnowledgeBaseViewProps> = ({
                     ))}
                   </tbody>
                 </table>
+                {!files.length && <p className="drive-empty" role="status">暂无匹配文件</p>}
               </div>
+              <Pagination label="知识库分页" total={files.length} {...pagination}/>
             </div>
           </div>
         </div>

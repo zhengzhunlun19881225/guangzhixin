@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="21px" viewBox="0 0 28 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Union</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F95F5F" offset="0%"></stop>
+            <stop stop-color="#FD9898" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="PC" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="工作台1备份-3" transform="translate(-906, -827)" fill="url(#linearGradient-1)">
+            <g id="编组-66" transform="translate(605, 124)">
+                <g id="编组-25备份-17" transform="translate(31, 666)">
+                    <g id="编组-2" transform="translate(270, 37)">
+                        <path d="M15,21 L15,15 L19,15 L14,9 L9,15 L13,15 L13,21 L7.5,21 C5.37465073,20.93735 3.60900049,20.203 2.2030003,18.797 C0.797000109,17.391 0.0626665085,15.62535 0,13.5 C0.0420000057,11.54135 0.682665093,9.88 1.92200026,8.516 C3.16133543,7.152 4.73933565,6.34465 6.65600091,6.094 C7.03135096,4.281335 7.89065108,2.823 9.23400126,1.719 C10.5773514,0.615 12.1660017,0.042 14,0 C15.8333522,0.042 17.4220024,0.615 18.7660026,1.719 C20.1100027,2.823 20.9693529,4.281335 21.3440029,6.094 C23.2606532,6.344 24.8386534,7.15135 26.0780036,8.516 C27.3173537,9.88065 27.9580038,11.542 28,13.5 C27.9373538,15.62535 27.2030037,17.391 25.7970035,18.797 C24.3910033,20.203 22.6253531,20.93735 20.5,21 L15,21 Z" id="Union"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

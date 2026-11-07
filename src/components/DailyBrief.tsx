@@ -27,9 +27,9 @@ function GreetingDialog({ onClose, onOpenIM }: { onClose: () => void; onOpenIM: 
     try { const contactId = sendAnniversaryGreeting(text.trim()); onClose(); onOpenIM(contactId); }
     catch { setError('发送未成功，请重试。'); sending.current = false; }
   };
-  return <dialog ref={dialog} className="brief-greeting-dialog" aria-labelledby="greeting-title" onCancel={e => { e.preventDefault(); onClose(); }} onClick={e => { if (e.target === e.currentTarget) { const r = e.currentTarget.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) onClose(); } }}>
-    <header><h2 id="greeting-title">送入职周年祝福</h2><button aria-label="关闭祝福弹窗" onClick={onClose}><X size={20}/></button></header>
-    <div className="greeting-body">
+  return <dialog ref={dialog} className="gx-dialog brief-greeting-dialog" aria-labelledby="greeting-title" onCancel={e => { e.preventDefault(); onClose(); }} onClick={e => { if (e.target === e.currentTarget) { const r = e.currentTarget.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) onClose(); } }}>
+    <header className="gx-dialog-header"><h2 id="greeting-title">送入职周年祝福</h2><button aria-label="关闭祝福弹窗" onClick={onClose}><X size={20}/></button></header>
+    <div className="gx-dialog-body greeting-body">
       <img className="greeting-banner" src="assets/workbench/anniversary-care.png" alt="入职周年快乐，感恩同行，未来可期" />
       <h3>写一条给陈晓晓的入职周年祝福</h3>
       <div className="greeting-tones" aria-label="祝福语气">{(Object.keys(greetingTones) as (keyof typeof greetingTones)[]).map(label => <button key={label} aria-pressed={tone === label} onClick={() => { setTone(label); setVariant(0); setText(greetingTones[label][0]); setError(''); }}>{label}</button>)}</div>
@@ -39,7 +39,7 @@ function GreetingDialog({ onClose, onOpenIM }: { onClose: () => void; onOpenIM: 
       </div>
       {error && <p role="alert" className="greeting-error">{error}</p>}
     </div>
-    <footer><span>发送给：陈晓晓</span><Button variant="primary" className="greeting-send" disabled={!text.trim() || text.length > 200} onClick={send}>发送IM祝福</Button></footer>
+    <footer className="gx-dialog-footer"><span>发送给：陈晓晓</span><Button variant="primary" className="greeting-send" disabled={!text.trim() || text.length > 200} onClick={send}>发送IM祝福</Button></footer>
   </dialog>;
 }
 export function DailyBrief({ onOpenIM }: { onOpenIM: (id: string) => void }) {

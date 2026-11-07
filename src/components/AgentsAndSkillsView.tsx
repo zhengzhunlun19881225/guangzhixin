@@ -1,3 +1,4 @@
+import { Button, ModalSurface } from './UI';
 import { SelectField } from './SelectField';
 import { SearchField } from './FieldControls';
 import React, { useState } from 'react';
@@ -223,73 +224,15 @@ export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
         </div>
       </div>
 
-      {/* Create Modal */}
-      {showCreateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 p-6 space-y-4 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="text-base font-bold text-slate-900">
-                创建自定义{activeTab === 'agents' ? '智能体' : '技能'}
-              </h3>
-              <button
-                onClick={() => setShowCreateModal(false)}
-                className="p-1 text-slate-400 hover:text-slate-600 rounded-lg"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="space-y-3 text-xs">
-              <div>
-                <label className="block text-slate-700 font-medium mb-1">名称</label>
-                <input
-                  type="text"
-                  value={newTitle}
-                  onChange={(e) => setNewTitle(e.target.value)}
-                  placeholder="例如：投资决策分析助手"
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg outline-hidden text-slate-800"
-                />
-              </div>
-
-              <div>
-                <label className="block text-slate-700 font-medium mb-1">功能描述</label>
-                <textarea
-                  rows={3}
-                  value={newDesc}
-                  onChange={(e) => setNewDesc(e.target.value)}
-                  placeholder="简要描述该智能体的专属场景与功能指令..."
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg outline-hidden text-slate-800 resize-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-slate-700 font-medium mb-1">所属分类</label>
-                <SelectField label="所属分类" className="agent-category-select" options={['官方','组织','个人','法务','财务','人力']} />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
-              <button
-                onClick={() => setShowCreateModal(false)}
-                className="px-4 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 rounded-lg"
-              >
-                取消
-              </button>
-              <button
-                onClick={() => {
-                  if (newTitle) {
-                    onSelectAgentOrSkill(newTitle);
-                    setShowCreateModal(false);
-                  }
-                }}
-                className="px-4 py-2 text-xs font-medium text-white bg-orange-500 hover:bg-orange-600 rounded-lg shadow-xs"
-              >
-                确认创建
-              </button>
-            </div>
-          </div>
+      {showCreateModal && <ModalSurface className="agent-create-dialog" label={`创建自定义${activeTab === 'agents' ? '智能体' : '技能'}`} onClose={() => setShowCreateModal(false)}>
+        <header className="gx-dialog-header"><h3>创建自定义{activeTab === 'agents' ? '智能体' : '技能'}</h3><button aria-label="关闭创建弹窗" onClick={() => setShowCreateModal(false)}><X size={18}/></button></header>
+        <div className="gx-dialog-body">
+          <label className="gx-dialog-field">名称<input autoFocus value={newTitle} onChange={e => setNewTitle(e.target.value)} placeholder="例如：投资决策分析助手"/></label>
+          <label className="gx-dialog-field">功能描述<textarea rows={3} value={newDesc} onChange={e => setNewDesc(e.target.value)} placeholder="简要描述该智能体的专属场景与功能指令..."/></label>
+          <div className="gx-dialog-field"><span>所属分类</span><SelectField label="所属分类" className="agent-category-select" options={['官方','组织','个人','法务','财务','人力']}/></div>
         </div>
-      )}
+        <footer className="gx-dialog-footer"><Button onClick={() => setShowCreateModal(false)}>取消</Button><Button variant="primary" disabled={!newTitle.trim()} onClick={() => { if(newTitle.trim()){onSelectAgentOrSkill(newTitle.trim());setShowCreateModal(false);} }}>确认创建</Button></footer>
+      </ModalSurface>}
     </div>
   );
 };

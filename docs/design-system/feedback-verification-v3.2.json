@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-06T15:23:17.084Z",
+  "results": [
+    {
+      "name": "Alert 四色基础/说明、尺寸、无描边、关闭恢复",
+      "status": "passed"
+    },
+    {
+      "name": "Message 外观与顶部3秒自动消失、不抢焦点",
+      "status": "passed"
+    },
+    {
+      "name": "Message 重复触发重置计时与离开清理",
+      "status": "passed"
+    },
+    {
+      "name": "Notification 图例、330px宽、手动关闭与回焦",
+      "status": "passed"
+    },
+    {
+      "name": "Notification 自动关闭、暂停剩余计时与四角定位",
+      "status": "passed"
+    },
+    {
+      "name": "Notification 重复触发重新计时、重置无残留",
+      "status": "passed"
+    },
+    {
+      "name": "Tooltip 八方向白底箭头、键盘关闭与边界避让",
+      "status": "passed"
+    },
+    {
+      "name": "Badge 99/99+、主题红与零值/已读",
+      "status": "passed"
+    },
+    {
+      "name": "Dropdown 默认等宽左对齐、长文案才加宽",
+      "status": "passed"
+    },
+    {
+      "name": "公共 Select 菜单按按钮/内容宽度自适应",
+      "status": "passed"
+    },
+    {
+      "name": "390px 五项预览及浮层无横向溢出",
+      "status": "passed"
+    },
+    {
+      "name": "无浏览器或本地资源错误",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

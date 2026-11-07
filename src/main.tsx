@@ -2,6 +2,8 @@ import { lazy, Suspense } from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+import './design/ui-modes.css';
+import './design/checkboxes.css';
 
 const DesignSpec = lazy(() => import('./design/DesignSpec'));
 const isSpec = new URLSearchParams(window.location.search).get('view') === 'design-system';

@@ -1,8 +1,16 @@
 /* Shared components intentionally work inside dialogs portaled outside .app-shell. */
+/* Shared data-table header surface; date-picker grids retain their calendar styling. */
+:is(.app-shell,.gx-dialog) table:not([role=grid])>thead,
+:is(.app-shell,.gx-dialog) table:not([role=grid])>thead>tr>th{background:var(--gx-table-header-bg);}
 .ui-button{display:inline-flex;align-items:center;justify-content:center;gap:var(--gx-space-2);height:var(--gx-control-height);padding:0 var(--gx-space-4);border:1px solid var(--gx-border);border-radius:var(--gx-radius-control);background:var(--gx-surface);color:var(--gx-text-primary);font-family:var(--gx-font-family);font-size:var(--gx-font-body);line-height:20px;white-space:nowrap;transition:color var(--gx-duration-fast),border-color var(--gx-duration-fast),background-color var(--gx-duration-fast);}
 .ui-button.ui-button-primary{background:var(--gx-brand-gradient);border-color:transparent;color:var(--gx-text-on-accent);}
 .ui-button.ui-button-text{background:transparent;border-color:transparent;padding-inline:var(--gx-space-2);color:var(--gx-text-secondary);}
 .ui-button.ui-button-danger{color:var(--gx-danger);border-color:var(--gx-danger);}
+/* Explicit theme-red and small variants; default consumers keep their existing appearance. */
+.ui-button.ui-button-solid{background:var(--gx-brand);border:0;color:var(--gx-text-on-accent);}
+.ui-button.ui-button-solid:not(:disabled):hover{background:var(--gx-hover-text);color:var(--gx-text-on-accent);border-color:transparent;}
+.ui-button.ui-button-solid:not(:disabled):active{background:var(--gx-focus);color:var(--gx-text-on-accent);}
+.ui-button.ui-button-small,.spec-app .ui-button.ui-button-small{height:var(--gx-control-compact);padding-inline:10px;font-size:var(--gx-font-caption);line-height:var(--gx-line-caption);gap:6px;}
 .ui-button:not(:disabled):hover{color:var(--gx-hover-text);border-color:var(--gx-hover-text);}
 .ui-button.ui-button-text:not(:disabled):hover{border-color:transparent;background:var(--gx-hover-bg);}
 .ui-button.ui-button-primary:not(:disabled):hover{color:var(--gx-text-on-accent);border-color:transparent;filter:brightness(1.04);}
@@ -12,9 +20,9 @@
 @keyframes ui-spin{to{transform:rotate(360deg);}}
 .ui-panel-heading{display:flex;align-items:center;justify-content:space-between;gap:var(--gx-space-4);min-height:54px;}
 .ui-panel-heading h3{display:flex;align-items:center;gap:var(--gx-space-2);margin:0;color:var(--gx-text-primary);font-size:var(--gx-font-section);line-height:var(--gx-line-section);font-weight:600;}
-.ui-panel-heading>button{display:inline-flex;align-items:center;font-size:var(--gx-font-caption);color:var(--gx-text-secondary);}
+.ui-panel-heading>button{display:inline-flex;align-items:center;font-size:var(--gx-font-body);color:var(--gx-text-secondary);}
 .ui-panel-heading>button:hover{color:var(--gx-hover-text);}
-.ui-status{display:inline-flex;align-items:center;padding:0 6px;border-radius:var(--gx-radius-small);font-size:var(--gx-font-caption);line-height:22px;white-space:nowrap;color:var(--gx-text-secondary);background:var(--gx-neutral-bg);}
+.ui-status{display:inline-flex;align-items:center;padding:var(--gx-status-padding-y) 6px;border-radius:var(--gx-radius-small);font-size:var(--gx-font-caption);font-weight:600;line-height:var(--gx-line-caption);white-space:nowrap;color:var(--gx-text-muted);background:var(--gx-neutral-bg);}
 .ui-status-success{color:var(--gx-success);background:var(--gx-success-bg);}
 .ui-status-info{color:var(--gx-info);background:var(--gx-info-bg);}
 .ui-status-warning{color:var(--gx-warning);background:var(--gx-warning-bg);}
@@ -23,3 +31,10 @@
 .ui-empty p{margin:0;}
 .ui-empty-description{color:var(--gx-text-muted);max-width:360px;}
 @media(prefers-reduced-motion:reduce){.ui-button{transition:none;}.ui-spinner{animation:none;}}
+
+/* All module, portal and history More actions share body-size typography. */
+.app-shell button.ui-more{font-size:var(--gx-font-body);line-height:var(--gx-line-body);}
+
+/* Framed fields use one focus border, without an extra outer outline or ring.
+   Nested borderless inputs retain their container focus indication. */
+:is(.app-shell,.gx-dialog) :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),textarea,.ui-select,.sch-time-trigger):focus{outline:none;box-shadow:none;border-color:var(--gx-focus);}

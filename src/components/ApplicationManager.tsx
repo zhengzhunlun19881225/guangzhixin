@@ -1,6 +1,6 @@
 import { Button } from './UI';
 import React, { useEffect, useRef, useState } from 'react';
-import { Minus, Plus, X } from 'lucide-react';
+import { Minus, Plus, X, SlidersHorizontal } from 'lucide-react';
 import { appCatalogs, appCategories, type AppScope, type WorkbenchApp } from '../data/workbenchApps';
 import './application-manager.css';
 import { WorkbenchVectorIcon, hasWorkbenchVector } from './WorkbenchVectorIcon';
@@ -65,15 +65,15 @@ export function ApplicationManager({ scope, selectedIds, onClose, onSave, onOpen
     if (onSave(draft)) { finishEditing(); setAnnouncement('已保存'); }
     else setSaveError('保存失败，请检查浏览器存储权限后重试。');
   };
-  return <dialog ref={dialog} className={`app-manager-dialog ${isEditing ? 'is-editing' : 'is-browsing'}`} aria-labelledby="app-manager-title" onCancel={event => { event.preventDefault(); if (isEditing) cancelEditing(); else onClose(); }} onClick={event => {
+  return <dialog ref={dialog} className={`gx-dialog app-manager-dialog ${isEditing ? 'is-editing' : 'is-browsing'}`} aria-labelledby="app-manager-title" onCancel={event => { event.preventDefault(); if (isEditing) cancelEditing(); else onClose(); }} onClick={event => {
     if (event.target !== event.currentTarget) return;
     const box = event.currentTarget.getBoundingClientRect();
     if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) onClose();
   }}>
-    <header className="app-manager-header"><div><h2 id="app-manager-title">{scope === 'common' ? '添加应用' : '添加系统'}</h2></div><button ref={closeButton} aria-label="关闭应用管理" onClick={onClose}><X size={20} /></button></header>
-    <div className="app-manager-body">
+    <header className="gx-dialog-header app-manager-header"><div><h2 id="app-manager-title">{scope === 'common' ? '添加应用' : '添加系统'}</h2></div><button ref={closeButton} aria-label="关闭应用管理" onClick={onClose}><X size={20} /></button></header>
+    <div className="gx-dialog-body app-manager-body">
       <section className="app-manager-section app-manager-selected" aria-label={scope === 'common' ? '我的应用' : '我的系统'}>
-        <div className="app-manager-selection-heading"><h3>{scope === 'common' ? '我的应用' : '我的系统'}</h3>{isEditing ? <span className="app-manager-edit-label">编辑中 · 拖动调整顺序</span> : <button ref={manageButton} className="app-manager-manage" onClick={() => { setDraft([...selectedIds]); setSaveError(''); setIsEditing(true); }}>管理</button>}</div>
+        <div className="app-manager-selection-heading"><h3>{scope === 'common' ? '我的应用' : '我的系统'}</h3>{isEditing ? <span className="app-manager-edit-label">编辑中 · 拖动调整顺序</span> : <button ref={manageButton} className="ui-button ui-button-secondary app-manager-manage" onClick={() => { setDraft([...selectedIds]); setSaveError(''); setIsEditing(true); }}><SlidersHorizontal size={14} aria-hidden="true"/><span>管理</span></button>}</div>
         {selected.length ? <div className="app-manager-grid">{selected.map((app, index) => <div key={app.id} data-app-id={app.id} className={`app-manager-item is-selected ${dropTarget === app.id ? 'is-drop-target' : ''} ${activeDrag === app.id ? 'is-dragging' : ''}`} draggable={isEditing} tabIndex={0} role={isEditing ? 'group' : 'button'} aria-label={isEditing ? `${app.name}，第${index + 1}位，可拖动或按 Alt 加左右方向键调整顺序` : `打开${app.name}`} aria-keyshortcuts={isEditing ? 'Alt+ArrowLeft Alt+ArrowRight' : undefined}
           onClick={() => openApp(app)}
           onKeyDown={event => { if (!isEditing && ['Enter', ' '].includes(event.key)) { event.preventDefault(); openApp(app); } if (isEditing && event.altKey && ['ArrowLeft', 'ArrowRight'].includes(event.key)) { event.preventDefault(); move(app, event.key === 'ArrowLeft' ? -1 : 1); } }}
@@ -94,7 +94,7 @@ export function ApplicationManager({ scope, selectedIds, onClose, onSave, onOpen
         {!available.length && <div className="app-manager-empty">已添加全部应用</div>}
       </section>
     </div>
-    {isEditing && <footer className="app-manager-footer">{saveError && <p role="alert">{saveError}</p>}<Button className="app-manager-cancel" onClick={cancelEditing}>取消</Button><Button variant="primary" className="app-manager-save" onClick={save}>保存</Button></footer>}
+    {isEditing && <footer className="gx-dialog-footer app-manager-footer">{saveError && <p role="alert">{saveError}</p>}<Button className="app-manager-cancel" onClick={cancelEditing}>取消</Button><Button variant="primary" className="app-manager-save" onClick={save}>保存</Button></footer>}
     <span className="sr-only" role="status" aria-live="polite">{announcement}</span>
   </dialog>;
 }

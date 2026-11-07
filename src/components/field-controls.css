@@ -2,7 +2,7 @@
 .app-shell .ui-field.ui-field{
   display:flex;align-items:center;gap:8px;position:relative;box-sizing:border-box;
   height:var(--gx-control-height);min-height:var(--gx-control-height);max-height:var(--gx-control-height);padding:0 10px;
-  border:1px solid var(--gx-border);border-radius:var(--gx-radius-control);background:#fff;box-shadow:none;
+  border:1px solid var(--gx-input-border);border-radius:var(--gx-radius-control);background:#fff;box-shadow:none;
   font-family:var(--app-font-family);font-size:var(--gx-font-body);line-height:20px;color:var(--gx-text-placeholder);
   transition:border-color 160ms ease;
 }

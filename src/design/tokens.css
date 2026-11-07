@@ -1,29 +1,40 @@
-/* 广智新 v1.0 — semantic tokens. Shared by production and the specification. */
+/* 广智新 v3.0 — semantic tokens. Shared by production and the specification. */
 :root {
   --gx-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
   --gx-text-primary: #03091B;
   --gx-text-secondary: #4E5969;
-  --gx-text-muted: #83899F;
-  --gx-text-placeholder: #878B99;
+  --gx-text-muted: #878B99;
+  --gx-text-placeholder: #9CA3AF;
   --gx-text-on-accent: #FFFFFF;
   --gx-hover-text: #E60101;
   --gx-focus: #CC0000;
-  --gx-hover-bg: #F1F5F9;
+  --gx-hover-bg: #F4F6F8;
   --gx-selected-bg: #FFF1F2;
+  --gx-selected-text: #FF0000;
   --gx-surface: #FFFFFF;
+  --gx-table-header-bg: #F9F9F9;
   --gx-border: #EBEEF5;
-  --gx-menu-border: #E2E8F0;
-  --gx-accent: #FF4E1D;
+  --gx-menu-border: #EBEEF5;
+  --gx-brand: #FF0000;
+  --gx-purple: #722ED1;
+  --gx-cyan: #14C9C9;
+  --gx-input-border: #DCDFE6;
+  --gx-scrollbar-thumb: #DCDFE6;
+  --gx-accent: #FF0000;
+  --gx-dialog-primary: #FF0000;
+  --gx-dialog-backdrop: #00000088;
+  --gx-shadow-dialog: 0 16px 60px #17203326;
   --gx-brand-gradient: linear-gradient(159deg, #FF9622 13%, #FF0000 92%);
-  --gx-success: #00875A;
+  --gx-success: #00B578;
   --gx-success-bg: #EAF8ED;
-  --gx-info: #006DCC;
+  --gx-info: #006DFF;
   --gx-info-bg: #E7F1FF;
-  --gx-warning: #9C5700;
+  --gx-warning: #FF7D00;
   --gx-warning-bg: #FFF4DC;
-  --gx-danger: #CC0000;
+  --gx-danger: #FF0000;
   --gx-danger-bg: #FFF1F2;
-  --gx-neutral-bg: #F1F3F7;
+  --gx-neutral-bg: #F4F6F8;
+  --gx-status-padding-y: 2px;
   --gx-font-caption: 12px;
   --gx-font-body: 14px;
   --gx-font-section: 16px;
@@ -44,6 +55,8 @@
   --gx-radius-small: 4px;
   --gx-radius-compact: 6px;
   --gx-radius-control: 8px;
+  --gx-radius-feedback: 12px;
+  --gx-choice-selected-border: color-mix(in srgb, var(--gx-brand) 50%, transparent);
   --gx-radius-card: 16px;
   --gx-radius-pill: 999px;
   --gx-control-height: 32px;
@@ -52,6 +65,7 @@
   --gx-sidebar-width: 240px;
   --gx-content-max: 1660px;
   --gx-conversation-max: 850px;
+  --gx-shadow-feedback: 0 0 12px rgba(0,0,0,.08);
   --gx-shadow-menu: 0 5px 5px -3px #0000001A, 0 8px 10px 1px #0000000F, 0 3px 14px 2px #0000000D;
   --gx-shadow-card-hover: 0 6px 18px rgba(30,41,59,.10);
   --gx-duration-fast: 160ms;

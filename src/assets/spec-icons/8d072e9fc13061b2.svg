@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/最小化</title>
+    <g id="icon/最小化" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(2, 11)" fill="#333333" fill-rule="nonzero">
+            <path d="M19.75,0 C20.1296958,0 20.443491,0.282153882 20.4931534,0.648229443 L20.5,0.75 C20.5,1.16421356 20.1642136,1.5 19.75,1.5 L0.75,1.5 C0.370304234,1.5 0.0565090391,1.21784612 0.006846616,0.851770557 L0,0.75 C0,0.335786438 0.335786438,0 0.75,0 L19.75,0 Z" id="形状结合"></path>
+        </g>
+    </g>
+</svg>

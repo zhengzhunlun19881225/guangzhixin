@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-06T16:21:30.392Z",
+  "results": [
+    {
+      "name": "Two consecutive six-week months, Sunday-first and system styling",
+      "status": "passed"
+    },
+    {
+      "name": "Cross-month range, hover preview, inclusive highlight and focus return",
+      "status": "passed"
+    },
+    {
+      "name": "Cancel/Escape/outside discard partial draft and restore saved range",
+      "status": "passed"
+    },
+    {
+      "name": "Earlier second click restarts range; single-day and clear preserve time",
+      "status": "passed"
+    },
+    {
+      "name": "Year/month navigation, leap day and December-to-January adjacency",
+      "status": "passed"
+    },
+    {
+      "name": "Date keyboard movement, month clamping, selection and Escape",
+      "status": "passed"
+    },
+    {
+      "name": "390px stacked months, viewport bounds and scrolling end selection",
+      "status": "passed"
+    },
+    {
+      "name": "Documentation and no runtime/resource errors",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

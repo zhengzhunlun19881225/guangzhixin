@@ -1,0 +1,71 @@
+/* Reference implementations for the four feedback patterns supplied on 2026-11-06.
+   Alert/Message follow Figma Page 6; Tooltip/Notification follow the attached sheets.
+   These styles are scoped to specification examples, including their top-layer previews. */
+.cr-feedback{container-type:inline-size;min-width:0;color:var(--gx-text-primary);font:400 var(--gx-font-body)/var(--gx-line-body) var(--gx-font-family);}
+.cr-feedback h4{margin:0;font-size:16px;line-height:24px;font-weight:600;}
+.cr-feedback-description{margin:8px 0 24px;color:var(--gx-text-primary);}
+.cr-feedback .cr-feedback-heading{margin-top:40px;}
+.cr-feedback-stack{display:flex;flex-direction:column;gap:16px;}
+.cr-feedback-actions{margin:24px 0 16px;}
+.cr-feedback>.cr-hint{margin-top:16px;}
+.cr-feedback [data-tone=info],.cr-feedback-overlay [data-tone=info]{--cr-feedback-color:var(--gx-info);--cr-feedback-bg:var(--gx-info-bg);}
+.cr-feedback [data-tone=success],.cr-feedback-overlay [data-tone=success]{--cr-feedback-color:var(--gx-success);--cr-feedback-bg:var(--gx-success-bg);}
+.cr-feedback [data-tone=warning],.cr-feedback-overlay [data-tone=warning]{--cr-feedback-color:var(--gx-warning);--cr-feedback-bg:var(--gx-warning-bg);}
+.cr-feedback [data-tone=danger],.cr-feedback-overlay [data-tone=danger]{--cr-feedback-color:var(--gx-danger);--cr-feedback-bg:var(--gx-danger-bg);}
+.cr-feedback [data-tone=neutral],.cr-feedback-overlay [data-tone=neutral]{--cr-feedback-color:var(--gx-text-primary);}
+.cr-feedback-icon{width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 20px;}
+.cr-feedback-icon>i{display:block;width:17.5px;height:17.5px;background:var(--cr-feedback-color);mask-repeat:no-repeat;mask-position:center;mask-size:contain;}
+.cr-feedback-icon[data-tone=warning]>i{width:20px;height:20px;}
+.cr-feedback-close{display:inline-grid;place-items:center;width:20px;height:20px;flex:0 0 20px;border:0;border-radius:4px;color:inherit;background:transparent;}
+.cr-feedback-close>i{width:10px;height:10px;display:block;background:currentColor;mask-repeat:no-repeat;mask-position:center;mask-size:contain;}
+.cr-feedback-close:hover{background:var(--gx-hover-bg);color:var(--gx-hover-text);}
+.cr-feedback-close:focus-visible{outline:2px solid var(--gx-focus);outline-offset:2px;}
+/* Alerts are in-flow surfaces: no stroke, shadow, or expiration timer. */
+.cr-alert{display:flex;align-items:center;gap:8px;width:620px;max-width:100%;min-height:40px;padding:9px 12px 9px 16px;border:0;border-radius:var(--gx-radius-feedback);background:var(--cr-feedback-bg);}
+.cr-alert-copy{min-width:0;flex:1;}
+.cr-alert-copy p{font-size:14px;line-height:22px;font-weight:400;margin:0;color:var(--gx-text-primary);overflow-wrap:anywhere;}
+.cr-alert .cr-feedback-close{color:var(--cr-feedback-color);}
+.cr-alert-detailed{min-height:76px;padding:12px;gap:10px;align-items:center;}
+.cr-alert-detailed>.cr-feedback-icon{width:32px;height:32px;flex-basis:32px;}
+.cr-alert-detailed>.cr-feedback-icon>i{width:28px;height:28px;}
+.cr-alert-detailed>.cr-feedback-icon[data-tone=warning]>i{width:32px;height:32px;}
+.cr-alert-copy h5{color:var(--cr-feedback-color);font-size:16px;line-height:24px;font-weight:400;margin:0 0 4px;}
+.cr-alert-detailed .cr-feedback-close{align-self:flex-start;margin-top:2px;}
+.cr-alert-examples>.cr-row{margin-top:24px;}
+.cr-alert-examples>.cr-feedback-heading{margin-bottom:16px;}
+/* Messages hug their content; only the live example enters the page's top layer. */
+.cr-message{display:flex;align-items:center;gap:10px;min-height:48px;width:max-content;max-width:100%;padding:12px 19px;border:1px solid var(--gx-border);border-radius:var(--gx-radius-feedback);background:var(--gx-surface);box-shadow:var(--gx-shadow-feedback);color:var(--gx-text-primary);font:400 14px/22px var(--gx-font-family);}
+.cr-message>span:last-child{min-width:0;overflow-wrap:anywhere;}
+.cr-message-examples{display:flex;align-items:flex-start;flex-direction:column;gap:24px;}
+.cr-feedback-overlay{position:fixed;inset:auto;margin:0;padding:0;border:0;background:transparent;overflow:visible;color:var(--gx-text-primary);font:400 14px/22px var(--gx-font-family);max-width:calc(100vw - 32px);}
+.cr-feedback-overlay:not(:popover-open){display:none;}
+.cr-feedback-overlay::backdrop{background:transparent;pointer-events:none;}
+.cr-message-overlay{top:24px;left:50%;transform:translateX(-50%);width:max-content;max-width:min(640px,calc(100vw - 32px));pointer-events:none;}
+/* Notifications: 330px reference width, content-driven height, neutral close control. */
+.cr-notification{display:flex;align-items:flex-start;gap:12px;width:330px;max-width:100%;min-height:84px;padding:16px 23px;border:1px solid var(--gx-border);border-radius:var(--gx-radius-feedback);background:var(--gx-surface);box-shadow:var(--gx-shadow-feedback);color:var(--gx-text-primary);font:400 14px/22px var(--gx-font-family);position:relative;}
+.cr-notification>.cr-feedback-icon{margin-top:2px;}
+.cr-notification-copy{flex:1;min-width:0;}
+.cr-notification-copy h5{font-size:16px;line-height:24px;font-weight:600;margin:0 12px 6px 0;color:var(--cr-feedback-color);}
+.cr-notification-copy p{font-size:14px;line-height:22px;font-weight:400;margin:0;overflow-wrap:anywhere;}
+.cr-notification>.cr-feedback-close{position:absolute;right:10px;top:15px;color:var(--gx-text-muted);}
+.cr-notification-grid{display:grid;grid-template-columns:1fr;gap:32px 24px;}
+.cr-notification-column{display:flex;flex-direction:column;gap:24px;align-items:center;min-width:0;}
+.cr-notification-column>h5{font-size:14px;line-height:22px;font-weight:400;text-align:center;margin:0 0 -16px;}
+.cr-notification-removed{width:330px;max-width:100%;min-height:84px;border:1px dashed var(--gx-border);border-radius:var(--gx-radius-feedback);display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gx-text-muted);}
+.cr-notification-overlay{width:330px;}
+.cr-corner-top-right{top:24px;right:24px;}.cr-corner-top-left{top:24px;left:24px;}.cr-corner-bottom-right{bottom:24px;right:24px;}.cr-corner-bottom-left{bottom:24px;left:24px;}
+/* Tooltip arrows are CSS surfaces; the glyphs above remain exact exported assets. */
+.cr-tooltip-directions{display:grid;grid-template-columns:repeat(3,max-content);justify-content:space-between;align-items:center;gap:36px 16px;padding:16px 6px;max-width:560px;}
+.cr-tooltip-bubble{position:relative;width:max-content;max-width:280px;min-height:32px;padding:6px 11px;border:1px solid var(--gx-border);border-radius:4px;background:var(--gx-surface);color:var(--gx-text-secondary);box-shadow:var(--gx-shadow-feedback);font:400 12px/18px var(--gx-font-family);overflow:visible;overflow-wrap:anywhere;--cr-arrow-offset:50%;}
+.cr-tooltip-bubble[data-align=start]{--cr-arrow-offset:20px;}.cr-tooltip-bubble[data-align=end]{--cr-arrow-offset:calc(100% - 20px);}
+.cr-tooltip-arrow{position:absolute;width:8px;height:8px;background:var(--gx-surface);transform:rotate(45deg);border:solid var(--gx-border);border-width:0;pointer-events:none;}
+.cr-tooltip-bubble[data-side=top]>.cr-tooltip-arrow{bottom:-5px;left:var(--cr-arrow-offset);margin-left:-4px;border-right-width:1px;border-bottom-width:1px;}
+.cr-tooltip-bubble[data-side=bottom]>.cr-tooltip-arrow{top:-5px;left:var(--cr-arrow-offset);margin-left:-4px;border-top-width:1px;border-left-width:1px;}
+.cr-tooltip-bubble[data-side=left]>.cr-tooltip-arrow{right:-5px;top:var(--cr-arrow-offset);margin-top:-4px;border-top-width:1px;border-right-width:1px;}
+.cr-tooltip-bubble[data-side=right]>.cr-tooltip-arrow{left:-5px;top:var(--cr-arrow-offset);margin-top:-4px;border-bottom-width:1px;border-left-width:1px;}
+.cr-tooltip-live{position:fixed;inset:auto;margin:0;max-width:min(280px,calc(100vw - 24px));}
+.cr-tooltip-live:not(:popover-open){display:none;}.cr-tooltip-live::backdrop{background:transparent;pointer-events:none;}
+.cr-tooltip-trigger{display:inline-flex;}
+@container(min-width:684px){.cr-notification-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:1500px){.cr-tooltip-directions{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 12px;}.cr-tooltip-directions>.cr-tooltip-bubble{max-width:100%;}}
+@media(max-width:700px){.cr-feedback-description{margin-bottom:20px;}.cr-tooltip-directions{gap:28px 10px;padding-inline:0;}.cr-tooltip-directions>.cr-tooltip-bubble{font-size:12px;line-height:18px;padding:6px;}.cr-notification{padding-inline:20px;}.cr-alert-detailed{align-items:flex-start;}.cr-alert-detailed>.cr-feedback-icon{margin-top:2px;}.cr-corner-top-right{right:16px;}.cr-corner-top-left{left:16px;}.cr-corner-bottom-right{right:16px;}.cr-corner-bottom-left{left:16px;}}

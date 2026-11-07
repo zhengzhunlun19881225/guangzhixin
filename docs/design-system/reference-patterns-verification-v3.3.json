@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-06T15:40:27.669Z",
+  "results": [
+    {
+      "name": "Radio variants, keyboard exclusivity, disabled states",
+      "status": "passed"
+    },
+    {
+      "name": "Checkbox mixed/disabled states and all-selection linkage",
+      "status": "passed"
+    },
+    {
+      "name": "Switch colors, dimensions, Space toggle and disabled states",
+      "status": "passed"
+    },
+    {
+      "name": "Two independent Tabs groups, keyboard endpoints and panel labels",
+      "status": "passed"
+    },
+    {
+      "name": "Empty image loads, add and restore are functional",
+      "status": "passed"
+    },
+    {
+      "name": "MessageBox dimensions, close focus, required input and cancel",
+      "status": "passed"
+    },
+    {
+      "name": "Desktop and narrow reference sheets, no overflow, responsive MessageBox",
+      "status": "passed"
+    },
+    {
+      "name": "Feedback assets use valid masks, not solid rectangles",
+      "status": "passed"
+    },
+    {
+      "name": "No browser/resource errors",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

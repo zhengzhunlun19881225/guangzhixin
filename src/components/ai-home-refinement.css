@@ -12,16 +12,16 @@
 .app-shell .ai-landing>.ai-questions{margin-top:68px;}
 .app-shell .ai-landing>.ai-questions>div:first-child{gap:8px;}
 .app-shell .ai-landing>.ai-questions>div:first-child button{height:32px;padding:0 12px;font-size:14px;line-height:22px;font-weight:400;color:var(--gx-text-secondary);background:transparent;}
-.app-shell .ai-landing>.ai-questions>div:first-child button.text-red-500{color:#ff0000;background:#fff1f0;}
+.app-shell .ai-landing>.ai-questions>div:first-child button.text-red-500{color:var(--gx-brand);background:#fff1f0;}
 .app-shell .ai-landing>.ai-questions>.grid{width:100%;padding:0;column-gap:210px;margin-top:20px;}
 .app-shell .ai-landing>.ai-questions>.grid button{font-size:14px;color:var(--gx-text-secondary);}
 .app-shell .ai-landing>.ai-questions>.grid button:hover{color:var(--gx-hover-text);}
 .app-shell .ai-landing>.ai-questions>.grid button>div{gap:0;}
 .app-shell .ai-landing>.ai-questions>.grid button>div>span:first-child{font-size:14px;color:var(--gx-text-muted);font-weight:500;flex-shrink:0;}
-.app-shell .ai-landing>.ai-questions>.grid>div:first-child>button:nth-child(1)>div>span:first-child{color:#ff0000;}
+.app-shell .ai-landing>.ai-questions>.grid>div:first-child>button:nth-child(1)>div>span:first-child{color:var(--gx-brand);}
 .app-shell .ai-landing>.ai-questions>.grid>div:first-child>button:nth-child(2)>div>span:first-child{color:#ff6600;}
 .app-shell .ai-landing>.ai-questions>.grid>div:first-child>button:nth-child(3)>div>span:first-child{color:#ff8b35;}
-.ai-composer textarea::placeholder{color:#9ba3b4;opacity:1;}
+.ai-composer textarea::placeholder{color:var(--gx-text-placeholder);opacity:1;}
 @media(max-width:1500px){.app-shell .ai-landing>.ai-questions>.grid{column-gap:80px;}}
 @media(max-width:1200px){.app-shell .ai-landing>.ai-questions>.grid{column-gap:30px;}}
 @media(max-height:950px){.ai-chat-view>div:first-child:has(.ai-landing){padding-top:30px;}.app-shell .ai-landing>.ai-questions{margin-top:28px;}}

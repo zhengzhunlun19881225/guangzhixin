@@ -1,6 +1,6 @@
 import { PanelHeading, StatusBadge } from './UI';
 import React, { useState } from 'react';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ScheduleModule } from './ScheduleModule';
 import { DailyBrief } from './DailyBrief';
 import { ApplicationManager } from './ApplicationManager';
 import { WorkbenchVectorIcon, hasWorkbenchVector } from './WorkbenchVectorIcon';
@@ -44,16 +44,6 @@ export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNaviga
   const [appPreferences, setAppPreferences] = useState(loadAppPreferences);
   const [managerScope, setManagerScope] = useState<AppScope | null>(null);
   const [saveAnnouncement, setSaveAnnouncement] = useState('');
-  const [month, setMonth] = useState(new Date(2025, 10, 1));
-  const [selectedDay, setSelectedDay] = useState(13);
-  const offset = month.getDay();
-  const dayCount = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
-  const previousCount = new Date(month.getFullYear(), month.getMonth(), 0).getDate();
-  const changeMonth = (delta: number) => {
-    const next = new Date(month.getFullYear(), month.getMonth() + delta, 1);
-    setMonth(next);
-    setSelectedDay(day => Math.min(day, new Date(next.getFullYear(), next.getMonth() + 1, 0).getDate()));
-  };
   const saveApps = (ids: string[]) => {
     if (!managerScope) return false;
     const next = { ...appPreferences, [managerScope]: [...ids] };
@@ -111,26 +101,7 @@ export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNaviga
               <span>{title}</span>
             </button>)}</div>
           </section>
-          <section className="wb-panel wb-schedule">
-            {heading('我的日程', 'heading-schedule', () => onNavigateToAIChat('我的日程'))}
-            <div className="wb-schedule-body">
-              <div className="wb-calendar">
-                <div className="calendar-heading"><button aria-label="上个月" onClick={() => changeMonth(-1)}><ChevronLeft size={14} /></button><span>{month.getFullYear()} - {String(month.getMonth() + 1).padStart(2, '0')}</span><button aria-label="下个月" onClick={() => changeMonth(1)}><ChevronRight size={14} /></button></div>
-                <div className={`calendar-grid ${Math.ceil((offset + dayCount) / 7) === 6 ? 'six-weeks' : ''}`}>
-                  {'日一二三四五六'.split('').map(d => <span className="weekday" key={d}>{d}</span>)}
-                  {Array.from({ length: Math.ceil((offset + dayCount) / 7) * 7 }, (_, i) => {
-                    const day = i - offset + 1;
-                    const outside = day < 1 || day > dayCount;
-                    const marked = month.getFullYear() === 2025 && month.getMonth() === 10 && day === 16;
-                    return <button key={i} disabled={outside} onClick={() => setSelectedDay(day)} aria-label={`${month.getFullYear()}年${month.getMonth() + 1}月${day}日`} aria-pressed={!outside && day === selectedDay} className={`${outside ? 'outside' : day === selectedDay ? 'selected' : ''} ${marked ? 'has-event' : ''}`}>{day < 1 ? previousCount + day : day > dayCount ? day - dayCount : day}</button>;
-                  })}
-                </div>
-              </div>
-              <div className="wb-agenda">{[['09:00', '新产品发布会筹备会议', '已完成', '王武'], ['13:00', '高级职位候选人面试', '未开始', '王武'], ['15:00', '安排新员工入职培训', '未开始', '张三']].map(([time, title, status, person]) => <button key={time} onClick={() => onNavigateToAIChat(title)}>
-                <h4><time>{time}</time><span>{title}</span></h4><p><StatusBadge tone={status === '已完成' ? 'success' : 'neutral'}>{status}</StatusBadge><small>指派人</small><b><img src={asset(person === '王武' ? 'avatar-wang' : 'avatar-san')} alt="" />{person}</b></p>
-              </button>)}</div>
-            </div>
-          </section>
+          <ScheduleModule />
         </div>
       </div>
     </div>

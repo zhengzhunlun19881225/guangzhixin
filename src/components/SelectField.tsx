@@ -13,9 +13,12 @@ type Props = {
   variant?: 'field' | 'compact' | 'pill';
   placement?: 'auto' | 'top';
   placeholder?: boolean;
+  leadingIcon?: React.ReactNode;
+  showArrow?: boolean;
+  menuClassName?: string;
 };
 
-export function SelectField({ label, options, value, onChange, className = '', variant = 'field', placement = 'auto', placeholder = false }: Props) {
+export function SelectField({ label, options, value, onChange, className = '', variant = 'field', placement = 'auto', placeholder = false, leadingIcon, showArrow = true, menuClassName = '' }: Props) {
   const items = options.map(option => typeof option === 'string' ? { value: option, label: option } : option);
   const [ownValue, setOwnValue] = useState(items[0]?.value ?? '');
   const selectedValue = value ?? ownValue;
@@ -54,7 +57,16 @@ export function SelectField({ label, options, value, onChange, className = '', v
       const topOffset = viewport?.offsetTop ?? 0;
       const leftOffset = viewport?.offsetLeft ?? 0;
       if (rect.bottom < topOffset || rect.top > height + topOffset) { setOpen(false); return; }
-      const menuWidth = Math.min(Math.max(rect.width, 160), width - 16);
+      // Match the trigger unless the actual option content needs more room.
+      const panelStyle = getComputedStyle(panel);
+      const panelInsets = parseFloat(panelStyle.paddingLeft) + parseFloat(panelStyle.paddingRight) + parseFloat(panelStyle.borderLeftWidth) + parseFloat(panelStyle.borderRightWidth);
+      const optionWidth = Math.max(0, ...Array.from(panel.querySelectorAll<HTMLElement>('.ui-select-option')).map(option => {
+        const text = option.querySelector<HTMLElement>('span:last-child')!;
+        const css = getComputedStyle(option);
+        const icon = option.querySelector<HTMLElement>('.ui-select-option-icon');
+        return text.scrollWidth + parseFloat(css.paddingLeft) + parseFloat(css.paddingRight) + (icon ? icon.offsetWidth + parseFloat(css.columnGap) : 0);
+      }));
+      const menuWidth = Math.min(Math.max(rect.width, Math.ceil(optionWidth + panelInsets)), width - 16);
       const desiredHeight = Math.min(panel.scrollHeight, 280);
       const above = Math.max(0, rect.top - topOffset - 14);
       const below = Math.max(0, height + topOffset - rect.bottom - 14);
@@ -109,12 +121,12 @@ export function SelectField({ label, options, value, onChange, className = '', v
 
   return <>
     <button ref={trigger} type="button" role="combobox" aria-label={label} aria-haspopup="listbox" aria-expanded={open} aria-controls={open ? `${id}-list` : undefined} aria-activedescendant={open ? `${id}-option-${active}` : undefined} disabled={!enabled.length} className={`ui-select ui-select-${variant} ${className}`} data-placeholder={placeholder} onClick={() => open ? setOpen(false) : show()} onKeyDown={keyDown}>
-      <span>{items[selectedIndex]?.label ?? label}</span><ChevronDown size={14} aria-hidden="true" />
+      {leadingIcon}<span>{items[selectedIndex]?.label ?? label}</span>{showArrow && <ChevronDown size={14} aria-hidden="true" />}
     </button>
-    {open && createPortal(<div ref={popup} popover="manual" id={`${id}-list`} role="listbox" aria-label={label} className="ui-select-menu" style={position}>
+    {open && createPortal(<div ref={popup} popover="manual" id={`${id}-list`} role="listbox" aria-label={label} className={`ui-select-menu ${menuClassName}`} style={position}>
       {items.map((item, index) => <div id={`${id}-option-${index}`} key={item.value} role="option" aria-selected={item.value === selectedValue} aria-disabled={item.disabled || undefined} className={`ui-select-option ${active === index ? 'is-active' : ''}`} onPointerMove={() => !item.disabled && setActive(index)} onPointerDown={event => event.preventDefault()} onClick={() => choose(index)}>
         {item.icon && <span className="ui-select-option-icon" aria-hidden="true">{item.icon}</span>}<span>{item.label}</span>
       </div>)}
-    </div>, document.body)}
+    </div>, trigger.current?.closest('dialog') || document.body)}
   </>;
 }

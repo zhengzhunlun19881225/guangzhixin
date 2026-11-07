@@ -200,7 +200,7 @@ export const PortalDataView: React.FC = () => {
                   <span className="w-1.5 h-4 bg-red-500 rounded-full" />
                   <h3 className="text-base font-bold text-slate-900">科研动态</h3>
                 </div>
-                <button className="text-xs text-slate-400 hover:text-slate-600 flex items-center">
+                <button className="ui-more text-slate-400 hover:text-slate-600 flex items-center">
                   更多 <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -301,7 +301,7 @@ export const PortalDataView: React.FC = () => {
                   </div>
                 </div>
 
-                <TaxTrendChart color="#ff8100" />
+                <TaxTrendChart color="var(--gx-warning)" />
               </div>
 
               {/* Chart 2: 当月实缴税款情况 */}
@@ -343,7 +343,7 @@ export const PortalDataView: React.FC = () => {
                   </div>
                 </div>
 
-                <TaxTrendChart color="#00cbd6" />
+                <TaxTrendChart color="var(--gx-cyan)" />
               </div>
             </div>
           </div>

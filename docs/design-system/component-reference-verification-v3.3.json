@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-06T15:37:36.023Z",
+  "base": "http://127.0.0.1:5196/",
+  "results": [
+    {
+      "name": "59 项覆盖及全部预览可渲染",
+      "status": "passed"
+    },
+    {
+      "name": "分类数量、搜索、空结果和恢复",
+      "status": "passed"
+    },
+    {
+      "name": "Tag 符合最新 4px/600/2px 规范",
+      "status": "passed"
+    },
+    {
+      "name": "按钮 loading 禁重复与重置",
+      "status": "passed"
+    },
+    {
+      "name": "Tabs 键盘与面板、步骤边界",
+      "status": "passed"
+    },
+    {
+      "name": "分页内容与首尾边界",
+      "status": "passed"
+    },
+    {
+      "name": "分割面板键盘调整、锚点与返回顶部",
+      "status": "passed"
+    },
+    {
+      "name": "输入单层焦点、数值边界和 Checkbox 半选",
+      "status": "passed"
+    },
+    {
+      "name": "Select 键盘与级联重置",
+      "status": "passed"
+    },
+    {
+      "name": "评分与穿梭选择",
+      "status": "passed"
+    },
+    {
+      "name": "Upload 本地文件校验与移除",
+      "status": "passed"
+    },
+    {
+      "name": "Form 必填错误、回焦、保存和取消",
+      "status": "passed"
+    },
+    {
+      "name": "表格排序、过滤和空状态恢复",
+      "status": "passed"
+    },
+    {
+      "name": "Tree 展开键盘与 TreeSelect 叶节点关闭回焦",
+      "status": "passed"
+    },
+    {
+      "name": "Tooltip、Dropdown、Popover 与气泡确认",
+      "status": "passed"
+    },
+    {
+      "name": "Dialog/Drawer 取消、保存、Escape 回焦与纯红",
+      "status": "passed"
+    },
+    {
+      "name": "通知关闭、加载取消和进度完成",
+      "status": "passed"
+    },
+    {
+      "name": "同源文档下载含 59 项",
+      "status": "passed"
+    },
+    {
+      "name": "桌面与 390px 全部预览无页面溢出",
+      "status": "passed"
+    },
+    {
+      "name": "无运行时异常",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

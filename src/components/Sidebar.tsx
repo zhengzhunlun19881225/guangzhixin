@@ -119,7 +119,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="sidebar-history flex-1 flex flex-col min-h-0 border-t border-slate-100">
           <div className="sidebar-history-heading flex items-center justify-between text-xs text-slate-400 font-medium">
             <span>历史记录</span>
-            <button onClick={onOpenHistory} aria-label="查看更多历史记录" aria-haspopup="dialog" className="flex items-center hover:text-slate-600 transition-colors">
+            <button onClick={onOpenHistory} aria-label="查看更多历史记录" aria-haspopup="dialog" className="ui-more flex items-center hover:text-slate-600 transition-colors">
               更多 <ChevronRight className="w-3 h-3 ml-0.5" />
             </button>
           </div>

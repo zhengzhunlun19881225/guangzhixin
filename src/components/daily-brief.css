@@ -5,11 +5,11 @@
 .daily-brief-header>h3{position:absolute;bottom:0;left:25px;right:20px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;height:43px;margin:0;font-size:16px;font-weight:600;}
 .daily-brief-header>h3 img{width:23px;height:23px;object-fit:contain;}
 .daily-brief-header>h3 small{font-size:12px;font-weight:400;color:var(--muted);margin-left:4px;}
-.daily-brief .daily-brief-content{flex:1;min-height:0;margin-top:0;padding:0 0 20px 20px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-gutter:stable;scrollbar-color:transparent transparent;}
+.daily-brief .daily-brief-content{flex:1;min-height:0;margin-top:0;padding:0 0 20px 20px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-gutter:stable;scrollbar-color:var(--gx-scrollbar-thumb) transparent;}
 .daily-brief:hover .daily-brief-content{scrollbar-color:#c9ced8 transparent;}
 .daily-brief-content::-webkit-scrollbar{width:6px;}
 .daily-brief-content::-webkit-scrollbar-track{background:transparent;}
-.daily-brief-content::-webkit-scrollbar-thumb{background:transparent;border-radius:3px;}
+.daily-brief-content::-webkit-scrollbar-thumb{background:var(--gx-scrollbar-thumb);border-radius:3px;}
 .daily-brief:hover .daily-brief-content::-webkit-scrollbar-thumb{background:#c9ced8;}
 /* Size from the column, so the scrollbar stays inside the right 20px gap. */
 .daily-brief .wb-brief article{width:calc(100cqw - 40px);padding:12px 16px;margin-bottom:12px;}
@@ -26,12 +26,12 @@
 .brief-greeting-dialog>header{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid var(--line);}
 .brief-greeting-dialog h2,.brief-greeting-dialog h3{font-size:16px;font-weight:600;line-height:24px;margin:0;}
 .brief-greeting-dialog>header button{width:28px;height:28px;display:grid;place-items:center;border-radius:6px;color:var(--muted);}
-.brief-greeting-dialog>header button:hover{background:#f5f6f8;}
+.brief-greeting-dialog>header button:hover{background:var(--gx-neutral-bg);}
 .greeting-body{padding:20px 24px;}
 .greeting-banner{display:block;width:100%;height:auto;object-fit:contain;border-radius:12px;margin-bottom:20px;}
 .greeting-tones{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
-.greeting-tones button{height:32px;padding:0 16px;border-radius:20px;background:#f5f6f8;color:var(--gx-text-secondary);}
-.greeting-tones button[aria-pressed=true]{background:#fff1f0;color:#ff0000;}
+.greeting-tones button{height:32px;padding:0 16px;border-radius:20px;background:var(--gx-neutral-bg);color:var(--gx-text-secondary);}
+.greeting-tones button[aria-pressed=true]{background:#fff1f0;color:var(--gx-brand);}
 .greeting-editor{border:1px solid var(--line);border-radius:12px;padding:16px;}
 .greeting-editor:focus-within{border-color:#ffad94;}
 .greeting-editor textarea{display:block;width:100%;height:140px;resize:vertical;min-height:80px;max-height:240px;outline:none;font:inherit;line-height:24px;color:var(--ink);background:white;}

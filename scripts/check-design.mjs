@@ -1,11 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const failures=[];
 const tokens=read('src/design/tokens.css');
 const definitions=new Set([...tokens.matchAll(/(--gx-[\w-]+)\s*:/g)].map(m=>m[1]));
-const required={'--gx-text-primary':'#03091B','--gx-hover-text':'#E60101','--gx-hover-bg':'#F1F5F9','--gx-focus':'#CC0000','--gx-control-height':'32px','--gx-font-title':'24px','--gx-line-body':'22px'};
+const required={'--gx-text-primary':'#03091B','--gx-hover-text':'#E60101','--gx-hover-bg':'#F4F6F8','--gx-brand':'#FF0000','--gx-success':'#00B578','--gx-warning':'#FF7D00','--gx-info':'#006DFF','--gx-purple':'#722ED1','--gx-cyan':'#14C9C9','--gx-input-border':'#DCDFE6','--gx-text-muted':'#878B99','--gx-text-placeholder':'#9CA3AF','--gx-focus':'#CC0000','--gx-control-height':'32px','--gx-font-title':'24px','--gx-line-body':'22px'};
 for(const [key,value] of Object.entries(required))if(!tokens.includes(`${key}: ${value};`))failures.push(`${key} should be ${value}; update the specification and checker together for an approved change.`);
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 const files=walk(path.join(root,'src'));
@@ -22,3 +23,6 @@ const index=read('src/index.css');if(index.indexOf('./design/tokens.css')>index.
 for(const doc of ['README','INVENTORY','IMPLEMENTATION','ACCEPTANCE'])if(!fs.existsSync(path.join(root,`docs/design-system/${doc}.md`)))failures.push(`Missing ${doc}.md`);
 if(failures.length){console.error(failures.join('\n'));process.exit(1);}
 console.log(`Design checks passed: ${definitions.size} tokens, ${files.filter(f=>f.endsWith('.css')).length} stylesheets, no native selects, shared production consumers and documentation present.`);
+
+execFileSync(process.execPath, [path.join(root, 'scripts/generate-component-reference.mjs'), '--check'], { stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'scripts/check-icon-catalog.mjs')], { stdio: 'inherit' });

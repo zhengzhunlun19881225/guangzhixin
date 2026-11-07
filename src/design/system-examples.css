@@ -1,0 +1,32 @@
+/* Isolated previews use production card, file-table and schedule field classes. */
+.ss-news.portal-news{padding:0;background:none;overflow:visible;min-width:0;}
+.ss-news-pair{display:flex;gap:24px;flex-wrap:wrap;}
+.ss-news-pair>div>h4{margin:0 0 12px;}
+.ss-news .pn-track{margin:0;padding:4px 0;}
+.ss-news .pn-ai-card,.ss-news .pn-group-card{flex:0 0 240px;}
+.ss-news-dialog{width:min(900px,calc(100vw - 32px));}
+.ss-upload{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
+.ss-upload .sch-upload{width:100%;}
+.ss-upload .sch-attachments{width:100%;}
+.ss-meeting{max-width:710px;margin-inline:auto;}
+.ss-meeting>h4{margin:0 0 24px;}
+.ss-form-actions{display:flex;justify-content:center;gap:40px;margin-top:30px;}
+.ss-form-actions>.ui-button{height:36px;min-width:78px;}
+.ss-form-actions>.ui-button-primary{background:var(--gx-brand);color:var(--gx-text-on-accent);}
+.ss-form-actions>.ui-button-primary:not(:disabled):hover{background:var(--gx-hover-text);filter:none;}
+.ss-meeting>.cr-result{margin-top:16px;}
+.ss-drive{min-width:0;}
+.ss-drive .drive-toolbar{padding:0;margin-bottom:20px;gap:16px;flex-wrap:wrap;}
+.ss-drive .drive-toolbar h4{flex:1 1 240px;min-width:0;margin:0;font-size:14px;line-height:22px;font-weight:600;}
+/* The complete toolbar stays right-aligned, wrapping within the preview on small screens. */
+.ss-drive .drive-filters{flex-wrap:wrap;justify-content:flex-end;gap:10px;margin-left:auto;max-width:100%;}
+/* Reuse the cloud-drive 250/180/160px responsive widths; cap each field to its container. */
+.ss-drive .drive-filters>.drive-kind,.ss-drive .drive-filters>.drive-search{min-width:0;max-width:min(250px,100%);}
+.ss-drive .drive-batch[aria-pressed=true]{color:var(--gx-brand);border-color:var(--gx-brand);background:var(--gx-selected-bg);}
+.ss-table-batch{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:8px 12px;margin-bottom:12px;background:var(--gx-neutral-bg);border-radius:8px;}
+.ss-drive .drive-table{font-size:14px;min-width:850px;}
+.ss-drive .drive-table th{height:40px;padding:0 12px;vertical-align:middle;}
+.ss-drive .drive-table td{height:60px;padding:0 12px;vertical-align:middle;}
+.ss-drive .drive-table input{accent-color:var(--gx-brand);}
+.ss-drive .cr-result{margin-top:16px;}
+@media(max-width:700px){.ss-meeting .sch-fields{grid-template-columns:1fr;gap:20px;}.ss-drive .drive-filters{width:100%;}.ss-form-actions{gap:24px;}.ss-news-pair{justify-content:center;}}

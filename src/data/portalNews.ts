@@ -1,7 +1,9 @@
+import content from './portalNewsContent.json';
 import { figmaAssets } from './figmaAssets';
 
 export type PortalNewsItem = {
-  id: string; image: string; title: string; summary: string; body: string;
+  id: string; image: string; detailImage: string; title: string; summary: string; body: string;
+  publishedAt: string; source: string; paragraphs: string[]; attachments: {name:string;url:string}[];
   date: string; category: string; followed: boolean; related: boolean; featured: boolean;
 };
 // Local demonstration content for the portal; not a live news feed.
@@ -34,13 +36,20 @@ const groupSeeds: Seed[] = [
   ['项目协同复盘，推动经验转化与改进','围绕项目目标、关键节点和协作过程进行复盘，形成可落实的改进建议。','集团动态','img17'],
   ['主题学习交流，凝聚团队奋进力量','通过集中学习、交流讨论与岗位实践，促进学习成果向日常工作转化。','党建','img14'],
 ];
-function makeNews(seeds: Seed[], prefix: string): PortalNewsItem[] {
-  return seeds.map(([title,summary,category,image],i)=>({
-    id:`${prefix}-${i}`,title,summary,category,image:figmaAssets[`71-2370:${image}`],
-    date:`2026-11-${String(5-Math.floor(i/3)).padStart(2,'0')}`,
-    body:`${summary}\n\n本期围绕“${title.split('，')[0]}”展开交流，关注业务场景、实施方法和协作机制。相关内容可作为团队讨论与工作规划的参考，结合实际情况进一步梳理目标、责任分工和后续安排。`,
-    followed:i%2===0,related:i%2===1,featured:i%2===0,
-  }));
+function makeNews(seeds: Seed[], prefix: 'ai'|'group'): PortalNewsItem[] {
+  return seeds.map(([title,,category,image],i)=>{
+    const paragraphs=content[prefix][i];
+    const date=`2026-11-${String(5-Math.floor(i/3)).padStart(2,'0')}`;
+    return {
+      id:`${prefix}-${i}`,title,summary:paragraphs[0],category,image:figmaAssets[`71-2370:${image}`],date,
+      detailImage:prefix==='ai'||i%2===1?'assets/portal/news-detail-workshop.webp':figmaAssets['71-2370:img15'],
+      publishedAt:`${date} ${['09:03','10:20','14:30'][i%3]}`,
+      source:prefix==='ai'?'战略发展部（集团总部）':'办公室（集团总部）',
+      paragraphs,body:paragraphs.join('\n\n'),
+      attachments:[{name:`${title}-交流材料.pdf`,url:`assets/portal/documents/${prefix}-${i}-brief.pdf`},{name:`${title}-行动清单.pdf`,url:`assets/portal/documents/${prefix}-${i}-checklist.pdf`}],
+      followed:i%2===0,related:i%2===1,featured:i%2===0,
+    };
+  });
 }
 export const aiNews=makeNews(aiSeeds,'ai');
 export const groupNews=makeNews(groupSeeds,'group');
