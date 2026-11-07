@@ -22,13 +22,16 @@ import {
   Trash2, 
   MoreHorizontal,
   Bot,
-  Compass
+  Compass,
+  X
 } from 'lucide-react';
 import { figmaAssets } from '../data/figmaAssets';
 import { useResponseProgress } from './useResponseProgress';
 import './composer-action.css';
 import { VoiceInput } from './VoiceInput';
 import { Mascot } from './Mascot';
+import { pptTemplateImage, type PptTemplate } from '../data/pptTemplates';
+import './ppt-composer.css';
 import { AgentComposerTools } from './AgentComposerTools';
 import { questionExamples, resolveExampleAnswer, answerAsText } from '../data/conversationExamples';
 
@@ -50,6 +53,11 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
   onSendQuery
 }) => {
   const { phase, visibleBlocks, busy, stop } = useResponseProgress(activeTopic, responseRequestId);
+  const pptMode=selectedAgent==='PPT生成'||selectedAgent==='制作PPT';
+  const legalMode=selectedAgent==='法智小新';
+  const [pptTemplate,setPptTemplate]=useState<PptTemplate|null>(null);
+  const [pptError,setPptError]=useState('');
+  useEffect(()=>{if(!pptMode){setPptTemplate(null);setPptError('');}},[pptMode]);
   const [voiceOpen, setVoiceOpen] = useState(false);
   useEffect(() => { setVoiceOpen(false); }, [activeTopic]);
   const composerInput = useRef<HTMLTextAreaElement>(null);
@@ -64,7 +72,10 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
   const [liked, setLiked] = useState<boolean | null>(null);
 
   const handleCardClick = (title: string) => {
-    if (!busy) onSendQuery(title);
+    if(busy)return;
+    if(title==='制作PPT'){onSelectAgent('PPT生成');setVoiceOpen(false);setPptError('');requestAnimationFrame(()=>composerInput.current?.focus());}
+    else if(title==='法智小新'){onSelectAgent(title);setVoiceOpen(false);requestAnimationFrame(()=>composerInput.current?.focus());}
+    else onSendQuery(title);
   };
 
   const handleCopy = async (text: string) => {
@@ -76,8 +87,12 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
   };
 
   const sendText = () => {
-    if (busy || !inputMessage.trim()) return;
-    onSendQuery(inputMessage.trim());
+    if(busy)return;
+    if(pptMode){
+      if(!pptTemplate){setPptError('请先选择一个PPT模板。');return;}
+      if(!inputMessage.trim()){setPptError('请输入PPT主题或内容。');composerInput.current?.focus();return;}
+      onSendQuery(`请使用「${pptTemplate.name}」模板制作PPT：${inputMessage.trim()}`);setPptError('');
+    }else{if(!inputMessage.trim())return;onSendQuery(inputMessage.trim());}
     setInputMessage('');
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -94,13 +109,13 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
   const answerText = answerAsText(answer);
   const questions = questionExamples[activeTab].map(item => item.question);
   useEffect(() => { setLiked(null); setIsCopied(false); setIsThinkingOpen(false); }, [activeTopic, responseRequestId]);
-  const actionLabel = busy ? '结束生成' : inputMessage.trim() ? '发送消息' : '语音输入';
+  const actionLabel = busy ? '结束生成' : pptMode?'生成PPT': inputMessage.trim() ? '发送消息' : '语音输入';
 
   return (
-    <div className="ai-chat-view flex-1 flex flex-col h-full bg-[#f8fafc]/50 overflow-hidden relative select-none">
+    <div className={`ai-chat-view ${pptMode?'ai-ppt-mode':''} ${legalMode?'ai-legal-mode':''} flex-1 flex flex-col h-full bg-[#f8fafc]/50 overflow-hidden relative select-none`}>
       {/* Scrollable Conversation / Landing Container */}
       <div className="flex-1 overflow-y-auto px-4 md:px-8 py-6">
-        {!activeTopic ? (
+        {pptMode&&!activeTopic?<div className="ai-ppt-workspace" aria-label="PPT制作"/>:!activeTopic ? (
           /* Landing Home State (Image 9) */
           <div className="ai-landing max-w-4xl mx-auto space-y-8 pt-4 pb-32">
             {/* Greeting */}
@@ -114,7 +129,7 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
                 {title:'法智小新',description:'解法规，答操作',asset:'img2',color:'var(--gx-purple)'},
                 {title:'制作PPT',description:'从需求到方案一键生成完整方案',asset:'img7',color:'var(--gx-warning)'},
                 {title:'AI+员工服务',description:'一句话提交请假、加班申请单',asset:'img5',color:'var(--gx-brand)'}
-              ].map(card => <button key={card.title} onClick={() => handleCardClick(card.title)} className="ai-feature-card" style={{'--feature-color':card.color} as React.CSSProperties}>
+              ].map(card => <button key={card.title} aria-pressed={card.title==='法智小新'?legalMode:undefined} onClick={() => handleCardClick(card.title)} className="ai-feature-card" style={{'--feature-color':card.color} as React.CSSProperties}>
                 <div className="ai-feature-art"><img src={figmaAssets['71-5548:'+card.asset]} alt="" /><h3>{card.title}</h3></div>
                 <p>{card.description}</p>
                 <span className="ai-feature-arrow"><ArrowRight size={18}/></span>
@@ -308,7 +323,7 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
       </div>
 
       {/* Floating Guided Prompt Chip (Image 10) */}
-      {guideChip && (
+      {guideChip && !pptMode && (
         <div className="absolute bottom-28 left-1/2 -translate-x-1/2 w-full max-w-3xl px-4 flex justify-start z-10">
           <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-slate-200/80 rounded-xl px-3 py-1.5 shadow-sm text-xs text-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-150">
             <span className="text-slate-400">↳</span>
@@ -348,7 +363,7 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
       )}
 
       {/* Bottom Sticky Rich Prompt Bar */}
-      <div className="ai-composer absolute bottom-0 left-0 right-0 p-4 pt-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center z-20">
+      <div className={`ai-composer ${pptMode?'ai-ppt-composer':''} absolute bottom-0 left-0 right-0 p-4 pt-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center z-20`}>
         <div className="w-full max-w-3xl relative ai-composer-inner">
           {/* Sleeping Mascot on top of input container when on home (Image 9) */}
           {!activeTopic && !voiceOpen && !selectedAgent && (
@@ -359,24 +374,27 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
 
           {/* Input Box Card */}
           {voiceOpen ? <VoiceInput draft={inputMessage} onCancel={() => { setVoiceOpen(false); requestAnimationFrame(() => microphoneButton.current?.focus()); }} onSend={text => { setVoiceOpen(false); setInputMessage(''); onSendQuery(text); }} /> : <div className="bg-white rounded-2xl shadow-md border border-slate-200/80 p-3 flex flex-col gap-2">
+            {pptMode&&pptTemplate&&<div className="ppt-selected-template" aria-label="已选PPT模板"><img src={pptTemplateImage(pptTemplate)} alt=""/><span>{pptTemplate.name}</span><button aria-label="移除所选PPT模板" onClick={()=>{setPptTemplate(null);setPptError('');composerInput.current?.focus();}}><X size={14}/></button></div>}
             <textarea
               ref={composerInput}
               aria-label="消息内容"
               value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
+              onChange={(e) => {setInputMessage(e.target.value);setPptError('');}}
               onKeyDown={handleKeyDown}
-              rows={2}
-              placeholder="输入您的任务、业务指令或查询，让企业 AI 助手协助您快速完成..."
+              rows={pptMode?1:2}
+              placeholder={pptMode?(pptTemplate?'请输入PPT主题或内容…':'请选择模板'):'输入您的任务、业务指令或查询，让企业 AI 助手协助您快速完成...'}
+              aria-invalid={!!pptError} aria-describedby={pptError?'ppt-composer-error':undefined}
               className="w-full resize-none text-sm text-slate-800 placeholder-slate-400 outline-hidden bg-transparent"
             />
 
+            {pptError&&<p className="ppt-composer-error" role="alert" id="ppt-composer-error">{pptError}</p>}
             {/* Sub-tools Toolbar */}
             <div className="ai-composer-toolbar flex items-center justify-between pt-1 border-t border-slate-50 text-xs">
-              <AgentComposerTools agent={selectedAgent} onSelect={onSelectAgent} onInsert={insertContext} busy={busy} />
+              <AgentComposerTools agent={selectedAgent} onSelect={agent=>{onSelectAgent(agent);setVoiceOpen(false);setPptError('');requestAnimationFrame(()=>composerInput.current?.focus());}} onInsert={insertContext} busy={busy} selectedPptTemplate={pptTemplate} onPptTemplateChange={template=>{setPptTemplate(template);setPptError('');requestAnimationFrame(()=>composerInput.current?.focus());}} />
 
               {/* Right tools: Web search, Model, Mic */}
               <div className="flex items-center gap-2 shrink-0">
-                {(!selectedAgent || ['智能问答', '智能摘要'].includes(selectedAgent)) && <button
+                {(!selectedAgent || ['智能问答', '智能摘要', '法智小新'].includes(selectedAgent)) && <button
                   type="button"
                   onClick={() => setEnableWebSearch(!enableWebSearch)}
                   aria-pressed={enableWebSearch}
@@ -396,12 +414,12 @@ export const AIChatView: React.FC<AIChatViewProps> = ({
                   type="button"
                   className="composer-primary-action w-7 h-7 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600 transition-colors shadow-xs"
                   ref={microphoneButton}
-                  onClick={() => { if (busy) stop(); else if (inputMessage.trim()) sendText(); else setVoiceOpen(true); }}
+                  onClick={() => { if (busy) stop(); else if (pptMode||inputMessage.trim()) sendText(); else setVoiceOpen(true); }}
                   aria-label={actionLabel}
                   title={actionLabel}
-                  data-state={busy ? 'stop' : inputMessage.trim() ? 'send' : 'voice'}
+                  data-state={busy ? 'stop' : pptMode||inputMessage.trim() ? 'send' : 'voice'}
                 >
-                  {busy ? <Square size={13} fill="currentColor" strokeWidth={0}/> : inputMessage.trim() ? <ArrowUp size={19} strokeWidth={1.8}/> : <Mic className="w-3.5 h-3.5" />}
+                  {busy ? <Square size={13} fill="currentColor" strokeWidth={0}/> : pptMode||inputMessage.trim() ? <ArrowUp size={19} strokeWidth={1.8}/> : <Mic className="w-3.5 h-3.5" />}
                 </button>
               </div>
             </div>

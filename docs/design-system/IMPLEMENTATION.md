@@ -78,7 +78,7 @@ CI 每次发布必须通过类型检查、规范静态检查和生产构建。�
 
 ## 日程增量
 
-接口、布局例外及本地存储边界见 [SCHEDULE.md](SCHEDULE.md)。新增回归命令 `npm run check:schedule`，浏览器环境变量与 check:ui 相同；默认本地预览为 5196，输出 `output/schedule/`。
+接口、布局例外及本地存储边界见 [SCHEDULE.md](SCHEDULE.md)。日程回归命令 `npm run check:schedule` 与 `npm run check:schedule-calendar`，浏览器环境变量与 check:ui 相同；默认本地预览为 5196，输出 `output/schedule/`。
 
 系统弹窗接入 `ModalSurface` 或为已有原生 dialog 添加 `gx-dialog`；结构槽、业务宽度与例外见 [DIALOGS.md](DIALOGS.md)。
 
@@ -119,3 +119,21 @@ CI 每次发布必须通过类型检查、规范静态检查和生产构建。�
 新增浏览器专项命令：npm run check:news-more-ui（更多列表、阅读边距、业务标题、反馈圆角、按钮）；npm run check:table-controls-ui（90px分页、表头、单选/复选外边框及保存）；npm run check:news-detail-ui（隐藏模式二入口、资讯反馈、订阅分段、规范目录）。沿用PLAYWRIGHT_MODULE、CHROME_PATH、BASE_URL，结果分别在output/playwright/news-more、final-controls、news-detail；运行结果以ACCEPTANCE.md为准。
 
 完整规范导出由scripts/build-full-spec.mjs组装，固定三个顶层模块：基础样式、组件规范全览、状态与交互。线上配色/文字/间距/圆角和通用状态共用foundationReference.json；参数直接读取tokens.css。组件与Hover继续使用原JSON，生成器验证59项和三个模块并同步COMPONENTS.md与公开下载文件。下载仍沿用旧URL以兼容已有链接，文件名为“广智新完整设计规范-v3.6.0.md”；不包含其他三个在线章节。
+
+## 热点追踪业务模块
+
+门户资讯在主动提醒之后接入HotspotTracking；数据契约、布局与关注保存边界见[HOTSPOT-TRACKING.md](HOTSPOT-TRACKING.md)。专项`npm run check:hotspot-ui`沿用既有浏览器环境变量。模块是业务实现，不增加公共组件清单，也不改变完整规范下载的三个顶层模块。
+
+## PPT与个人配置业务流程
+
+PPT模式复用AgentComposerTools和三张现有封面，选择模板回调独立于普通工具的插入提示词，详情见[PPT-COMPOSER.md](PPT-COMPOSER.md)。专项`npm run check:ppt-ui`沿用浏览器环境变量，结果在`output/ppt-composer/`。
+
+差旅设置复用ModalSurface/SelectField，创建智能体使用AgentBuilder完整内页；本机数据契约与业务边界见[PERSONAL-FEATURES.md](PERSONAL-FEATURES.md)。专项`npm run check:personal-ui`覆盖设置、智能体、法智模式与共享头部，结果在`output/playwright/personal-features/`。均不改变公共组件和三模块下载范围。
+
+## 图片设置和发布访问入口（2026-11-07）
+
+图片设置业务专项npm run check:agent-images，结果output/playwright/agent-images/；创建页全高30/70分栏已排除旧design-panel工具栏内边距与伪横线。订阅专项npm run check:news-subscription增加AI标题、内置字数和同排布局，结果output/news-subscription/。
+
+发布时设置VITE_PREVIEW_ACCESS_DIGEST启用入口密码；GitHub Pages工作流已配置本轮用户指定密码的SHA-256摘要。未配置时本地开发/预览保持直接进入。PreviewAccess在App/DesignSpec挂载前验证，所有query路由覆盖，成功后当前标签页sessionStorage记忆，刷新/跳转不重复输入，新会话重新验证；存储不可用时仍可进入本页。密码错误提示并回焦，不保存明文，支持显示/隐藏与Enter。
+
+此为静态页面入口校验，不提供服务器访问控制：源码、资源和密码摘要均可能公开读取，不能用于保护敏感内容。npm run check:preview-access针对启用密码、带部署子路径的构建，覆盖直达路由、错误密码、正确密码、会话及存储失败、桌面/窄屏。浏览器回归可复用scripts/preview-access.mjs的unlockPreview(page)，PREVIEW_PASSWORD支持测试密码配置。

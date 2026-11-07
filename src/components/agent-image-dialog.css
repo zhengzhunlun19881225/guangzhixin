@@ -1,0 +1,36 @@
+/* Image settings: 4×4 supplied presets and an equally sized local-upload pane.
+   Modal titles/actions retain the shared business-dialog scale and brand colour. */
+.gx-dialog.agent-image-dialog{width:1040px;}
+.aip-toolbar{display:flex;justify-content:flex-end;margin-bottom:12px;}
+.aip-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;align-items:stretch;}
+.aip-presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;min-width:0;}
+.aip-presets>button{position:relative;display:block;width:100%;aspect-ratio:1;padding:0;border:2px solid transparent;border-radius:var(--gx-radius-control);overflow:hidden;background:var(--gx-hover-bg);}
+.aip-presets>button>img{display:block;width:100%;height:100%;object-fit:cover;}
+.aip-presets>button[aria-pressed=true]{border-color:var(--gx-brand);}
+.aip-selected-mark{position:absolute;right:4px;bottom:4px;display:grid;place-items:center;width:20px;height:20px;border-radius:var(--gx-radius-small);background:var(--gx-brand);color:var(--gx-text-on-accent);}
+.aip-dropzone{position:relative;display:flex;min-width:0;min-height:260px;background:var(--gx-hover-bg);border:1px solid var(--gx-border);border-radius:var(--gx-radius-control);overflow:hidden;}
+.aip-upload-trigger{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;width:100%;padding:24px 12px;text-align:center;}
+.aip-upload-trigger>img{width:64px;height:48px;object-fit:contain;margin-bottom:4px;}
+.aip-upload-trigger>span{font-size:16px;line-height:24px;color:var(--gx-text-primary);}
+.aip-upload-trigger strong{font-weight:400;color:var(--gx-brand);}
+.aip-upload-trigger small,.aip-description{font-size:12px;line-height:18px;color:var(--gx-text-muted);}
+.aip-description{margin:12px 0 0;}
+.aip-dropzone.is-dragging{border-color:var(--gx-brand);background:var(--gx-selected-bg);}
+.aip-drag-message,.aip-loading{position:absolute;inset:0;display:grid;place-items:center;padding:16px;background:var(--gx-surface);color:var(--gx-brand);font-size:14px;line-height:22px;pointer-events:none;}
+.aip-drag-message{background:var(--gx-selected-bg);}
+.aip-error{margin:0 0 12px;font-size:12px;line-height:18px;color:var(--gx-danger);}
+.gx-dialog.agent-image-dialog .gx-dialog-body button:focus-visible{outline:2px solid var(--gx-focus);outline-offset:2px;}
+.ab-avatar.ab-avatar-image{overflow:hidden;background:var(--gx-hover-bg);}.ab-avatar-image>img{width:100%;height:100%;object-fit:cover;}
+.aip-upload-editor{display:flex;flex-direction:column;width:100%;flex:1;min-width:0;min-height:0;}
+.aip-cropper{position:relative;display:grid;place-items:center;flex:1;min-height:0;overflow:hidden;background:var(--gx-text-primary);touch-action:none;}
+.aip-crop-stage{position:relative;flex-shrink:0;}
+.aip-crop-stage>img{display:block;width:100%;height:100%;user-select:none;pointer-events:none;}
+.aip-crop-frame{position:absolute;border:1px solid var(--gx-info);box-shadow:0 0 0 2000px #00000080;cursor:move;touch-action:none;}
+.aip-crop-frame:focus-visible{outline:2px solid var(--gx-focus);outline-offset:2px;}
+.gx-dialog .aip-crop-handle{position:absolute;width:9px;height:9px;min-width:0;padding:0;border:0;border-radius:50%;background:var(--gx-info);touch-action:none;}
+.aip-crop-handle.handle-nw{left:-5px;top:-5px;cursor:nwse-resize;}.aip-crop-handle.handle-n{left:calc(50% - 4px);top:-5px;cursor:ns-resize;}.aip-crop-handle.handle-ne{right:-5px;top:-5px;cursor:nesw-resize;}.aip-crop-handle.handle-e{right:-5px;top:calc(50% - 4px);cursor:ew-resize;}.aip-crop-handle.handle-se{right:-5px;bottom:-5px;cursor:nwse-resize;}.aip-crop-handle.handle-s{left:calc(50% - 4px);bottom:-5px;cursor:ns-resize;}.aip-crop-handle.handle-sw{left:-5px;bottom:-5px;cursor:nesw-resize;}.aip-crop-handle.handle-w{left:-5px;top:calc(50% - 4px);cursor:ew-resize;}
+.aip-crop-controls{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 8px 0;background:var(--gx-surface);}
+.aip-crop-controls [aria-pressed=true]{color:var(--gx-brand);}
+.aip-crop-help{margin:4px 8px 8px;font-size:12px;line-height:18px;color:var(--gx-text-muted);}
+@media(max-width:700px){.aip-layout{grid-template-columns:minmax(0,1fr);gap:20px;}.aip-dropzone{min-height:220px;}.aip-presets{gap:8px;}.aip-selected-mark{width:16px;height:16px;right:2px;bottom:2px;}.aip-selected-mark svg{width:12px;height:12px;}}
+@media(max-width:700px){.aip-dropzone.has-image{height:340px;}}

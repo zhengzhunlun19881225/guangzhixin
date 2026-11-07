@@ -1,10 +1,11 @@
 import { lazy, Suspense } from 'react';
 import {createRoot} from 'react-dom/client';
-import App from './App.tsx';
+import { PreviewAccess } from './components/PreviewAccess';
 import './index.css';
 import './design/ui-modes.css';
 import './design/checkboxes.css';
 
 const DesignSpec = lazy(() => import('./design/DesignSpec'));
+const App = lazy(() => import('./App'));
 const isSpec = new URLSearchParams(window.location.search).get('view') === 'design-system';
-createRoot(document.getElementById('root')!).render(isSpec ? <Suspense fallback={<p role="status">正在加载设计规范…</p>}><DesignSpec /></Suspense> : <App />);
+createRoot(document.getElementById('root')!).render(<PreviewAccess><Suspense fallback={<p role="status">正在加载…</p>}>{isSpec ? <DesignSpec /> : <App />}</Suspense></PreviewAccess>);

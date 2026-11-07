@@ -17,6 +17,8 @@
 | 下拉选择 | `src/components/SelectField.tsx` + `select-field.css` |
 | 轮播 | `src/components/NewsCarousel.tsx` |
 | 我的日程模块与新增表单 | [SCHEDULE.md](SCHEDULE.md) |
+| PPT模板输入模式 | [PPT-COMPOSER.md](PPT-COMPOSER.md) |
+| 差旅偏好、智能体创建与法智工具 | [PERSONAL-FEATURES.md](PERSONAL-FEATURES.md) |
 | 开发接入与例外 | [IMPLEMENTATION.md](IMPLEMENTATION.md) |
 | 页面与浮层盘点 | [INVENTORY.md](INVENTORY.md) |
 | 检查范围、结果与遗留项 | [ACCEPTANCE.md](ACCEPTANCE.md) |
@@ -193,3 +195,5 @@ Link、Breadcrumb、Anchor及PageHeader返回链接：默认与悬浮均无下�
 按2026-11-07最新要求移除“总览与使用”章节，包括介绍横幅、统计卡片和使用顺序；目录改为六节，基础样式从01开始。旧#overview自动定位到#foundations，59项组件全览保留。
 
 完整规范下载固定为三个模块：基础样式、组件规范全览、状态与交互；页面与业务模式、页面盘点、开发与验收不进入下载文件。基础样式和通用状态共用foundationReference.json，颜色尺寸读取tokens.css；59项说明和hover分别来自componentReference.json与hoverReference.json，生成器验证顶层章节数与组件数。
+
+本轮图片设置支持16张用户预设图片、上传及可移动/缩放的正方形裁剪；创建页从顶部30/70分栏。AI订阅按参考图调整输入、示例及生成操作排布。详见PERSONAL-FEATURES.md和NEWS-SUBSCRIPTION.md。发布预览增加入口密码校验（静态站点边界与配置见IMPLEMENTATION.md），不改变三模块规范下载。

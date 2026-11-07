@@ -56,9 +56,9 @@ try{
   for(const mode of ['original','spec']){
    await page.goto(base+'?view=dashboard',{waitUntil:'networkidle'});await page.evaluate(mode=>document.documentElement.dataset.uiMode=mode,mode);
    await page.getByRole('button',{name:'新增日程',exact:true}).click();await page.getByRole('menuitem',{name:'新建会议',exact:true}).click();await inspect();
-   await page.locator('.sch-item').first().click();await inspect();await page.getByRole('button',{name:'我的日程更多'}).click();await inspect();
+   await page.locator('.sch-item').first().click();await inspect();await page.getByRole('button',{name:'我的日程更多'}).click();await page.locator('.sc-event').first().click();await inspect();
    await page.goto(base,{waitUntil:'networkidle'});await page.evaluate(mode=>document.documentElement.dataset.uiMode=mode,mode);await page.getByRole('button',{name:'搜索 (Ctrl+K)',exact:true}).click();await inspect();await page.getByRole('button',{name:'查看更多历史记录',exact:true}).click();await inspect();
-   await page.goto(base+'?view=portal',{waitUntil:'networkidle'});await page.evaluate(mode=>document.documentElement.dataset.uiMode=mode,mode);await home.getByRole('button',{name:'订阅',exact:true}).click();await inspect();
+   await page.goto(base+'?view=portal',{waitUntil:'networkidle'});await page.evaluate(mode=>document.documentElement.dataset.uiMode=mode,mode);await home.getByRole('button',{name:'订阅',exact:true}).click();await inspect();await page.getByRole('button',{name:'更多热点追踪',exact:true}).click();await inspect();
   }
   await page.goto(base+'?view=design-system&component=notification#library',{waitUntil:'networkidle'});assert.equal(await css(page.locator('.cr-notification h5').first(),'fontSize'),'16px');await page.goto(base+'?view=design-system&component=dialog#library',{waitUntil:'networkidle'});assert.equal(await css(page.locator('.rp-messagebox h5').first(),'fontSize'),'16px');
  });

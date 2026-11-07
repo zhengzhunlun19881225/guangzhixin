@@ -1,3 +1,4 @@
+import { HotspotTracking } from './HotspotTracking';
 import { NewsSubscriptionDialog } from './NewsSubscriptionDialog';
 import { Button } from './UI';
 import { readSubscription, subscriptionMatches, relatedMatches, NewsSubscription } from '../data/newsSubscription';
@@ -98,6 +99,7 @@ export const PortalNewsView: React.FC = () => {
             <span className="pn-alert-icon">{a.id==='travel'?<CalendarClock size={20}/>:<Building2 size={20}/>}</span><div><div className="pn-alert-type">{a.type}<span>{a.tag}</span></div><h4>{a.title}</h4><p>{a.body}</p><footer><button onClick={()=>setDetail({title:a.title,body:a.body})}>查看</button><button onClick={()=>setHiddenAlerts(ids=>[...ids,a.id])}>忽略</button></footer></div>
           </article>)}{hiddenAlerts.length===alerts.length&&<p className="pn-empty">暂无待处理提醒</p>}</div>
         </section>
+        <HotspotTracking/>
         {['最新通知','最新公告'].map((label,index)=><section className={`pn-panel pn-notices ${index?'pn-announcements':''}`} key={label}>
           <header className="pn-section-header"><h3><img src={`assets/workbench/${index?'heading-tasks':'heading-brief'}.png`} alt=""/>{label}</h3><button className="pn-more ui-more" onClick={()=>more(label,notices)}>更多<ChevronRight size={13}/></button></header>
           <ol>{notices.map((title,i)=><li key={title}><button onClick={()=>setDetail({title,body:'广新集团 · '+label})}><span>{i+1}{index?'.':''}</span><span>{title}</span></button></li>)}</ol>

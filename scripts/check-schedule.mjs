@@ -14,6 +14,14 @@ async function check(name,fn){await fn();passed.push(name);console.log('PASS '+n
 async function open(kind){await page.getByRole('button',{name:'新增日程',exact:true}).click();await page.getByRole('menuitem',{name:kind}).click();await dialog().waitFor();}
 async function choose(label,value){await dialog().getByRole('combobox',{name:label,exact:true}).click();await page.getByRole('option',{name:value,exact:true}).click();}
 async function person(label,names){await dialog().getByRole('button',{name:'选择'+label,exact:true}).click();for(const name of names)await dialog().getByRole('option',{name,exact:true}).click();await dialog().getByRole('combobox',{name:'搜索'+label,exact:true}).press('Escape');}
+async function calendarItem(date,kind,title){
+ await page.getByRole('button',{name:'我的日程更多'}).click();await page.locator('.sc-scroll[aria-busy=false]').waitFor();
+ await page.getByRole('tab',{name:'月',exact:true}).click();
+ while(!await page.getByRole('button',{name:`查看${date}日程`,exact:true}).count())await page.getByRole('button',{name:date<today?'上一个日期范围':'下一个日期范围',exact:true}).click();
+ await page.getByRole('button',{name:`查看${date}日程`,exact:true}).click();
+ await page.getByRole('button',{name:new RegExp(kind+' '+title)}).click();
+}
+async function calendarBack(){await page.locator('.sc-page').getByRole('button',{name:'返回',exact:true}).click();}
 const fixture=Buffer.from('%PDF-1.4\n% Schedule attachment test: retain exact bytes\n%%EOF');
 let today;
 const files=[{name:'会议资料.pdf',mimeType:'application/pdf',buffer:fixture},{name:'客户资料.pdf',mimeType:'application/pdf',buffer:fixture}];
@@ -44,7 +52,7 @@ try{
   await page.getByLabel('会议链接',{exact:true}).fill('invalid');await dialog().getByRole('button',{name:'确定',exact:true}).click();await page.getByText('请输入以 http:// 或 https:// 开头的会议链接',{exact:true}).waitFor();await page.getByLabel('会议链接',{exact:true}).fill('https://meeting.tencent.com/dm/BIWL3');
  });
  await check('保存会议、详情和刷新持久化',async()=>{
-  await dialog().getByRole('button',{name:'确定',exact:true}).click();await dialog().waitFor({state:'detached'});assert.equal(await page.locator('.sch-item').count(),1);assert.equal(await page.locator('.sch-week [aria-pressed=true]').getAttribute('title'),'2026-10-29');await page.locator('.sch-item').click();await page.locator('.sch-detail-dialog').getByText('https://meeting.tencent.com/dm/BIWL3',{exact:true}).waitFor();await page.keyboard.press('Escape');await page.reload({waitUntil:'networkidle'});await page.getByRole('button',{name:'我的日程更多'}).click();await page.locator('.sch-all-list').getByRole('button').filter({hasText:'【线上会议】'}).filter({hasText:'关于集团2026年调研实施方案的讨论'}).click();await page.locator('.sch-detail-dialog').waitFor();await page.keyboard.press('Escape');
+  await dialog().getByRole('button',{name:'确定',exact:true}).click();await dialog().waitFor({state:'detached'});assert.equal(await page.locator('.sch-item').count(),1);assert.equal(await page.locator('.sch-week [aria-pressed=true]').getAttribute('title'),'2026-10-29');await page.locator('.sch-item').click();await page.locator('.sch-detail-dialog').getByText('https://meeting.tencent.com/dm/BIWL3',{exact:true}).waitFor();await page.keyboard.press('Escape');await page.reload({waitUntil:'networkidle'});await calendarItem('2026-10-29','线上会议','关于集团2026年调研实施方案的讨论');await page.locator('.sch-detail-dialog').waitFor();await page.keyboard.press('Escape');await calendarBack();
  });
  await check('事件必填、结束时间校验和字数限制',async()=>{
   await open('新建事件');await dialog().getByRole('button',{name:'确定',exact:true}).click();assert.equal(await dialog().getByRole('alert').count(),2);await page.locator('#sch-title').fill('关于集团2026年调研实施方案的讨论');await page.locator('#sch-start').fill(`${today}T12:30`);await page.locator('#sch-end').fill(`${today}T12:00`);await page.locator('#sch-content').fill('确认各部门调研时间和资料清单。');await dialog().getByRole('button',{name:'确定',exact:true}).click();await page.getByText('结束时间须晚于开始时间',{exact:true}).waitFor();await page.locator('#sch-end').fill(`${today}T13:30`);await person('安排他人',['李明浩','上官家家']);await person('告知人',['李明浩','上官家家']);assert.equal(await page.locator('#sch-title').getAttribute('maxlength'),'20');assert.equal(await page.locator('#sch-content').getAttribute('maxlength'),'200');
@@ -59,7 +67,7 @@ try{
   await page.setViewportSize({width:1920,height:1080});
  });
  await check('保存事件和附件刷新恢复',async()=>{
-  await dialog().getByRole('button',{name:'确定',exact:true}).click();await dialog().waitFor({state:'detached'});await page.reload({waitUntil:'networkidle'});await page.getByRole('button',{name:'我的日程更多'}).click();await page.locator('.sch-all-list').getByRole('button').filter({hasText:'【事项】'}).filter({hasText:'关于集团2026年调研实施方案的讨论'}).click();assert.equal(await page.locator('.sch-detail-dialog .sch-attachments li').count(),2);const promise=page.waitForEvent('download');await page.locator('.sch-detail-dialog').getByRole('button',{name:'会议资料.pdf',exact:true}).click();assert.deepEqual(await fs.readFile(await (await promise).path()),fixture);await page.keyboard.press('Escape');
+  await dialog().getByRole('button',{name:'确定',exact:true}).click();await dialog().waitFor({state:'detached'});await page.reload({waitUntil:'networkidle'});await calendarItem(today,'事项','关于集团2026年调研实施方案的讨论');assert.equal(await page.locator('.sch-detail-dialog .sch-attachments li').count(),2);const promise=page.waitForEvent('download');await page.locator('.sch-detail-dialog').getByRole('button',{name:'会议资料.pdf',exact:true}).click();assert.deepEqual(await fs.readFile(await (await promise).path()),fixture);await page.keyboard.press('Escape');await calendarBack();
  });
  await check('日程范围过滤',async()=>{await page.getByRole('combobox',{name:'日程范围',exact:true}).click();await page.getByRole('option',{name:'我发起的',exact:true}).click();assert.equal(await page.locator('.sch-item').count(),1);await page.getByRole('combobox',{name:'日程范围',exact:true}).click();await page.getByRole('option',{name:'公开日程',exact:true}).click();assert.equal(await page.locator('.sch-item').count(),4);});
 
@@ -68,7 +76,7 @@ try{
   await page.evaluate(()=>{window.originalSchedulePut=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(){throw new DOMException('Test quota','QuotaExceededError');};});
   await dialog().getByRole('button',{name:'确定',exact:true}).click();await dialog().getByText('保存失败，请检查浏览器存储空间后重试。填写的内容已保留。',{exact:true}).waitFor();assert.equal(await page.locator('#sch-title').inputValue(),'存储失败恢复检查');assert.equal(await dialog().locator('.sch-attachments li').count(),1);assert(!(await dialog().getByRole('button',{name:'确定',exact:true}).isDisabled()));
   await page.evaluate(()=>{IDBObjectStore.prototype.put=window.originalSchedulePut;delete window.originalSchedulePut;});await page.keyboard.press('Escape');await dialog().waitFor({state:'detached'});
-  await page.getByRole('button',{name:'我的日程更多'}).click();assert.equal(await page.locator('.sch-all-list').getByRole('button').filter({hasText:'存储失败恢复检查'}).count(),0);await page.keyboard.press('Escape');
+  await page.getByRole('button',{name:'我的日程更多'}).click();assert.equal(await page.locator('.sc-event').filter({hasText:'存储失败恢复检查'}).count(),0);await calendarBack();
  });
  await check('弹窗键盘下拉关闭后继续编辑',async()=>{
   await open('新建会议');const type=dialog().getByRole('combobox',{name:'会议类型',exact:true});await type.focus();await type.press('ArrowDown');await type.press('End');await type.press('Enter');assert.equal(await type.innerText(),'线上');await type.press('ArrowDown');await type.press('Escape');assert.equal(await type.getAttribute('aria-expanded'),'false');assert(await dialog().isVisible());await dialog().getByRole('button',{name:'取消',exact:true}).click();

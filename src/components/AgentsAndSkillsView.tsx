@@ -1,7 +1,9 @@
 import { Button, ModalSurface } from './UI';
 import { SelectField } from './SelectField';
 import { SearchField } from './FieldControls';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { AgentAvatar, AgentBuilder } from './AgentBuilder';
+import { AGENT_STORAGE_KEY, blankAgent, readCustomAgents, type CustomAgent } from '../data/personalSettings';
 import { 
   Plus, 
   Search, 
@@ -26,10 +28,11 @@ import { AgentCard, SkillCard } from '../types';
 
 interface AgentsAndSkillsViewProps {
   onSelectAgentOrSkill: (itemTitle: string) => void;
+  onEditorChange?: (open: boolean) => void;
 }
 
 export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
-  onSelectAgentOrSkill
+  onSelectAgentOrSkill, onEditorChange
 }) => {
   const [activeTab, setActiveTab] = useState<'agents' | 'skills'>(() => new URLSearchParams(window.location.search).get('view') === 'skills' ? 'skills' : 'agents');
   const [selectedCategory, setSelectedCategory] = useState('全部');
@@ -37,6 +40,17 @@ export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDesc, setNewDesc] = useState('');
+  const [editor, setEditor] = useState<CustomAgent | null>(null);
+  const [customAgents, setCustomAgents] = useState(readCustomAgents);
+  const [publishNotice, setPublishNotice] = useState('');
+  const createTrigger = useRef<HTMLButtonElement>(null);
+  useEffect(() => { onEditorChange?.(!!editor); return () => onEditorChange?.(false); }, [!!editor, onEditorChange]);
+  const closeEditor = () => { const id = editor?.id; setEditor(null); requestAnimationFrame(() => {
+    const previous = id ? document.querySelector<HTMLButtonElement>(`[data-custom-agent-id="${CSS.escape(id)}"]`) : null;
+    (previous || createTrigger.current)?.focus();
+  }); };
+  const filteredCustomAgents = customAgents.filter(card => (selectedCategory === '全部' || selectedCategory === '个人' || selectedCategory === card.category || selectedCategory === card.permission)
+    && (!searchQuery || card.name.includes(searchQuery) || card.intro.includes(searchQuery)));
 
   const agentCategories = ['全部', '常用', '热门', '官方', '个人', '组织', '法务', '财务', '人力'];
   const skillCategories = ['全部', '常用', '热门', '法务', '生活', '数据分析', '自动化助理'];
@@ -76,6 +90,12 @@ export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
       default: return <Bot className="w-5 h-5 text-white" />;
     }
   };
+
+  if (editor) return <AgentBuilder initial={editor} onBack={closeEditor} onPublish={agent => {
+    const next = [...readCustomAgents().filter(item => item.id !== agent.id), agent];
+    localStorage.setItem(AGENT_STORAGE_KEY, JSON.stringify(next));
+    setCustomAgents(next); setSelectedCategory('全部'); setSearchQuery(''); setPublishNotice(`「${agent.name}」已保存到本机，未发布至服务器。`); closeEditor();
+  }}/>;
 
   return (
     <div className="agents-view design-panel flex-1 flex flex-col h-full bg-[#f8fafc]/50 overflow-hidden select-none">
@@ -124,7 +144,8 @@ export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
 
         {/* Right Create Button */}
         <button
-          onClick={() => setShowCreateModal(true)}
+          ref={createTrigger}
+          onClick={() => activeTab === 'agents' ? setEditor(blankAgent()) : setShowCreateModal(true)}
           className="flex items-center gap-1.5 px-4 py-1.5 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-xs md:text-sm font-medium transition-colors shadow-xs"
         >
           <img src={figmaAssets['71-4714:imgIcon']} width="16" height="16" alt="" />
@@ -134,6 +155,7 @@ export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
 
       {/* Main Content Area */}
       <div className="flex-1 overflow-y-auto px-8 py-6 space-y-6">
+        {publishNotice && <p className="ab-publish-notice" role="status">{publishNotice}</p>}
         {/* Categories & Search Row */}
         <div className="flex items-center justify-between gap-4 flex-wrap">
           {/* Category Pills */}
@@ -157,9 +179,10 @@ export const AgentsAndSkillsView: React.FC<AgentsAndSkillsViewProps> = ({
           <SearchField className="relative w-64" label="搜索智能体或技能" placeholder="请输入" value={searchQuery} onChange={setSearchQuery}/>
         </div>
 
-        {(activeTab === 'agents' ? filteredAgents : filteredSkills).length === 0 && <p className="workspace-empty" role="status">暂无匹配的{activeTab === 'agents' ? '智能体' : '技能'}</p>}
+        {(activeTab === 'agents' ? [...filteredAgents, ...filteredCustomAgents] : filteredSkills).length === 0 && <p className="workspace-empty" role="status">暂无匹配的{activeTab === 'agents' ? '智能体' : '技能'}</p>}
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {activeTab === 'agents' && filteredCustomAgents.map(agent => <button className="ab-custom-card agent-card" data-custom-agent-id={agent.id} key={agent.id} onClick={() => setEditor(agent)} aria-label={`编辑${agent.name}`}><AgentAvatar icon={agent.icon} image={agent.avatarImage}/><span><strong>{agent.name}</strong><small>{agent.intro}</small><small>本机 · 点击编辑</small></span></button>)}
           {activeTab === 'agents' ? (
             filteredAgents.map((card) => (
               <div

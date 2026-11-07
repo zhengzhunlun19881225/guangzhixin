@@ -27,6 +27,7 @@ export default function App() {
   const [imTargetContact, setIMTargetContact] = useState<string | undefined>();
   const [imSubView, setIMSubView] = useState<IMSubView>(() => new URLSearchParams(window.location.search).get('section') === 'contacts' ? 'org' : 'chat');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [agentEditorOpen, setAgentEditorOpen] = useState(false);
   const [showWorkbenchDashboard, setShowWorkbenchDashboard] = useState(() => new URLSearchParams(window.location.search).get('view') === 'dashboard');
 
   // Active topic in AI chat (e.g. '数据监测与优化策略' matching screenshots)
@@ -109,7 +110,7 @@ export default function App() {
         onSelectTab={handleSelectTab}
         sidebarCollapsed={sidebarCollapsed}
         contextLabel={mainTab === 'workbench' && !showWorkbenchDashboard && sidebarMenu === 'new_chat' ? '新建会话' : undefined}
-        showSidebarToggle={mainTab === 'workbench' && !showWorkbenchDashboard && sidebarMenu !== 'todos'}
+        showSidebarToggle={mainTab === 'workbench' && !showWorkbenchDashboard && sidebarMenu !== 'todos' && !agentEditorOpen}
         onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
         onOpenSearch={() => setIsSearchOpen(true)}
         onSwitchToWorkbenchDashboard={() => {
@@ -121,7 +122,7 @@ export default function App() {
       {/* Main Workspace Frame */}
       <div className="flex-1 flex min-h-0 relative">
         {/* Left Sidebar is present during Workbench mode */}
-        {mainTab === 'workbench' && !showWorkbenchDashboard && sidebarMenu !== 'todos' && (
+        {mainTab === 'workbench' && !showWorkbenchDashboard && sidebarMenu !== 'todos' && !agentEditorOpen && (
           <Sidebar
             currentMenu={sidebarMenu}
             onSelectMenu={handleSelectMenu}
@@ -165,6 +166,7 @@ export default function App() {
                 />
               ) : sidebarMenu === 'agents_skills' ? (
                 <AgentsAndSkillsView
+                  onEditorChange={setAgentEditorOpen}
                   onSelectAgentOrSkill={(title) => {
                     setSelectedAgent(title);
                     setResponseRequestId(0);

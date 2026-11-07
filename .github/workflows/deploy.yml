@@ -30,6 +30,7 @@ jobs:
       - run: npm run build
         env:
           DEPLOY_BASE: ${{ steps.pages.outputs.base_path }}/
+          VITE_PREVIEW_ACCESS_DIGEST: 92925488b28ab12584ac8fcaa8a27a0f497b2c62940c8f4fbc8ef19ebc87c43e
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

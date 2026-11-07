@@ -1,0 +1,30 @@
+/* PPT mode reuses the normal composer and template artwork; scope layout overrides to this mode. */
+.ai-chat-view.ai-ppt-mode .ai-ppt-workspace{min-height:100%;}
+.ai-chat-view.ai-ppt-mode .ai-composer-inner>div.bg-white{height:auto;min-height:122px;border-radius:var(--gx-radius-card);gap:8px;}
+.ai-chat-view.ai-ppt-mode .ai-composer textarea{min-height:36px;max-height:144px;line-height:24px;font-size:16px;user-select:text;}
+.ai-chat-view.ai-ppt-mode .ppt-selected-template{display:flex;align-items:center;gap:10px;min-height:24px;padding:0;font-size:14px;line-height:22px;color:var(--gx-text-primary);}
+.ppt-selected-template>img{width:34px;height:20px;object-fit:cover;border:1px solid var(--gx-border);border-radius:var(--gx-radius-small);}
+.ppt-selected-template>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ppt-selected-template>button{display:grid;place-items:center;width:24px;height:24px;color:var(--gx-text-muted);border-radius:var(--gx-radius-small);}
+.ppt-selected-template>button:hover{background:var(--gx-hover-bg);color:var(--gx-hover-text);}
+.ai-ppt-mode .ai-composer .agent-tools-panel{left:0;width:100%;max-width:100%;border-radius:var(--gx-radius-card);border-color:var(--gx-border);box-shadow:none;padding:12px 16px;max-height:min(360px,calc(100dvh - 280px));scrollbar-width:thin;scrollbar-color:var(--gx-scrollbar-thumb) transparent;}
+.ai-ppt-mode .ppt-panel-header{position:sticky;top:-12px;background:var(--gx-surface);z-index:1;padding-block:4px;margin-top:-4px;}
+.ai-ppt-mode .ai-composer .ppt-categories button{height:32px;padding:0 10px;color:var(--gx-text-secondary);}
+.ai-ppt-mode .ai-composer .ppt-categories button[aria-selected=true]{color:var(--gx-brand);background:var(--gx-selected-bg);}
+.ai-ppt-mode .ai-composer .ppt-template-card{border-color:var(--gx-border);border-radius:var(--gx-radius-control);}
+.ai-ppt-mode .ai-composer .ppt-template-card:is(:hover,:focus-within){border-color:var(--gx-hover-text);}
+.ai-ppt-mode .ai-composer .ppt-template-card.is-selected{border-color:var(--gx-choice-selected-border);}
+.ai-ppt-mode .ai-composer .ppt-template-card.is-selected>div>button:first-child{color:var(--gx-brand);}
+.ai-ppt-mode .ai-composer .ppt-template-card>div{padding-inline:10px;}
+.ai-ppt-mode .ai-composer .ppt-template-card>div .template-preview-button{color:var(--gx-text-secondary);}
+.ai-ppt-mode .ai-composer .template-preview-button:hover{color:var(--gx-hover-text);}
+.ai-ppt-mode .ai-composer .agent-composer-tools .composer-agent-tool{margin:0;padding:0;background:transparent;color:var(--gx-text-primary);}
+.ai-ppt-mode .ai-composer .agent-composer-tools .composer-agent-tool.is-active{background:transparent;color:var(--gx-text-primary);}
+.ai-ppt-mode .ai-composer .agent-composer-tools button:focus-visible,.ppt-selected-template>button:focus-visible{outline:2px solid var(--gx-focus);outline-offset:3px;}
+.ai-ppt-mode .ai-composer .agent-panel-close{color:var(--gx-text-muted);}
+.ai-ppt-mode .ai-composer .selected-agent-pill{background:var(--gx-selected-bg);}
+.ai-chat-view .ppt-composer-error{font-size:12px;line-height:18px;color:var(--gx-danger);}
+.ai-ppt-mode .ai-conversation{padding-bottom:220px;}
+@media(max-width:700px){.app-shell:has(.ai-ppt-mode) .app-sidebar{display:none;}.ai-chat-view.ai-ppt-mode .ai-composer-inner{width:calc(100% - 32px);margin-inline:16px;}.ai-ppt-mode .ai-composer .agent-composer-tools{flex-wrap:wrap;gap:8px;}.ai-ppt-mode .ai-composer-toolbar>div:last-child{max-width:100%;}.ai-ppt-mode .ai-composer .ppt-template-card{min-width:200px;}}
+.gx-dialog.ppt-preview-dialog .gx-dialog-body>img{display:block;width:100%;height:auto;object-fit:contain;border-radius:var(--gx-radius-control);}
+@media(max-width:700px){.ai-ppt-mode .ai-composer-toolbar{flex-wrap:wrap;row-gap:8px;}.ai-ppt-mode .ai-composer-toolbar>div:last-child{margin-left:auto;}.ai-ppt-mode .ai-composer .ppt-template-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:4px;}.ai-ppt-mode .ai-composer .ppt-template-card{flex:0 0 82%;scroll-snap-align:start;}.ai-ppt-mode .ai-composer .agent-tools-panel{padding-inline:12px;}.ai-ppt-mode .ai-composer .ppt-categories{scrollbar-width:thin;}.ai-ppt-mode .ai-composer textarea{font-size:14px;}.ai-ppt-mode .ai-composer .ui-select-pill{max-width:140px;}}

@@ -1,3 +1,4 @@
+import { SCHEDULE_DEPARTMENT_MEMBERS } from './scheduleDepartment';
 export type ScheduleAttachment = { id: string; name: string; size: number; blob: Blob };
 export type ScheduleItem = {
   id: string; kind: 'meeting' | 'event' | 'trip'; title: string; start: string; end: string;
@@ -6,7 +7,7 @@ export type ScheduleItem = {
   attachments: ScheduleAttachment[]; creator: string; completed: boolean;
 };
 export const CURRENT_SCHEDULE_USER = '张嘉嘉';
-export const SCHEDULE_PEOPLE = ['张嘉嘉', '上官成硕', '李明浩', '上官家家', '李家家', '李佳佳', '张锐', '王武', '陈晓晓', '张三'];
+export const SCHEDULE_PEOPLE = ['张嘉嘉', '上官成硕', '李明浩', '上官家家', '李家家', '李佳佳', '张锐', '王武', '陈晓晓', '张三', ...SCHEDULE_DEPARTMENT_MEMBERS.map(member=>member.name)];
 export function dayKey(date: Date): string {
   return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
 }

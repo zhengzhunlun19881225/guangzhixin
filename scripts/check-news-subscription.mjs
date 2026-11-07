@@ -1,3 +1,4 @@
+import { unlockPreview } from './preview-access.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -16,12 +17,12 @@ const read=()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
 const style=(el,key)=>el.evaluate((e,k)=>getComputedStyle(e)[k],key);
 const check=async(name,run)=>{try{await run();results.push({name,status:'passed'});console.log('PASS '+name);}catch(e){results.push({name,status:'failed',error:e.message});console.error('FAIL '+name+': '+e.message);throw e;}};
 try{
- await page.goto(base+'?view=portal',{waitUntil:'networkidle'});
+ await page.goto(base+'?view=portal',{waitUntil:'networkidle'});await unlockPreview(page);
  await check('字号、工具栏及提醒内容适配',async()=>{
   for(const width of [1920,1600,1440,1280]){
    await page.setViewportSize({width,height:1080});
    for(const tab of await page.locator('.pn-tabs button').all()){assert.equal(await style(tab,'fontSize'),'16px');assert.equal(await style(tab,'lineHeight'),'24px');}
-   for(const el of await page.locator('.pn-card-copy p,.pn-alert p').all()){assert.equal(await style(el,'fontSize'),'14px');assert.equal(await style(el,'lineHeight'),'22px');}
+   for(const [selector,size]of [['.pn-card-copy p','12px'],['.pn-alert p','14px']])for(const el of await page.locator(selector).all()){assert.equal(await style(el,'fontSize'),size);assert.equal(await style(el,'lineHeight'),'22px');}
    for(const sel of ['.pn-ai-news','.pn-group-news']){const panel=page.locator(sel);const bounds=await panel.boundingBox();const tools=await panel.locator('.pn-section-tools').boundingBox();const tabs=await panel.locator('.pn-tabs').boundingBox();assert(tools.x+tools.width<=bounds.x+bounds.width);assert(tabs.x+tabs.width<=bounds.x+bounds.width);assert(tabs.y>=tools.y+tools.height||tabs.x+tabs.width<=tools.x);}
    for(const card of await page.locator('.pn-ai-card,.pn-alert').all()){assert(await card.evaluate(e=>e.scrollHeight<=e.clientHeight+2));}
    await page.screenshot({path:path.join(output,`portal-${width}.png`)});
@@ -54,6 +55,17 @@ try{
   await dialog.getByLabel('订阅需求',{exact:true}).fill('随便看看');await button('生成订阅条件').click();assert((await dialog.getByRole('alert').innerText()).includes('未识别'));
   await button('每周关注广东新材料政策，只看政府网站，排除娱乐').click();await page.screenshot({path:path.join(output,'ai-input.png')});await button('生成订阅条件').click();assert((await dialog.locator('.ns-result').innerText()).includes('新材料'));assert(!(await button('保存').isDisabled()));await page.screenshot({path:path.join(output,'ai-generated.png')});
   await dialog.getByLabel('订阅需求',{exact:true}).fill('关注人工智能，每天更新');assert(await button('保存').isDisabled());await button('生成订阅条件').click();await button('编辑条件').click();assert(await dialog.getByRole('checkbox',{name:'人工智能',exact:true}).isChecked());assert.equal(await dialog.getByRole('combobox',{name:'更新频率'}).innerText(),'每日更新');await button('取消').click();
+ });
+ await check('AI参考布局、主题色、内置计数与两种模式多尺寸适配',async()=>{
+  for(const mode of ['original','spec'])for(const [width,height]of [[1920,1080],[1440,900],[1280,600],[390,844]]){
+   await page.evaluate(mode=>localStorage.setItem('guangxin-ui-mode',mode),mode);await page.setViewportSize({width,height});await page.reload({waitUntil:'networkidle'});await trigger().click();await dialog.getByRole('tab',{name:'AI 订阅'}).click();
+   const input=dialog.getByLabel('订阅需求',{exact:true}),heading=dialog.locator('.ns-ai-heading'),counter=dialog.locator('.ns-counter'),generate=button('生成订阅条件');assert.equal(await style(heading,'fontSize'),'16px');assert.equal(await heading.locator('svg').count(),1);assert.equal(await input.getAttribute('maxlength'),'500');assert(await generate.isDisabled());assert.equal(await counter.innerText(),'0 / 500');
+   await input.fill('人'.repeat(510));assert.equal((await input.inputValue()).length,500);assert.equal(await counter.innerText(),'500 / 500');await button('关注人工智能、制造业和国产算力，每天更新').click();assert.equal(await counter.innerText(),`${(await input.inputValue()).length} / 500`);assert.equal(await style(generate,'backgroundColor'),'rgb(255, 0, 0)');assert.equal(await style(generate,'height'),mode==='spec'?'36px':'32px');
+   const field=await input.boundingBox(),count=await counter.boundingBox();assert(count.x>=field.x&&count.y>=field.y&&count.x+count.width<=field.x+field.width&&count.y+count.height<=field.y+field.height);
+   const examples=await dialog.locator('.ns-examples button').all();const genBox=await generate.boundingBox();if(width>600){for(const example of examples){const b=await example.boundingBox();assert(Math.abs(b.y+b.height/2-genBox.y-genBox.height/2)<2,'示例短语和生成按钮应在同一行');}}else{const b=await examples.at(-1).boundingBox();assert(genBox.y>=b.y+b.height);}
+   assert(await dialog.evaluate(e=>e.scrollWidth<=e.clientWidth));await generate.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(output,`ai-layout-${mode}-${width}.png`)});await button('取消').click();
+  }
+  await page.evaluate(()=>localStorage.setItem('guangxin-ui-mode','original'));await page.setViewportSize({width:1920,height:1080});await page.reload({waitUntil:'networkidle'});
  });
  await check('AI 保存匹配、空结果、默认恢复生效',async()=>{
   await trigger().click();await dialog.getByRole('tab',{name:'AI 订阅'}).click();await button('每周关注广东新材料政策，只看政府网站，排除娱乐').click();await button('生成订阅条件').click();await button('保存').click();const saved=await read();assert.deepEqual(saved.industries,['新材料']);assert.deepEqual(saved.regions,['广东']);assert.deepEqual(saved.sources,['政府网站']);assert.deepEqual(saved.contentTypes,['政策解读']);assert.equal(saved.blockedKeywords,'娱乐');assert.equal(saved.frequency,'每周更新');await ai.getByText('暂无匹配资讯').waitFor();

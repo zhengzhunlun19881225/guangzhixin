@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const base = process.env.BASE_URL || 'http://127.0.0.1:5197/guangzhixin/';
+const out = path.resolve('output/playwright/preview-access'); await fs.mkdir(out,{recursive:true});
+const browser = await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
+let context,page; const passed=[],errors=[];
+async function start(width=1440,height=900,blocked=false){if(context)await context.close();context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));if(blocked)await page.addInitScript(()=>{Storage.prototype.setItem=function(){throw new DOMException('blocked','SecurityError');};});}
+async function check(name,run){await run();passed.push(name);console.log('PASS '+name);}
+const input=()=>page.getByLabel('访问密码',{exact:true});
+const enter=()=>page.getByRole('button',{name:'进入系统',exact:true});
+try{
+ for(const view of ['dashboard','portal','design-system'])await check(`${view}直达链接先验证且不挂载页面`,async()=>{await start();await page.goto(base+`?view=${view}#library`,{waitUntil:'networkidle'});await input().waitFor();assert.equal(await page.locator('.app-shell,.spec-app').count(),0);assert(await enter().isDisabled());assert.equal(await input().getAttribute('type'),'password');assert(await input().evaluate(e=>e===document.activeElement));});
+ await check('错误密码拦截、错误提示与显示隐藏',async()=>{await input().fill('123456');await enter().click();await page.getByRole('alert').getByText('访问密码不正确，请重新输入。',{exact:true}).waitFor();assert.equal(await page.locator('.app-shell,.spec-app').count(),0);await page.waitForFunction(()=>document.activeElement?.id==='preview-password');await page.getByRole('button',{name:'显示密码',exact:true}).click();assert.equal(await input().getAttribute('type'),'text');await page.getByRole('button',{name:'隐藏密码',exact:true}).click();assert.equal(await input().getAttribute('type'),'password');});
+ await check('正确密码键盘进入原规范链接、刷新与页面切换保留会话',async()=>{await input().fill(process.env.PREVIEW_PASSWORD||'888888');await input().press('Enter');await page.locator('.spec-app').waitFor();assert(page.url().endsWith('?view=design-system#library'));await page.reload({waitUntil:'networkidle'});await page.locator('.spec-app').waitFor();assert.equal(await input().count(),0);await page.goto(base+'?view=agents',{waitUntil:'networkidle'});await page.getByRole('button',{name:'创建',exact:true}).waitFor();assert.equal(await input().count(),0);const saved=await page.evaluate(()=>({...sessionStorage}));assert(!JSON.stringify(saved).includes('888888'));});
+ await check('新会话重新验证，存储不可用也可进入当前页',async()=>{await start(1440,900,true);await page.goto(base+'?view=agents',{waitUntil:'networkidle'});await input().fill(process.env.PREVIEW_PASSWORD||'888888');await enter().click();await page.getByRole('button',{name:'创建',exact:true}).waitFor();await page.reload({waitUntil:'networkidle'});await input().waitFor();});
+ for(const [width,height] of [[1920,1080],[390,600]])await check(`${width}访问入口尺寸、系统色与键盘操作`,async()=>{await start(width,height);await page.goto(base+'?view=dashboard',{waitUntil:'networkidle'});await input().waitFor();const card=await page.locator('.preview-access-card').boundingBox();assert(card.x>=0&&card.y>=0&&card.x+card.width<=width&&card.y+card.height<=height);assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)));assert.equal(await page.locator('h1').evaluate(e=>getComputedStyle(e).fontSize),'18px');await input().fill('888888');await input().press('Tab');assert.equal(await page.locator(':focus').getAttribute('aria-label'),'显示密码');await page.screenshot({path:path.join(out,`gate-${width}.png`)});await enter().click();await page.locator('.app-shell').waitFor();});
+ assert.deepEqual(errors,[]);
+}catch(error){console.error(error);process.exitCode=1;if(page)await page.screenshot({path:path.join(out,'failure.png')});}
+finally{await fs.writeFile(path.join(out,'verification.json'),JSON.stringify({base,passed,errors,success:!process.exitCode},null,2));await browser.close();}

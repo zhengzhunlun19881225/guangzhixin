@@ -40,6 +40,7 @@ const recentForms = [
   '日合规审查表', '纺织股份信息系统账户申请表',
 ];
 export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNavigateToTodos, onNavigateToAIChat, onNavigateToKnowledge, onNavigateToDrive, onOpenIM }) => {
+  const [calendar,setCalendar]=useState<{day?:string;scope?:string;open:boolean}>({open:false});
   const [taskTab, setTaskTab] = useState<keyof typeof taskGroups>('pending');
   const [appPreferences, setAppPreferences] = useState(loadAppPreferences);
   const [managerScope, setManagerScope] = useState<AppScope | null>(null);
@@ -68,6 +69,7 @@ export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNaviga
   ) : <div className="wb-apps-empty">暂未添加<button onClick={() => setManagerScope(scope)}>添加{scope === 'common' ? '应用' : '系统'}</button></div>;
   const heading = (title: string, icon: string, action = onNavigateToTodos) => <PanelHeading className="wb-heading" title={title} icon={<img src={asset(icon)} alt="" />} onAction={action} />;
 
+  if(calendar.open)return <ScheduleModule expanded initialDay={calendar.day} initialScope={calendar.scope} onBack={(day,scope)=>{setCalendar({day,scope,open:false});requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[aria-label="我的日程更多"]')?.focus());}}/>;
   return <div className="workbench-dashboard overflow-y-auto flex-1">
     <div className="workbench-grid">
       <DailyBrief onOpenIM={onOpenIM} />
@@ -101,7 +103,7 @@ export const WorkbenchDashboard: React.FC<WorkbenchDashboardProps> = ({ onNaviga
               <span>{title}</span>
             </button>)}</div>
           </section>
-          <ScheduleModule />
+          <ScheduleModule initialDay={calendar.day} initialScope={calendar.scope} onMore={(day,scope)=>setCalendar({day,scope,open:true})} />
         </div>
       </div>
     </div>

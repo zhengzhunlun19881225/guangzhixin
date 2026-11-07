@@ -169,6 +169,8 @@ export function resolveExampleAnswer(topic: string): ExampleAnswer {
   const normalize = (text: string) => text.trim().replace(/[“”"‘’\s？?。]/g, '');
   const found = allExamples.find(item => [item.question, ...(item.aliases ?? [])].some(title => normalize(title) === normalize(topic)));
   if (found) return { ...found, title: topic };
+  const ppt=topic.match(/^请使用「([^」]+)」模板制作PPT：([\s\S]+)$/);
+  if(ppt){const outline=allExamples.find(item=>item.id==='ppt-outline')!;return {title:topic,intro:`已选择「${ppt[1]}」模板。下面是针对输入需求整理的PPT大纲草稿，供补充原始材料后完善；当前未生成PPT文件。`,sections:[{title:'制作需求',items:[ppt[2],`版式参考：${ppt[1]}。未提供的数字、结论和责任人保留为待补充。`]},...outline.sections]};}
   return { title: topic, intro: '我可以帮你整理这个需求。请补充业务背景和相关材料，以便形成有针对性的内容。', sections: [
     { title: '明确目标', items: [`关于“${topic}”，你希望得到解释说明、文案草稿、数据分析还是办理步骤？`] },
     { title: '补充材料', items: ['请提供适用对象、时间范围、已有资料和输出格式；未确认的数据或规则可以标为待补充。'] },

@@ -12,6 +12,9 @@
     "check:design": "node scripts/check-design.mjs",
     "check:ui": "node scripts/check-ui.mjs",
     "check:schedule": "node scripts/check-schedule.mjs",
+    "check:schedule-calendar": "node scripts/check-schedule-calendar.mjs",
+    "check:hotspot-ui": "node scripts/check-hotspot-ui.mjs",
+    "check:ppt-ui": "node scripts/check-ppt-ui.mjs",
     "check:news-subscription": "node scripts/check-news-subscription.mjs",
     "check:dialogs": "node scripts/check-dialogs.mjs",
     "docs:components": "node scripts/generate-component-reference.mjs",
@@ -27,7 +30,10 @@
     "check:checkbox-ui": "node scripts/check-checkbox-ui.mjs",
     "check:news-more-ui": "node scripts/check-news-more-ui.mjs",
     "check:news-detail-ui": "node scripts/check-news-detail-ui.mjs",
-    "check:table-controls-ui": "node scripts/check-table-controls-ui.mjs"
+    "check:table-controls-ui": "node scripts/check-table-controls-ui.mjs",
+    "check:personal-ui": "node scripts/check-personal-features.mjs",
+    "check:agent-images": "node scripts/check-agent-images.mjs",
+    "check:preview-access": "node scripts/check-preview-access.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

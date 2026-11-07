@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronDown, Sparkles, X } from 'lucide-react';
+import { ChevronDown, RotateCcw, SlidersHorizontal, Sparkles, X } from 'lucide-react';
 import { Button } from './UI';
 import { SelectField } from './SelectField';
 import { ChoiceKey, defaultSubscription, generateSubscription, NewsSubscription, subscriptionKey, subscriptionOptions } from '../data/newsSubscription';
@@ -83,17 +83,18 @@ export function NewsSubscriptionDialog({ initial, onClose, onSave }: Props) {
               <label className="ns-check"><input type="checkbox" checked={draft.important} onChange={e => update('important', e.target.checked)}/><span>重大资讯单独提醒</span></label>
             </div>}
           </> : <>
-            <div><h3>用一句话告诉 AI，你想关注什么</h3></div>
-            <label className="ns-field" htmlFor="ns-prompt"><span className="ns-sr-only">订阅需求</span><textarea id="ns-prompt" aria-label="订阅需求" value={prompt} maxLength={500} onChange={e => changePrompt(e.target.value)} placeholder="例如：我关注人工智能在制造业的应用和国产算力，重点看广东的政策解读和企业动态，每天更新，不要娱乐。"/><small className="ns-counter">{prompt.length}/500</small></label>
-            <div className="ns-examples">{examples.map(example => <button key={example} type="button" onClick={() => changePrompt(example)}>{example}</button>)}</div>
-            <div className="ns-generate"><Button variant="primary" disabled={!prompt.trim()} onClick={generate}><Sparkles size={14}/>生成订阅条件</Button></div>
+            <div className="ns-ai-request">
+              <h3 className="ns-ai-heading"><Sparkles size={18} aria-hidden="true"/>用一句话告诉 AI，你想关注什么</h3>
+              <label className="ns-field ns-prompt-field" htmlFor="ns-prompt"><span className="ns-sr-only">订阅需求</span><textarea id="ns-prompt" aria-label="订阅需求" aria-describedby="ns-prompt-count" value={prompt} maxLength={500} onChange={e => changePrompt(e.target.value)} placeholder="例如：我关注人工智能在制造业的应用和国产算力，重点看广东的政策解读和企业动态，每天更新，不要娱乐。"/><small id="ns-prompt-count" className="ns-counter">{prompt.length} / 500</small></label>
+            </div>
+            <div className="ns-ai-actions"><div className="ns-examples">{examples.map(example => <button key={example} type="button" onClick={() => changePrompt(example)}>{example}</button>)}</div><Button variant="primary" disabled={!prompt.trim()} onClick={generate}><SlidersHorizontal size={14} aria-hidden="true"/>生成订阅条件</Button></div>
             {!!recognized.length && <section className="ns-result" aria-label="生成的订阅条件"><div><h3>已生成订阅条件</h3><Button variant="text" onClick={() => { changeMode('manual'); setAdvanced(true); }}>编辑条件</Button></div><p role="status">已识别：{recognized.join('、')}</p><dl><dt>行业 / 主题</dt><dd>{draft.industries.join('、')} / {draft.topics.join('、')}</dd><dt>关键词</dt><dd>{draft.keywords || '不限'}</dd><dt>地区 / 来源</dt><dd>{draft.regions.join('、') || '不限'} / {draft.sources.join('、') || '不限'}</dd><dt>屏蔽 / 更新</dt><dd>{draft.blockedKeywords || '无'} / {draft.frequency}</dd></dl><p className="ns-help">确认后点击“保存”生效。</p></section>}
           </>}
         </div>
       </div>
       <footer className="ns-footer">
         {error && <p className="ns-error" id="ns-error" role="alert">{error}</p>}{notice && <p role="status" className="ns-help">{notice}</p>}
-        <div className="gx-dialog-footer"><Button className="gx-dialog-reset" variant="text" onClick={() => { setDraft(defaultSubscription()); setPrompt(''); setRecognized([]); setError(''); setInvalid(null); setNotice('已恢复默认草稿，保存后生效。'); }}>恢复默认</Button><Button onClick={onClose}>取消</Button><Button type="submit" variant="primary" disabled={mode === 'ai' && !recognized.length}>保存</Button></div>
+        <div className="gx-dialog-footer"><Button className="gx-dialog-reset" variant="text" onClick={() => { setDraft(defaultSubscription()); setPrompt(''); setRecognized([]); setError(''); setInvalid(null); setNotice('已恢复默认草稿，保存后生效。'); }}><RotateCcw size={14} aria-hidden="true"/>恢复默认</Button><Button onClick={onClose}>取消</Button><Button type="submit" variant="primary" disabled={mode === 'ai' && !recognized.length}>保存</Button></div>
       </footer>
     </form>
   </dialog>;

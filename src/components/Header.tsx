@@ -4,6 +4,7 @@ import type { UIMode } from '../design/useUIMode';
 import { MainTab } from '../types';
 import { figmaAssets } from '../data/figmaAssets';
 import { BrandLogo } from './BrandLogo';
+import { TravelPreferencesDialog } from './TravelPreferencesDialog';
 
 interface HeaderProps {
   currentTab: MainTab;
@@ -35,8 +36,11 @@ const helpItems = [
 export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, sidebarCollapsed,
   showSidebarToggle = true, contextLabel, onToggleSidebar, onOpenSearch, onSwitchToWorkbenchDashboard, uiMode, onUIModeChange }) => {
   const [menu, setMenu] = useState<Menu>(null);
+  const [travelOpen, setTravelOpen] = useState(false);
+  const [travelSaved, setTravelSaved] = useState(false);
   const actionsRef = useRef<HTMLDivElement>(null);
   const lastTrigger = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => { if (!travelSaved) return; const timer = window.setTimeout(() => setTravelSaved(false), 4000); return () => window.clearTimeout(timer); }, [travelSaved]);
 
   useEffect(() => {
     if (!menu) return;
@@ -76,6 +80,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, sidebar
           setMenu(null);
           if (item.label === '设计规范') window.location.assign('?view=design-system');
           if (item.label === '自定义工作台') onSwitchToWorkbenchDashboard?.();
+          if (item.label === '差旅偏好') { lastTrigger.current?.focus(); setTravelSaved(false); setTravelOpen(true); }
         }}>
           {item.icon && <img src={item.icon} width="15" height="15" alt="" />}
           <span>{item.label}</span>
@@ -128,6 +133,8 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, sidebar
           {menu === 'user' && renderMenu('user')}
         </div>
       </div>
+      {travelOpen && <TravelPreferencesDialog onClose={() => setTravelOpen(false)} onSaved={() => { setTravelOpen(false); setTravelSaved(true); }}/>}
+      {travelSaved && <div className="pf-saved-toast" role="status">差旅偏好已保存<button onClick={() => setTravelSaved(false)} aria-label="关闭保存提示">×</button></div>}
     </header>
   );
 };

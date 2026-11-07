@@ -1,0 +1,20 @@
+/* Published-preview entry: use system tokens and controls, cover all query
+   routes before their lazy page mounts. This is not an account-login screen. */
+.preview-access{min-height:100dvh;display:grid;place-items:center;padding:24px;background:var(--gx-neutral-bg);font-family:var(--gx-font-family);font-size:var(--gx-font-body);line-height:var(--gx-line-body);color:var(--gx-text-primary);}
+.preview-access-card{width:100%;max-width:400px;padding:32px;border:1px solid var(--gx-border);border-radius:var(--gx-radius-card);background:var(--gx-surface);box-shadow:var(--gx-shadow-menu);}
+.preview-access-brand{color:var(--gx-brand);font-size:24px;line-height:32px;font-weight:600;margin-bottom:24px;}
+.preview-access-icon{display:grid;place-items:center;width:48px;height:48px;background:var(--gx-selected-bg);color:var(--gx-brand);border-radius:var(--gx-radius-control);margin-bottom:16px;}
+.preview-access-card h1{font-size:var(--gx-font-heading);line-height:28px;font-weight:600;margin:0 0 8px;}
+.preview-access-card>p{margin:0 0 24px;color:var(--gx-text-secondary);}
+.preview-access-card>label{display:block;margin-bottom:8px;}
+.preview-access-input{display:flex;align-items:center;border:1px solid var(--gx-input-border);border-radius:var(--gx-radius-control);overflow:hidden;}
+.preview-access-input:focus-within{border-color:var(--gx-focus);}
+.preview-access-input:has([aria-invalid=true]){border-color:var(--gx-danger);}
+.preview-access-input input{width:100%;min-width:0;height:32px;padding:4px 10px;outline:none;border:0;background:transparent;color:var(--gx-text-primary);font:inherit;}
+.preview-access-input input::placeholder{color:var(--gx-text-placeholder);}
+.preview-access-input button{display:grid;place-items:center;width:32px;height:32px;flex-shrink:0;color:var(--gx-text-secondary);}
+.preview-access-input button:hover{background:var(--gx-hover-bg);color:var(--gx-hover-text);}
+.preview-access-card>.ui-button{width:100%;margin-top:24px;}
+.preview-access-card>.preview-access-error{color:var(--gx-danger);font-size:var(--gx-font-caption);line-height:var(--gx-line-caption);margin:8px 0 0;}
+.preview-access-card button:focus-visible{outline:2px solid var(--gx-focus);outline-offset:2px;}
+@media(max-width:420px){.preview-access{padding:16px;}.preview-access-card{padding:24px;}}
